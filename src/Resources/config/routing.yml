@@ -1,0 +1,4 @@
+backend_buttons:
+    resource: "@BugBusterCronBundle/Controller"
+    type: annotation
+

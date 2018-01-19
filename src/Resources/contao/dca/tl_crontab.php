@@ -1,5 +1,7 @@
 <?php
 
+
+
 /**
  * Table tl_crontab
  */
@@ -33,7 +35,7 @@ $GLOBALS['TL_DCA']['tl_crontab'] = array
         (
             'fields'			=> array('title'),
             'format'			=> '%s',
-            'label_callback'	=> array('BugBuster\Cron\DCA_crontab', 'listJobs')
+            'label_callback'	=> array('BugBuster\Cron\DcaCrontab', 'listJobs')
         ),
         'global_operations' => array
         (
@@ -71,19 +73,19 @@ $GLOBALS['TL_DCA']['tl_crontab'] = array
                 'label'			=> &$GLOBALS['TL_LANG']['tl_crontab']['show'],
                 'href'			=> 'act=show',
                 'icon'			=> 'show.gif'
-            )/*,
+            ),
             'enabled' => array
             (
-                'button_callback'	=>	array('BugBuster\Cron\DCA_crontab', 'enabledButton')
+                'button_callback'	=>	array('BugBuster\Cron\DcaCrontab', 'enabledButton')
             ),
             'logging' => array
             (
-                'button_callback'	=>	array('BugBuster\Cron\DCA_crontab', 'loggingButton')
+                'button_callback'	=>	array('BugBuster\Cron\DcaCrontab', 'loggingButton')
             ),
             'startnow' => array
             (
-                'button_callback'	=>	array('BugBuster\Cron\DCA_crontab', 'startnowButton')
-            )*/
+                'button_callback'	=>	array('BugBuster\Cron\DcaCrontab', 'startnowButton')
+            )
         )
     ),
     // Palettes
