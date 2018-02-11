@@ -37,7 +37,9 @@ class CronActions
         }
         
         // Zurück zur Übersicht leiten
-        \Contao\Controller::redirect('contao/main.php?do=cron');
+        $router = \System::getContainer()->get('router');
+        $url = $router->generate('contao_backend');
+        \Contao\Controller::redirect($url.'?do=cron');
     }
     
     
@@ -49,7 +51,10 @@ class CronActions
                                     ->execute($dc->id);
         }
         // Zurück zur Übersicht leiten
-        \Contao\Controller::redirect('contao/main.php?do=cron');
+        $router = \System::getContainer()->get('router');
+        $url = $router->generate('contao_backend');
+        \Contao\Controller::redirect($url.'?do=cron');
+        
     }
     
     
@@ -63,7 +68,9 @@ class CronActions
         }
         
         // Zurück zur Übersicht leiten
-        \Contao\Controller::redirect('contao/main.php?do=cron');
+        $router = \System::getContainer()->get('router');
+        $url = $router->generate('contao_backend');
+        \Contao\Controller::redirect($url.'?do=cron');
     }
     
     public function disableLogging($dc)
@@ -76,7 +83,9 @@ class CronActions
         }
     
         // Zurück zur Übersicht leiten
-        \Contao\Controller::redirect('contao/main.php?do=cron');
+        $router = \System::getContainer()->get('router');
+        $url = $router->generate('contao_backend');
+        \Contao\Controller::redirect($url.'?do=cron');
     }
     
 
