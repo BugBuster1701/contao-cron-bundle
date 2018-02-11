@@ -4,16 +4,20 @@
  * or to help to maintain an existing one, please register at transifex.com.
  *
  * @link http://help.transifex.com/intro/translating.html
- * @link https://www.transifex.com/projects/p/contao-cron/language/it/
+ * @link https://www.transifex.com/projects/p/contao-cron-bundle/language/it/
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2014-12-14T21:52:39+01:00
+ * last-updated: 2018-02-11T23:39:01+01:00
  */
 
-
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['0'] = 'Sintassi di base';
-$GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['1'] = 'La sintassi di base per l\'elemento temporale è:<br><br><pre>\n    begin[-end][/step]\n</pre><br>Le parti racchiuse da parentesi sono opzionali. Le unità che dipendono dal tipo di elemento possono essere minuto, ora, giorno del mese, giorno della settimana o mese. La parte <code>begin[-end]</code> può essere sostituita da un * il che vuol dire <em>all</em>.<br>Ad esempio, questi sono elementi validi:<br><br><pre>\n    5       minuti,ore,giorni,... numero 5\n    3-5     minuti,ore,giorni,... 3,4,5\n    5-10/2  minuti,ore,giorni,... 5,7,9\n    *       tutti minuti,ore,giorni,...\n    */3     minuti,ore,giorni,... 0,3,6,...\n</pre>';
+$GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['1'] = 'La sintassi di base per l\'elemento temporale è:<br><br><pre>n    begin[-end][/step]n</pre><br>Le parti racchiuse da parentesi sono opzionali. Le unità che dipendono dal tipo di elemento possono essere minuto, ora, giorno del mese, giorno della settimana o mese. La parte <code>begin[-end]</code> può essere sostituita da un * il che vuol dire <em>all</em>.<br>Ad esempio, questi sono elementi validi:<br><br><pre>
+    5       minuti,ore,giorni,... numero 5
+    3-5     minuti,ore,giorni,... 3,4,5
+    5-10/2  minuti,ore,giorni,... 5,7,9
+    *       tutti minuti,ore,giorni,...
+    */3     minuti,ore,giorni,... 0,3,6,...</pre>';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['1']['0'] = 'Elemento dell\'elenco';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['1']['1'] = 'Ogni parte dello schedule può essere inserito come un elenco separato da virgola, ad esempio:<br><br><pre>   5,7,10-15/2,21  = Numeri 5,7,10,12,14,21</pre>';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['0'] = 'Giorno della settimana';

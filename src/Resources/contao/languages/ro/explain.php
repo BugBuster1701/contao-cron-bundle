@@ -4,16 +4,19 @@
  * or to help to maintain an existing one, please register at transifex.com.
  *
  * @link http://help.transifex.com/intro/translating.html
- * @link https://www.transifex.com/projects/p/contao-cron/language/ro/
+ * @link https://www.transifex.com/projects/p/contao-cron-bundle/language/ro/
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2014-12-14T21:52:39+01:00
+ * last-updated: 2018-02-11T23:41:41+01:00
  */
 
-
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['0'] = 'Sintaxa elementului';
-$GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['1'] = 'Sintaxa de bază pentru elementul de timp este: <br> <br><pre> început[-sfârşit][/pas] </pre><br> Ce se găseşte între paranteze este opţional. Unităţile depind de tipul de element şi pot fi minut, oră, zi din lună, zi din săptămână sau din lună. Partea <code> început[-sfârşit]</code> poate fi înlocuită cu un *, ceea ce înseamnă <em>toate</em> elementele. <br>De exemplu, construcţii valide sunt: <br><br> <pre>5 minute,oră,zi, ... numărul 5 \n3-5 minute,ore,zile, ... 3,4,5 5-10/2 nminute,ore,zile, ... 5,7,9\n * toate nminute,ore,zile, ...\n * / 3 nminute,ore,zile, ... 0,3,6, ... </ pre>';
+$GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['1'] = 'Sintaxa de bază pentru elementul de timp este: <br> <br><pre> început[-sfârşit][/pas] </pre><br> Ce se găseşte între paranteze este opţional. Unităţile depind de tipul de element şi pot fi minut, oră, zi din lună, zi din săptămână sau din lună. Partea <code> început[-sfârşit]</code> poate fi înlocuită cu un *, ceea ce înseamnă <em>toate</em> elementele. <br>De exemplu, construcţii valide sunt: <br><br> <pre>5 minute,oră,zi, ... numărul 5 
+ 3-5 minute,ore,zile, ... 3,4,5
+ 5-10/2 minute,ore,zile, ... 5,7,9
+ * toate nminute,ore,zile, ...
+ * / 3 nminute,ore,zile, ... 0,3,6, ...</pre>';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['1']['0'] = 'Lista de elemente';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['1']['1'] = 'Fiecare parte a programului poate fi introdusă sub formă de listă separată prin virgulă, de exemplu: <br><br><pre>5,7,10-15/2,21 = numerele 5,7,10,12,14,21 </pre>nsearch';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['0'] = 'Zile din săptămână';

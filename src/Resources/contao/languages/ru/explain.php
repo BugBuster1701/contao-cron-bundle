@@ -4,15 +4,20 @@
  * or to help to maintain an existing one, please register at transifex.com.
  *
  * @link http://help.transifex.com/intro/translating.html
- * @link https://www.transifex.com/projects/p/contao-cron/language/ru/
+ * @link https://www.transifex.com/projects/p/contao-cron-bundle/language/ru/
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2014-12-14T21:52:39+01:00
+ * last-updated: 2018-02-11T23:42:58+01:00
  */
 
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['0'] = 'Основной синтаксис элементов';
-$GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['1'] = 'Основной синтаксис времени:<br><br><pre>n    begin[-end][/step]n</pre><br>Части заключенные в скобки являются необязательными. Независимыми элементами могут быть минуты, часы, дни месяца, дни недели или месяцы. Часть <code>begin[-end]</code> может быть заменена * (звездочкой) которая включает их <em>все</em>.<br>Пример правильных элементов:<br><br><pre>\n		    5       minute,hour,day,... number 5\n		    3-5     minutes,hours,days,... 3,4,5\n		    5-10/2  minutes,hours,days,... 5,7,9\n		    *       all minutes,hours,days,...\n		    */3     minutes,hours,days,... 0,3,6,...</pre>';
+$GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['1'] = 'Основной синтаксис времени:<br><br><pre>n    begin[-end][/step]n</pre><br>Части заключенные в скобки являются необязательными. Независимыми элементами могут быть минуты, часы, дни месяца, дни недели или месяцы. Часть <code>begin[-end]</code> может быть заменена * (звездочкой) которая включает их <em>все</em>.<br>Пример правильных элементов:<br><br><pre>
+		    5       minute,hour,day,... number 5
+		    3-5     minutes,hours,days,... 3,4,5
+		    5-10/2  minutes,hours,days,... 5,7,9
+		    *       all minutes,hours,days,...
+		    */3     minutes,hours,days,... 0,3,6,...</pre>';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['1']['0'] = 'Синтаксис списка';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['1']['1'] = 'Каждая часть планируемого расписания может быть отделена запятыми. Пример:<br><br><pre>		   5,7,10-15/2,21  = Числа 5,7,10,12,14,21</pre>';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['0'] = 'Дни недели';

@@ -4,14 +4,14 @@
  * or to help to maintain an existing one, please register at transifex.com.
  *
  * @link http://help.transifex.com/intro/translating.html
- * @link https://www.transifex.com/projects/p/contao-cron/language/fr/
+ * @link https://www.transifex.com/projects/p/contao-cron-bundle/language/fr/
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2014-12-14T21:52:39+01:00
+ * last-updated: 2018-01-17T21:43:20+01:00
  */
 
-
-$GLOBALS['TL_LANG']['MOD']['cron']['0'] = 'Tâches programmées';
-$GLOBALS['TL_LANG']['MOD']['cron']['1'] = 'Un programmateur de tâches pour TYPOlight';
+$GLOBALS['TL_LANG']['FMD']['cron_fe']['0'] = 'Tâches programmées';
+$GLOBALS['TL_LANG']['MOD']['cron']['0']    = 'Tâches programmées';
+$GLOBALS['TL_LANG']['MOD']['cron']['1']    = 'Un programmateur de tâches pour TYPOlight';
 
