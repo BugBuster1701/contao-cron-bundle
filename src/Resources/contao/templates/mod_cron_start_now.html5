@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="<?php echo $this->language; ?>">
+<head>
+<meta charset="<?php echo $this->charset; ?>">
+<title><?php echo $this->title; ?> - Contao Open Source CMS <?php echo VERSION; ?></title>
+<base href="<?php echo $this->base; ?>">
+<link rel="stylesheet" href="system/themes/<?php echo $this->theme; ?>/basic.css">
+<link rel="stylesheet" href="system/themes/<?php echo $this->theme; ?>/help.css">
+<?php echo $this->stylesheets; ?>
+<script><?php echo $this->getLocaleString(); ?></script>
+<?php echo $this->javascripts; ?>
+</head>
+<body class="__ua__ popup">
+<div id="container">
+	<div id="main">
+		<h3><?php echo $this->cronlogtitle; ?></h3>
+		<h4><?php echo $this->cronjob; ?></h4>
+		<?php echo $this->cronlog; ?>
+	</div>
+</div>
+</body>
+</html>

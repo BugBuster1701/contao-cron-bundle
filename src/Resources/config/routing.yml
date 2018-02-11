@@ -1,4 +1,6 @@
-backend_buttons:
-    resource: "@BugBusterCronBundle/Controller"
-    type: annotation
-
+cron_backend_startnow:
+    path:     /bbcron/startjobnow
+    defaults: 
+        _controller: BugBusterCronBundle:Backend:startJobNow
+        _scope: backend
+        _token_check: true

@@ -135,9 +135,12 @@ class DcaCrontab extends \Backend
         $label = &$GLOBALS['TL_LANG']['tl_crontab']['startnow'];
         $icon = 'bundles/bugbustercron/start_now.png';
         $title = sprintf($label[1], $row['id']);
-        $strEncypt = 'later_'.$row['id']; //base64_encode( Cron_Encryption::encrypt( serialize( array( $title,$row['id'] ) ) ) );
+        $strEncypt = 'later_'.$row['id']; //TODO base64_encode( Cron_Encryption::encrypt( serialize( array( $title,$row['id'] ) ) ) );
          
-        $href = 'system/modules/cron/public/CronStart.php?crcst='.$strEncypt.'';
+        //$href = 'system/modules/cron/public/CronStart.php?crcst='.$strEncypt.'';
+        
+        $arrParams = array('crcst' => $strEncypt, 'rt'=>REQUEST_TOKEN);
+        $href = $this->route('cron_backend_startnow', $arrParams);
          
         return
         '<a href="' . $href . '"' .
@@ -159,16 +162,16 @@ class DcaCrontab extends \Backend
             $q = \Database::getInstance()->prepare("SELECT * FROM `tl_crontab`
                                                     WHERE `enabled`='1'
                                                     AND id=?")
-                                                        ->execute($row['id']);
-                                                        //set next run date
-                                                        $dataset = array(
-                                                            'nextrun'	=> $this->schedule($q),
-                                                            'scheduled'	=> time()
-                                                        );
-                                                        \Database::getInstance()->prepare("UPDATE `tl_crontab` %s WHERE id=?")
-                                                        ->set($dataset)
-                                                        ->execute($q->id);
-                                                        $row['nextrun'] = $dataset['nextrun'];
+                                         ->execute($row['id']);
+            //set next run date
+            $dataset = array(
+                'nextrun'	=> $this->schedule($q),
+                'scheduled'	=> time()
+            );
+            \Database::getInstance()->prepare("UPDATE `tl_crontab` %s WHERE id=?")
+                                    ->set($dataset)
+                                    ->execute($q->id);
+            $row['nextrun'] = $dataset['nextrun'];
         }
         return ;
     }
