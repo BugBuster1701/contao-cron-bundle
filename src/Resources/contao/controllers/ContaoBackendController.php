@@ -48,7 +48,7 @@ class ContaoBackendController extends \Backend
 	 *
 	 * @return Response
 	 */
-	public function run()
+	public function runJobNow()
 	{
 		/** @var BackendTemplate|object $objTemplate */
 		$objTemplate = new \BackendTemplate('mod_cron_start_now');

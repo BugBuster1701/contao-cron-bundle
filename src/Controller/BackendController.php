@@ -22,6 +22,6 @@ class BackendController extends Controller
     {
         $this->container->get('contao.framework')->initialize();
         $controller = new ContaoBackendController();
-        return $controller->run();
+        return $controller->runJobNow();
     }
 }
