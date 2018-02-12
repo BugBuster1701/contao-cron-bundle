@@ -1,4 +1,5 @@
-<?php
+<?php 
+
 namespace BugBuster\Cron;
 
 use Psr\Log\LogLevel;
@@ -9,7 +10,7 @@ use Contao\CoreBundle\Monolog\ContaoContext;
  * @author bibo
  *        
  */
-class CronHook extends \Backend
+class CronHook extends \System
 {
 
     /**
@@ -38,10 +39,10 @@ class CronHook extends \Backend
 	 */
     public function __construct()
     {
-		$this->import('BackendUser', 'User');
+		//$this->import('BackendUser', 'User');
 		parent::__construct();
 
-		$this->User->authenticate();
+		//$this->User->authenticate();
 
 		\System::loadLanguageFile('default');
     }
@@ -61,11 +62,17 @@ class CronHook extends \Backend
         return self::$instance;
     }
     
-    public function startJobs()
+    public function startJobs($strContent, $strTemplate)
     {
+        if ($strTemplate != 'be_main')
+        {
+            return $strContent;
+        }
+        
+        
         global $cronJob;
         
-        $limit = is_null($GLOBALS['TL_CONFIG']['cron_limit']) ? $this->cron_max_run : intval($GLOBALS['TL_CONFIG']['cron_limit']);
+        $limit = 5;//TODO is_null($GLOBALS['TL_CONFIG']['cron_limit']) ? $this->cron_max_run : intval($GLOBALS['TL_CONFIG']['cron_limit']);
         if ($limit <= 0)
         {
             return;
@@ -173,6 +180,8 @@ class CronHook extends \Backend
         {
             \Database::getInstance()->prepare("SELECT release_lock('cronlock')")->execute();
         }
+        
+        return $strContent;
     }//startJobs
     
     
@@ -185,7 +194,7 @@ class CronHook extends \Backend
         $e = error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED & ~E_USER_DEPRECATED);
         include(TL_ROOT . '/' . $qjob->job);
         error_reporting($e);
-        return str_replace("\n",'<br>', trim(preg_replace('#<\s*br\s*/?\s*>#i', "\n", ob_get_flush())));
+        return str_replace("\n",'<br>', trim(preg_replace('#<\s*br\s*//*?\s*>#i', "\n", ob_get_flush())));
     } // runJob
     
     /**
