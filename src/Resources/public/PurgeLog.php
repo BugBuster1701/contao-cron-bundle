@@ -66,6 +66,11 @@ class PurgeLog extends Backend
     {
         global  $cronJob; // from BugBuster\Cron\ContaoBackendController Class
         
+        //no directly call
+        if (!is_array($cronJob))
+        {
+            die('You can not access this file directly!');
+        }
         //At this time the job should be defered,
         //no new actions should be started after this time.
         if (time() >= $cronJob['endtime'])
