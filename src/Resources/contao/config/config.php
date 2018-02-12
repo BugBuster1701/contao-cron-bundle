@@ -41,6 +41,10 @@ $GLOBALS['BE_MOD']['system']['cron']['enable']  = array('BugBuster\Cron\CronActi
 $GLOBALS['BE_MOD']['system']['cron']['disable'] = array('BugBuster\Cron\CronActions','disable');
 $GLOBALS['BE_MOD']['system']['cron']['enable_logging']  = array('BugBuster\Cron\CronActions','enableLogging');
 $GLOBALS['BE_MOD']['system']['cron']['disable_logging'] = array('BugBuster\Cron\CronActions','disableLogging');
-/*
-$GLOBALS['BE_MOD']['system']['cron']['startnow'] = array('Class','Methode'); // Routing hier stattdessen?
-*/
+
+/**
+ * -------------------------------------------------------------------------
+ * HOOKS
+ * -------------------------------------------------------------------------
+ */
+$GLOBALS['TL_HOOKS']['parseBackendTemplate'][]  = array('BugBuster\Cron\CronHook', 'startJobs');
