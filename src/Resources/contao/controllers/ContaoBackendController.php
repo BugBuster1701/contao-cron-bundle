@@ -123,7 +123,7 @@ class ContaoBackendController extends \Backend
 	    $e = error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 	    include(TL_ROOT . '/' . $qjob->job);
 	    error_reporting($e);
-	    return str_replace("\n",'<br />', trim(preg_replace('#<\s*br\s*/?\s*>#i', "\n", ob_get_flush())));
+	    return str_replace("\n",'<br>', trim(preg_replace('#<\s*br\s*/?\s*>#i', "\n", ob_get_flush())));
 	} // runJob
 	
 }
