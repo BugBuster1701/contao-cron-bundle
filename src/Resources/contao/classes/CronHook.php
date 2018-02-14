@@ -39,10 +39,7 @@ class CronHook extends \System
 	 */
     public function __construct()
     {
-		//$this->import('BackendUser', 'User');
 		parent::__construct();
-
-		//$this->User->authenticate();
 
 		\System::loadLanguageFile('default');
     }
@@ -72,7 +69,7 @@ class CronHook extends \System
         
         global $cronJob;
         
-        $limit = 5;//TODO is_null($GLOBALS['TL_CONFIG']['cron_limit']) ? $this->cron_max_run : intval($GLOBALS['TL_CONFIG']['cron_limit']);
+        $limit = is_null($GLOBALS['TL_CONFIG']['cron_limit']) ? $this->cron_max_run : intval($GLOBALS['TL_CONFIG']['cron_limit']);
         if ($limit <= 0)
         {
             return;
