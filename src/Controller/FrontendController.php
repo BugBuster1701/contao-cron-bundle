@@ -1,0 +1,27 @@
+<?php
+
+namespace BugBuster\CronBundle\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use BugBuster\Cron\ContaoFrontendController;
+
+/**
+ * Handles back end routes.
+ * 
+ */
+class FrontendController extends Controller
+{
+    
+    /**
+     * Renders the details content.
+     *
+     * @return Response
+     *
+     */
+    public function startJobsAction()
+    {
+        $this->container->get('contao.framework')->initialize();
+        $controller = new ContaoFrontendController();
+        return $controller->runJobs();
+    }
+}

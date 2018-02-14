@@ -20,7 +20,6 @@
  */
 $GLOBALS['BE_MOD']['system']['cron'] = array(
 	'tables'		=>	array('tl_crontab'),
-	//'icon'			=>	'system/modules/cron/public/CronIcon.php', // TODO Auslösung, Ersatz schaffen
 	'stylesheet'	=>	'bundles/bugbustercron/cronbundle_be_style.css'
 );
 
@@ -30,7 +29,7 @@ $GLOBALS['BE_MOD']['system']['cron'] = array(
  * FRONT END MODULES
  * -------------------------------------------------------------------------
  */
-//$GLOBALS['FE_MOD']['miscellaneous']['cron_fe'] = 'BugBuster\Cron\ModuleCron';
+$GLOBALS['FE_MOD']['miscellaneous']['cron_fe'] = 'BugBuster\Cron\ModuleCron';
 
 
 /**
