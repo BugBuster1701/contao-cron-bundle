@@ -78,8 +78,7 @@ class CronHook extends \System
             return;
         }
         $currtime = time();
-        $endtime  = $currtime+$limit;
-        
+                
         // process cron list
         $q = \Database::getInstance()->prepare("SELECT * FROM `tl_crontab`
                                                 WHERE `enabled`='1'
@@ -89,8 +88,9 @@ class CronHook extends \System
                                                     )
                                                 ORDER BY `nextrun`, `scheduled`")
                                     ->execute($currtime, $currtime-86400);
-        $locked = false;
-
+        $locked  = false;
+        $endtime = time() + $limit;
+        
         while ($q->next())
         {
             $currtime = time();
