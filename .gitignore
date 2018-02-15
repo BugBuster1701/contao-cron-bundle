@@ -1,0 +1,7 @@
+#IDE
+.buildpath
+.project
+.settings/
+# Transifex
+/.tx/
+
