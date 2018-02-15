@@ -16,6 +16,7 @@
 		"issues":"https://github.com/BugBuster1701/contao-cron-bundle/issues",
 		"irc":"irc://irc.freenode.org/contao.dev",
 		"source":"https://github.com/BugBuster1701/contao-cron-bundle",
+		"wiki":"http://de.contaowiki.org/Cron-Bundle",
 		"forum":"https://community.contao.org/de/forumdisplay.php?119-Sonstige-Erweiterungen"
 	},
 	"require":{
