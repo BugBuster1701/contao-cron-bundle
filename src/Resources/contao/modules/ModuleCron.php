@@ -63,6 +63,10 @@ class ModuleCron extends \Module
     
     public function run() 
     {
+        $arrParams = array();
+        $strUrl = \System::getContainer()->get('router')->generate('cron_frontend_startjobs', $arrParams);
+        $strUrl = substr($strUrl, strlen(\Environment::get('path')) + 1);
+        
         $strScripts = \Template::generateInlineScript('
             setTimeout(
                 function(){
@@ -71,7 +75,7 @@ class ModuleCron extends \Module
                         }catch(r){
                             return;
                         }
-                        n.open("GET","bbcron/startjobs",true);
+                        n.open("GET","'.ampersand($strUrl).'",true);
                         n.send();
                 },1300
             );');
