@@ -39,6 +39,7 @@ class ContaoBackendController extends \Backend
 		$this->User->authenticate();
 
 		\System::loadLanguageFile('default');
+		\System::loadLanguageFile('tl_crontab');
 
 	}
 
@@ -108,6 +109,13 @@ class ContaoBackendController extends \Backend
 	    {
 	        return;
 	    }
+	    
+	    //File exists and readable?
+	    if (!is_readable(TL_ROOT . '/' . $qjob->job)) 
+	    {
+	        return $GLOBALS['TL_LANG']['tl_crontab']['file_not_readable'];
+	    }
+	    
 	    $currtime = time();
 	    $endtime  = $currtime+$limit;
 	    $cronJob = array(
