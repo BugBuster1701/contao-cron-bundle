@@ -47,6 +47,8 @@ class ContaoFrontendController extends \Frontend
 		{
 		    define('FE_USER_LOGGED_IN', false);
 		}
+		
+		\System::loadLanguageFile('tl_crontab');
 	}
 
 
@@ -182,6 +184,12 @@ class ContaoFrontendController extends \Frontend
 	 */
 	private function runJob(&$qjob)
 	{
+	    //File exists and readable?
+	    if (!is_readable(TL_ROOT . '/' . $qjob->job))
+	    {
+	        return $GLOBALS['TL_LANG']['tl_crontab']['file_not_readable'];
+	    }
+	    
 	    ob_start();
 	    $e = error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 	    include(TL_ROOT . '/' . $qjob->job);
