@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2018-02-11T23:15:06+01:00
+ * last-updated: 2018-03-04T23:11:41+01:00
  */
 
 $GLOBALS['TL_LANG']['tl_crontab']['copy']['0']         = 'Kopieren';
@@ -36,6 +36,7 @@ $GLOBALS['TL_LANG']['tl_crontab']['logging']['1']      = 'Log-Eintrag schreiben,
 $GLOBALS['TL_LANG']['tl_crontab']['new']['0']          = 'Neu';
 $GLOBALS['TL_LANG']['tl_crontab']['new']['1']          = 'Neuen Job anlegen.';
 $GLOBALS['TL_LANG']['tl_crontab']['nextrun']           = 'Nächste Ausführung';
+$GLOBALS['TL_LANG']['tl_crontab']['route_not_exists']  = 'Keine der registrierten Routen stimmt mit dem Pfad überein.';
 $GLOBALS['TL_LANG']['tl_crontab']['runonce']['0']      = 'Nur einmal auf&uuml;hren';
 $GLOBALS['TL_LANG']['tl_crontab']['runonce']['1']      = 'Job nach Abschluss deaktivieren.';
 $GLOBALS['TL_LANG']['tl_crontab']['show']['0']         = 'Anzeigen';

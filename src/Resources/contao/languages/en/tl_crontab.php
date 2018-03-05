@@ -78,4 +78,6 @@ $GLOBALS['TL_LANG']['tl_crontab']['startnow']['1']     = "Run the execution of t
  * Errors
  */
 $GLOBALS['TL_LANG']['tl_crontab']['file_not_readable'] = 'File not found or not readable.';
+$GLOBALS['TL_LANG']['tl_crontab']['route_not_exists']  = 'None of the routes match the path.';
+
 

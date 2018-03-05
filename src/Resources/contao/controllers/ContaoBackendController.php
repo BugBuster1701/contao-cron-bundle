@@ -22,6 +22,14 @@ use Contao\CoreBundle\Monolog\ContaoContext;
 class ContaoBackendController extends \Backend
 {
 
+    /**
+     * Job Constants
+     * @var integer
+     */
+    const JOB_TYPE_FILE  = 1;
+    const JOB_TYPE_ROUTE = 2;
+    const JOB_TYPE_URL   = 3;
+    
 	/**
 	 * Initialize the controller
 	 *
@@ -102,6 +110,69 @@ class ContaoBackendController extends \Backend
 	 * Run job and return the captured output
 	 */
 	private function runJob(&$qjob)
+	{
+	    $jobtype = $this->getJobType($qjob->job);
+	    if (function_exists('dump')) //TODO only for development, delete it!
+	    {
+	        dump("jobtype ${jobtype}");
+        }
+    	switch ($jobtype)
+    	{
+    	    case self::JOB_TYPE_FILE :
+    	        return $this->runFileJob($qjob);
+    	        break;
+    	    case self::JOB_TYPE_ROUTE :
+    	        return $this->runRouteJob($qjob);
+    	        break;
+    	    case self::JOB_TYPE_URL :
+    	        return $this->runUrlJob($qjob);
+    	        break;
+    	
+    	    default:
+    	        return ;
+    	        break;
+    	}
+	}
+	
+	/**
+	 * Get the Job Type
+	 * @param string $strJob
+	 * @return  int     1: File, 2: Route 3: URL
+	 */
+	private function getJobType($strJob)
+	{
+	    if ('http:' == substr($strJob, 0, 4) || 'https:' == substr($strJob, 0, 5))
+	    {
+	        return self::JOB_TYPE_URL;
+	    }
+	
+	    if ('.php' == substr($strJob, -4))
+	    {
+	        return self::JOB_TYPE_FILE;
+	    }
+	    return self::JOB_TYPE_ROUTE; // I hope :-)
+	}
+	
+	/**
+	 * Run route job and return the captured output
+	 */
+	private function runRouteJob($strJob)
+	{
+	    return 'RouteJob not yet supported';
+	}
+	
+	/**
+	 * Run URL job and return the captured output
+	 */
+	private function runUrlJob($strJob)
+	{
+	    return 'UrlJob not yet supported';
+	}
+	
+	/**
+	 * Run file job and return the captured output
+	 */
+	private function runFileJob($qjob)
 	{
 	    global  $cronJob;
 	    $limit = is_null($GLOBALS['TL_CONFIG']['cron_limit']) ? 5 : intval($GLOBALS['TL_CONFIG']['cron_limit']);
