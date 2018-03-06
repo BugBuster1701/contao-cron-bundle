@@ -9,10 +9,13 @@
 namespace BugBuster\Cron;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Contao\Input;
 use Contao\Database;
+use Contao\Environment;
 use Psr\Log\LogLevel;
 use Contao\CoreBundle\Monolog\ContaoContext;
+use BugBuster\Cron\CronRequest;
 
 /**
  * Back end 
@@ -158,7 +161,30 @@ class ContaoBackendController extends \Backend
 	 */
 	private function runRouteJob($strJob)
 	{
-	    return 'RouteJob not yet supported';
+	    /* @var Router $router */
+	    $router = \System::getContainer()->get('router');
+	    $arrRoute = $router->match($strJob->job);
+	    
+	    if (function_exists('dump')) //TODO only for development, delete it!
+	    {
+	        dump("arrRoute ${arrRoute}");
+	    }
+	    
+	    if ('contao_catch_all' == $arrRoute['_route']) 
+	    {
+	        return $GLOBALS['TL_LANG']['tl_crontab']['route_not_exists'] . " ($strJob->job)";
+	    }
+	    
+	    $url = \Environment::get('base') . ltrim($strJob->job, '/');
+	    
+	    if (function_exists('dump')) //TODO only for development, delete it!
+	    {
+	        dump("url ${url}");
+	    }
+	    
+	    $request = new CronRequest($url);
+	    
+	    return $request->get();
 	}
 	
 	/**
@@ -166,7 +192,13 @@ class ContaoBackendController extends \Backend
 	 */
 	private function runUrlJob($strJob)
 	{
-	    return 'UrlJob not yet supported';
+	    if (function_exists('dump')) //TODO only for development, delete it!
+	    {
+	        dump("url $strJob->job");
+	    }
+	    $request = new CronRequest($strJob->job);
+	     
+	    return $request->get();
 	}
 	
 	/**
@@ -184,7 +216,7 @@ class ContaoBackendController extends \Backend
 	    //File exists and readable?
 	    if (!is_readable(TL_ROOT . '/' . $qjob->job)) 
 	    {
-	        return $GLOBALS['TL_LANG']['tl_crontab']['file_not_readable'];
+	        return $GLOBALS['TL_LANG']['tl_crontab']['file_not_readable'] . " ($qjob->job)";
 	    }
 	    
 	    $currtime = time();
