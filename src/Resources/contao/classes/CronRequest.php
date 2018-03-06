@@ -60,8 +60,9 @@ class CronRequest
      */
     public function get()
     {
+        $config = ['timeout' => 5];
         $request = $this->requestFactory->createRequest('GET', $this->url);
-        $response = $this->httpClient->sendRequest($request);
+        $response = $this->httpClient->sendRequest($request,$config);
         return $response->getStatusCode(); 
     }
 
