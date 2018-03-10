@@ -6,7 +6,8 @@ use Http\Client\HttpClient;
 use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\MessageFactoryDiscovery;
 use Http\Message\RequestFactory;
-
+use Http\Client\Common\PluginClient;
+use Http\Client\Common\Plugin\RedirectPlugin;
 
 /**
  *
@@ -48,7 +49,10 @@ class CronRequest
     public function __construct(string $url, HttpClient $httpClient = null, RequestFactory $requestFactory = null)
     {
         $this->url = $url;
-        $this->httpClient     = $httpClient     ?: HttpClientDiscovery::find();
+        
+        $redirectPlugin = new RedirectPlugin();
+        
+        $this->httpClient     = $httpClient     ?: new PluginClient(HttpClientDiscovery::find(), [$redirectPlugin]);
         $this->requestFactory = $requestFactory ?: MessageFactoryDiscovery::find();
     }
 
