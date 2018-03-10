@@ -180,7 +180,7 @@ class ContaoBackendController extends \Backend
 	        return $GLOBALS['TL_LANG']['tl_crontab']['route_not_exists'] . " ($strJob->job)";
 	    }
 	    
-	    $url = \Environment::get('base') . ltrim($strJob->job, '/');
+	    $url = Environment::get('base') . ltrim($strJob->job, '/');
 	    
 	    if (function_exists('dump')) //TODO only for development, delete it!
 	    {
