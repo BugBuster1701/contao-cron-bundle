@@ -105,6 +105,11 @@ class ContaoBackendController extends \Backend
         }
 
         $objTemplate->cronlog = $output;
+        $objTemplate->theme = $this->getTheme();
+        $objTemplate->base = Environment::get('base');
+        $objTemplate->language = $GLOBALS['TL_LANGUAGE'];
+        $objTemplate->title = 'CronRunJobNow';
+        $objTemplate->charset = $GLOBALS['TL_CONFIG']['characterSet'];
 		                                                
 		return $objTemplate->getResponse(); // compile and new Response()...
 	}
