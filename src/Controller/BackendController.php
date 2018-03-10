@@ -7,6 +7,7 @@ use BugBuster\Cron\ContaoBackendController;
 
 /**
  * Handles back end routes.
+ * path: /bbcron/startjobnow
  * 
  */
 class BackendController extends Controller
