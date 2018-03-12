@@ -129,7 +129,8 @@ $GLOBALS['TL_DCA']['tl_crontab'] = array
             'label'			=> &$GLOBALS['TL_LANG']['tl_crontab']['job'],
             'exclude'		=> true,
             'inputType'		=> 'text',
-            'eval'			=> array('mandatory'=>true, 'maxlength'=>100),
+            'explanation'	=> 'cron_jobs',
+            'eval'			=> array('mandatory'=>true, 'maxlength'=>100, 'helpwizard'=>true),
             'sql'           => "varchar(100) NOT NULL default ''"
         ),
         't_minute' => array

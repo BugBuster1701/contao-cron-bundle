@@ -4,13 +4,12 @@
  * or to help to maintain an existing one, please register at transifex.com.
  *
  * @link http://help.transifex.com/intro/translating.html
- * @link https://www.transifex.com/projects/p/contao-cron/language/lv/
+ * @link https://www.transifex.com/projects/p/contao-cron-bundle/language/lv/
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2014-12-14T21:52:39+01:00
+ * last-updated: 2018-02-11T23:19:15+01:00
  */
-
 
 $GLOBALS['TL_LANG']['tl_crontab']['copy']['0']        = 'Kopēt';
 $GLOBALS['TL_LANG']['tl_crontab']['copy']['1']        = 'Kopēt izpildāmo uzdevumu.';
@@ -29,7 +28,6 @@ $GLOBALS['TL_LANG']['tl_crontab']['enable']['1']      = 'Ieslēgt izpildāmā uz
 $GLOBALS['TL_LANG']['tl_crontab']['enabled']['0']     = 'Ieslēgts';
 $GLOBALS['TL_LANG']['tl_crontab']['enabled']['1']     = 'Ieslēgt izpildāmo uzdevumu.';
 $GLOBALS['TL_LANG']['tl_crontab']['job']['0']         = 'Izpildāmais uzdevums';
-$GLOBALS['TL_LANG']['tl_crontab']['job']['1']         = 'Norādiet izpildāmā PHP skripta atrašanās vietu.';
 $GLOBALS['TL_LANG']['tl_crontab']['lastrun']          = 'Pēdējo reizi izpildīts';
 $GLOBALS['TL_LANG']['tl_crontab']['logging']['0']     = 'Reģistrēšana';
 $GLOBALS['TL_LANG']['tl_crontab']['logging']['1']     = 'Izveidot reģistra ierakstu, pēc izpildāmā uzdevuma uzsākšanas';

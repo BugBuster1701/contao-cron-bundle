@@ -28,3 +28,8 @@ $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['1'] = "Days of week can be ent
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['3']['0'] = "Months";
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['3']['1'] = "Months can be entered either as number 1...12, or as 3 character english shortcut as Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec:<br><br><pre>		   Feb-Nov/3 is equivalent to 2-11/3</pre>";
 
+$GLOBALS['TL_LANG']['XPL']['cron_jobs']['0']['0'] = "Job";
+$GLOBALS['TL_LANG']['XPL']['cron_jobs']['0']['1'] = "Job types:<br>- relative path of a PHP script<br>- a Symfony route<br>- a URL<br>Examples:<br><pre>
+    - web/bundles/bugbustercron/PurgeLog.php
+    - /BackupDB/autobackup
+    - http://your.domain/</pre>";

@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2018-02-12T00:25:17+01:00
+ * last-updated: 2018-02-12T00:48:51+01:00
  */
 
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['0'] = 'Grund-Syntax der Elemente';
@@ -23,4 +23,9 @@ $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['0'] = 'Wochentag';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['1'] = 'Wochentage kännen entweder als Zahl 0...6 angegeben werden, wobei 0 = Sonntag, oder als 3-Zeichen englische Abkürzung als Mon, Tue, Wed, Thu, Fri, Sat, Sun:<br><br><pre>Mon-Fri/2 ist äquivalent zu 1-5/2 </pre>';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['3']['0'] = 'Monate';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['3']['1'] = 'Monate können entweder als Zahl von 1 bis 12 oder als dreistellige englische Abkürzung als Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec angegeben werden:<br><br><pre>Feb-Nov/3 ist äquivalent zu 2-11/3</pre>';
+$GLOBALS['TL_LANG']['XPL']['cron_jobs']['0']['0']     = 'Job';
+$GLOBALS['TL_LANG']['XPL']['cron_jobs']['0']['1']     = 'Job Arten:<br>- relativer Pfad eines PHP-Scriptes<br>- eine Symfony-Route<br>- eine URL<br>Beispiele:<br><pre>
+ - web/bundles/bugbustercron/PurgeLog.php
+- /BackupDB/autobackup
+- http://your.domain/</pre>';
 

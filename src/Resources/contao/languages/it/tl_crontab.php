@@ -4,13 +4,12 @@
  * or to help to maintain an existing one, please register at transifex.com.
  *
  * @link http://help.transifex.com/intro/translating.html
- * @link https://www.transifex.com/projects/p/contao-cron/language/it/
+ * @link https://www.transifex.com/projects/p/contao-cron-bundle/language/it/
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2014-12-14T21:52:39+01:00
+ * last-updated: 2018-02-11T23:15:06+01:00
  */
-
 
 $GLOBALS['TL_LANG']['tl_crontab']['copy']['0']        = 'Copia';
 $GLOBALS['TL_LANG']['tl_crontab']['copy']['1']        = 'Copia quest\'operazione.';
@@ -29,7 +28,6 @@ $GLOBALS['TL_LANG']['tl_crontab']['enable']['1']      = 'Abilita l\'esecuzione d
 $GLOBALS['TL_LANG']['tl_crontab']['enabled']['0']     = 'Abilitato';
 $GLOBALS['TL_LANG']['tl_crontab']['enabled']['1']     = 'Abilita l\'esecuzione di quest\'operazione.';
 $GLOBALS['TL_LANG']['tl_crontab']['job']['0']         = 'Operazione';
-$GLOBALS['TL_LANG']['tl_crontab']['job']['1']         = 'Inserisci il percorso dello script PHP da eseguire.';
 $GLOBALS['TL_LANG']['tl_crontab']['lastrun']          = 'Ultimo giro.';
 $GLOBALS['TL_LANG']['tl_crontab']['logging']['0']     = 'Logging';
 $GLOBALS['TL_LANG']['tl_crontab']['logging']['1']     = 'Crea log quando l\'operazione viene eseguita';

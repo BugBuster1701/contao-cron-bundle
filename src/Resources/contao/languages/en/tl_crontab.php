@@ -21,7 +21,7 @@
 $GLOBALS['TL_LANG']['tl_crontab']['title']['0']    = "Titel";
 $GLOBALS['TL_LANG']['tl_crontab']['title']['1']    = "Enter a descriptive title for the job.";
 $GLOBALS['TL_LANG']['tl_crontab']['job']['0']      = "Job";
-$GLOBALS['TL_LANG']['tl_crontab']['job']['1']      = "Enter the relative path of the PHP script to execute. Example demo: web/bundles/bugbustercron/PurgeLog.php";
+$GLOBALS['TL_LANG']['tl_crontab']['job']['1']      = "Enter either a relative path of a PHP script, a symfony route, or a URL.";
 $GLOBALS['TL_LANG']['tl_crontab']['t_minute']['0'] = "Minute";
 $GLOBALS['TL_LANG']['tl_crontab']['t_minute']['1'] = "List the minutes for example as 5,10,15-20,30.<br>Use the form */15 for example for every 15 minutes.<br>Enter * for every minute.";
 $GLOBALS['TL_LANG']['tl_crontab']['t_hour']['0']   = "Hour";
