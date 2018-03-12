@@ -197,10 +197,7 @@ class CronHook extends \System
     private function runJob(&$qjob)
     {
         $jobtype = $this->getJobType($qjob->job);
-        if (function_exists('dump')) //TODO only for development, delete it!
-        {
-            dump("jobtype ${jobtype}");
-        }
+
         switch ($jobtype) 
         {
             case self::JOB_TYPE_FILE :

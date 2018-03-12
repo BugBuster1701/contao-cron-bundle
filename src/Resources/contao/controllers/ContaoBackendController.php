@@ -120,10 +120,7 @@ class ContaoBackendController extends \Backend
 	private function runJob(&$qjob)
 	{
 	    $jobtype = $this->getJobType($qjob->job);
-	    if (function_exists('dump')) //TODO only for development, delete it!
-	    {
-	        dump("jobtype ${jobtype}");
-        }
+
     	switch ($jobtype)
     	{
     	    case self::JOB_TYPE_FILE :
@@ -170,22 +167,12 @@ class ContaoBackendController extends \Backend
 	    $router = \System::getContainer()->get('router');
 	    $arrRoute = $router->match($strJob->job);
 	    
-	    if (function_exists('dump')) //TODO only for development, delete it!
-	    {
-	        dump("arrRoute ${arrRoute}");
-	    }
-	    
 	    if ('contao_catch_all' == $arrRoute['_route']) 
 	    {
 	        return $GLOBALS['TL_LANG']['tl_crontab']['route_not_exists'] . " ($strJob->job)";
 	    }
 	    
 	    $url = Environment::get('base') . ltrim($strJob->job, '/');
-	    
-	    if (function_exists('dump')) //TODO only for development, delete it!
-	    {
-	        dump("url ${url}");
-	    }
 	    
 	    $request = new CronRequest($url);
 	    
@@ -197,10 +184,6 @@ class ContaoBackendController extends \Backend
 	 */
 	private function runUrlJob($strJob)
 	{
-	    if (function_exists('dump')) //TODO only for development, delete it!
-	    {
-	        dump("url $strJob->job");
-	    }
 	    $request = new CronRequest($strJob->job);
 	     
 	    return $request->get();
