@@ -7,7 +7,7 @@ use Contao\CoreBundle\Monolog\ContaoContext;
 
 /**
  *
- * @author bibo
+ * Hook parseBackendTemplate
  *        
  */
 class CronHook extends \System
@@ -27,6 +27,14 @@ class CronHook extends \System
      */
     private $cron_max_run = 5;    
     
+    /**
+     * Job Constants
+     * @var integer
+     */
+    const JOB_TYPE_FILE  = 1;
+    const JOB_TYPE_ROUTE = 2;
+    const JOB_TYPE_URL   = 3;
+    
     
 	/**
 	 * Initialize 
@@ -42,6 +50,7 @@ class CronHook extends \System
 		parent::__construct();
 
 		\System::loadLanguageFile('default');
+		\System::loadLanguageFile('tl_crontab');
     }
     
     
@@ -187,12 +196,78 @@ class CronHook extends \System
      */
     private function runJob(&$qjob)
     {
+        $jobtype = $this->getJobType($qjob->job);
+
+        switch ($jobtype) 
+        {
+            case self::JOB_TYPE_FILE :
+                return $this->runFileJob($qjob);
+                break;
+            case self::JOB_TYPE_ROUTE :
+                return $this->runRouteJob($qjob);
+                break;
+            case self::JOB_TYPE_URL :
+                return $this->runUrlJob($qjob);
+                break;
+            
+            default:
+                return ;
+                break;
+        }
+    } 
+    
+    /**
+     * Run route job and return the captured output
+     */
+    private function runRouteJob($strJob)
+    {
+        return 'RouteJob not yet supported';
+    }
+    
+    /**
+     * Run URL job and return the captured output
+     */
+    private function runUrlJob($strJob)
+    {
+        return 'UrlJob not yet supported';
+    }
+    
+    /**
+     * Run file job and return the captured output
+     */
+    private function runFileJob($strJob)
+    {
+        //File exists and readable?
+        if (!is_readable(TL_ROOT . '/' . $strJob->job))
+        {
+            return $GLOBALS['TL_LANG']['tl_crontab']['file_not_readable'];
+        }
+        
         ob_start();
         $e = error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED & ~E_USER_DEPRECATED);
-        include(TL_ROOT . '/' . $qjob->job);
+        include(TL_ROOT . '/' . $strJob->job);
         error_reporting($e);
         return str_replace("\n",'<br>', trim(preg_replace('#<\s*br\s*//*?\s*>#i', "\n", ob_get_flush())));
-    } // runJob
+    }
+    
+    /**
+     * Get the Job Type
+     * @param string $strJob
+     * @return  int     1: File, 2: Route 3: URL
+     */
+    private function getJobType($strJob)
+    {
+        if ('http:' == substr($strJob, 0, 4) || 'https:' == substr($strJob, 0, 5)) 
+        {
+            return self::JOB_TYPE_URL;
+        }
+        
+        if ('.php' == substr($strJob, -4)) 
+        {
+            return self::JOB_TYPE_FILE;
+        }
+        return self::JOB_TYPE_ROUTE; // I hope :-)
+    }
     
     /**
      * Find new schedule time for job

@@ -74,3 +74,10 @@ $GLOBALS['TL_LANG']['tl_crontab']['disable']['1']     = 'Disable execution of jo
 $GLOBALS['TL_LANG']['tl_crontab']['startnow']['0']     = "Run";
 $GLOBALS['TL_LANG']['tl_crontab']['startnow']['1']     = "Run the execution of this job %s";
 
+/**
+ * Errors
+ */
+$GLOBALS['TL_LANG']['tl_crontab']['file_not_readable'] = 'File not found or not readable.';
+$GLOBALS['TL_LANG']['tl_crontab']['route_not_exists']  = 'None of the routes match the path.';
+
+

@@ -6,7 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use BugBuster\Cron\ContaoFrontendController;
 
 /**
- * Handles back end routes.
+ * Handles front end routes.
+ * path: /bbcron/startjobs
  * 
  */
 class FrontendController extends Controller
