@@ -38,6 +38,13 @@ class CronRequest
     protected $requestFactory;
     
     /**
+     * The http response body
+     * 
+     * @var \Http\Message\MessageInterface
+     */
+    protected $responseBody;
+    
+    /**
      * Create a new CronRequest instance.
      *
      * @param string $url
@@ -54,6 +61,8 @@ class CronRequest
         
         $this->httpClient     = $httpClient     ?: new PluginClient(HttpClientDiscovery::find(), [$redirectPlugin]);
         $this->requestFactory = $requestFactory ?: MessageFactoryDiscovery::find();
+        
+        $this->responseBody = '';
     }
 
     /**
@@ -67,7 +76,17 @@ class CronRequest
         $config = ['timeout' => 5];
         $request = $this->requestFactory->createRequest('GET', $this->url);
         $response = $this->httpClient->sendRequest($request,$config);
+        $this->responseBody = $response->getBody(); // $response->getBody()->getContents()
         return $response->getStatusCode(); 
+    }
+    
+    /**
+     * 
+     * @return string HTTP Response Body
+     */
+    public function getResponseBody() 
+    {
+        return $this->responseBody;
     }
 
 }

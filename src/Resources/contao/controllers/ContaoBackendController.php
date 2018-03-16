@@ -176,7 +176,7 @@ class ContaoBackendController extends \Backend
 	    
 	    $request = new CronRequest($url);
 	    
-	    return $request->get();
+	    return $request->get() . '::' . $request->getResponseBody(); 
 	}
 	
 	/**
@@ -186,7 +186,7 @@ class ContaoBackendController extends \Backend
 	{
 	    $request = new CronRequest($strJob->job);
 	     
-	    return $request->get();
+	    return $request->get() . '::' . $request->getResponseBody();
 	}
 	
 	/**
