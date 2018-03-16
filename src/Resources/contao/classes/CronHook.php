@@ -291,7 +291,7 @@ class CronHook extends \System
      */
     private function getJobType($strJob)
     {
-        if ('http:' == substr($strJob, 0, 4) || 'https:' == substr($strJob, 0, 5)) 
+        if ('http:' == substr($strJob, 0, 5) || 'https:' == substr($strJob, 0, 5)) 
         {
             return self::JOB_TYPE_URL;
         }
