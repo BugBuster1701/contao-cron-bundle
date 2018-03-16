@@ -99,8 +99,8 @@ class DcaCrontab extends \Backend
         $title = sprintf($label[1], $row['id']);
         return
         '<a href="' . $this->addToUrl($href.'&amp;id='.$row['id']) .
-        '" title="' . specialchars($title) . '"' . $attributes . '>' .
-        '<img src="'.$icon.'" width="16" height="16" alt="'.specialchars($title).'" />' .
+        '" title="' . \StringUtil::specialchars($title) . '"' . $attributes . '>' .
+        '<img src="'.$icon.'" width="16" height="16" alt="'.\StringUtil::specialchars($title).'" />' .
         '</a> ';
     } // enabledButton
     
@@ -124,8 +124,8 @@ class DcaCrontab extends \Backend
         $title = sprintf($label[1], $row['id']);
         return
         '<a href="' . $this->addToUrl($href.'&amp;id='.$row['id']) .
-        '" title="' . specialchars($title) . '"' . $attributes . '>' .
-        '<img src="'.$icon.'" width="16" height="16" alt="'.specialchars($title).'" />' .
+        '" title="' . \StringUtil::specialchars($title) . '"' . $attributes . '>' .
+        '<img src="'.$icon.'" width="16" height="16" alt="'.\StringUtil::specialchars($title).'" />' .
         '</a> ';
     } // loggingButton
     
@@ -145,8 +145,8 @@ class DcaCrontab extends \Backend
         return
         '<a href="' . $href . '"' .
         'onclick="if(!confirm(\''.$title.'?\'))return false;Backend.openModalIframe({\'width\':735,\'height\':405,\'title\':\'Cronjob Start\',\'url\':this.href});return false"'.
-        ' title="' . specialchars($title) . '"' . $attributes . '>' .
-        '<img src="'.$icon.'" width="16" height="16" alt="'.specialchars($title).'" />' .
+        ' title="' . \StringUtil::specialchars($title) . '"' . $attributes . '>' .
+        '<img src="'.$icon.'" width="16" height="16" alt="'.\StringUtil::specialchars($title).'" />' .
         '</a> ';
     }
     
