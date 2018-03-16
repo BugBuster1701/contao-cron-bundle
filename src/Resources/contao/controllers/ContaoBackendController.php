@@ -104,12 +104,12 @@ class ContaoBackendController extends \Backend
             $output .= '<br>Job not found!';
         }
 
-        $objTemplate->cronlog = $output;
-        $objTemplate->theme = $this->getTheme();
-        $objTemplate->base = Environment::get('base');
+        $objTemplate->cronlog  = $output;
+        $objTemplate->theme    = $this->getTheme();
+        $objTemplate->base     = Environment::get('base');
         $objTemplate->language = $GLOBALS['TL_LANGUAGE'];
-        $objTemplate->title = 'CronRunJobNow';
-        $objTemplate->charset = $GLOBALS['TL_CONFIG']['characterSet'];
+        $objTemplate->title    = 'CronRunJobNow';
+        $objTemplate->charset  = $GLOBALS['TL_CONFIG']['characterSet'];
 		                                                
 		return $objTemplate->getResponse(); // compile and new Response()...
 	}
@@ -176,7 +176,7 @@ class ContaoBackendController extends \Backend
 	    
 	    $request = new CronRequest($url);
 	    
-	    return $request->get();
+	    return $request->get() . '::' . $request->getResponseBody(); 
 	}
 	
 	/**
@@ -186,7 +186,7 @@ class ContaoBackendController extends \Backend
 	{
 	    $request = new CronRequest($strJob->job);
 	     
-	    return $request->get();
+	    return $request->get() . '::' . $request->getResponseBody();
 	}
 	
 	/**

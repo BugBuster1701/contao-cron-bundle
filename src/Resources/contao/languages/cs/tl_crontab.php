@@ -4,13 +4,12 @@
  * or to help to maintain an existing one, please register at transifex.com.
  *
  * @link http://help.transifex.com/intro/translating.html
- * @link https://www.transifex.com/projects/p/contao-cron/language/cs/
+ * @link https://www.transifex.com/projects/p/contao-cron-bundle/language/cs/
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2014-12-14T21:52:39+01:00
+ * last-updated: 2018-01-17T21:43:20+01:00
  */
-
 
 $GLOBALS['TL_LANG']['tl_crontab']['copy']['0']        = 'Duplikovat';
 $GLOBALS['TL_LANG']['tl_crontab']['copy']['1']        = 'Duplikovat tuto úlohu.';
@@ -29,7 +28,6 @@ $GLOBALS['TL_LANG']['tl_crontab']['enable']['1']      = 'Povolit provedení pro 
 $GLOBALS['TL_LANG']['tl_crontab']['enabled']['0']     = 'Povolit úlohu';
 $GLOBALS['TL_LANG']['tl_crontab']['enabled']['1']     = 'Povolit provedení této úlohy.';
 $GLOBALS['TL_LANG']['tl_crontab']['job']['0']         = 'URL skriptu';
-$GLOBALS['TL_LANG']['tl_crontab']['job']['1']         = 'Zadejte cestu k PHP skriptu, který se má automaticky spustit.';
 $GLOBALS['TL_LANG']['tl_crontab']['lastrun']          = 'Poslední';
 $GLOBALS['TL_LANG']['tl_crontab']['logging']['0']     = 'Systémové zprávy';
 $GLOBALS['TL_LANG']['tl_crontab']['logging']['1']     = 'Povolit zapisování systémových zpráv (logů).';

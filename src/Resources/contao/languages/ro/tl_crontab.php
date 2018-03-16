@@ -4,13 +4,12 @@
  * or to help to maintain an existing one, please register at transifex.com.
  *
  * @link http://help.transifex.com/intro/translating.html
- * @link https://www.transifex.com/projects/p/contao-cron/language/ro/
+ * @link https://www.transifex.com/projects/p/contao-cron-bundle/language/ro/
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2014-12-14T21:52:39+01:00
+ * last-updated: 2018-02-11T23:19:15+01:00
  */
-
 
 $GLOBALS['TL_LANG']['tl_crontab']['copy']['0']        = 'Copiază';
 $GLOBALS['TL_LANG']['tl_crontab']['copy']['1']        = 'Copiază această comandă';
@@ -29,7 +28,6 @@ $GLOBALS['TL_LANG']['tl_crontab']['enable']['1']      = 'Activează execuţia co
 $GLOBALS['TL_LANG']['tl_crontab']['enabled']['0']     = 'Activat';
 $GLOBALS['TL_LANG']['tl_crontab']['enabled']['1']     = 'Activează execuţia acestei comenzi';
 $GLOBALS['TL_LANG']['tl_crontab']['job']['0']         = 'Comandă';
-$GLOBALS['TL_LANG']['tl_crontab']['job']['1']         = 'Introduceţi calea la scriptul PHP care trebuie executat.';
 $GLOBALS['TL_LANG']['tl_crontab']['lastrun']          = 'Ultima execuţie';
 $GLOBALS['TL_LANG']['tl_crontab']['logging']['0']     = 'Jurnal';
 $GLOBALS['TL_LANG']['tl_crontab']['logging']['1']     = 'Actualizează jurnalul în momentul execuţiei comenzii';

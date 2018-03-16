@@ -9,9 +9,12 @@
 namespace BugBuster\Cron;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Contao\Database;
+use Contao\Environment;
 use Psr\Log\LogLevel;
 use Contao\CoreBundle\Monolog\ContaoContext;
+use BugBuster\Cron\CronRequest;
 
 /**
  * Back end 
@@ -146,7 +149,7 @@ class ContaoFrontendController extends \Frontend
                                             ->set($dataset)
                                             ->execute($q->id);
                 } // if
-                if ($cronJob['logging'] || $output!='')
+                if ($cronJob['logging'])
                 {
                     if ($output!='')
                     {
@@ -219,7 +222,7 @@ class ContaoFrontendController extends \Frontend
 	 */
 	private function getJobType($strJob)
 	{
-	    if ('http:' == substr($strJob, 0, 4) || 'https:' == substr($strJob, 0, 5))
+	    if ('http:' == substr($strJob, 0, 5) || 'https:' == substr($strJob, 0, 6))
 	    {
 	        return self::JOB_TYPE_URL;
 	    }
@@ -236,7 +239,28 @@ class ContaoFrontendController extends \Frontend
 	 */
 	private function runRouteJob($strJob)
 	{
-	    return 'RouteJob not yet supported';
+        /* @var Router $router */
+	    $router = \System::getContainer()->get('router');
+	    $arrRoute = $router->match($strJob->job);
+	    
+	    if ('contao_catch_all' == $arrRoute['_route']) 
+	    {
+	        return $GLOBALS['TL_LANG']['tl_crontab']['route_not_exists'] . " ($strJob->job)";
+	    }
+	    
+	    $url = Environment::get('base') . ltrim($strJob->job, '/');
+	    
+	    $request = new CronRequest($url);
+	    
+	    $StatusCode = $request->get();
+	    	    
+	    if (200 == $StatusCode) 
+	    {
+	        $cronJob['completed'] = true;
+	        return;
+	    }
+	    $cronJob['completed'] = false;
+	    return $StatusCode . "::" . $request->getResponseBody(); 
 	}
 	
 	/**
@@ -244,7 +268,16 @@ class ContaoFrontendController extends \Frontend
 	 */
 	private function runUrlJob($strJob)
 	{
-	    return 'UrlJob not yet supported';
+	    $request = new CronRequest($strJob->job);
+	    $StatusCode = $request->get();
+	    	    
+	    if (200 == $StatusCode) 
+	    {
+	        $cronJob['completed'] = true;
+	        return;
+	    }
+	    $cronJob['completed'] = false;
+	    return $StatusCode . "::" . $request->getResponseBody();  
 	}
 	
 	/**
