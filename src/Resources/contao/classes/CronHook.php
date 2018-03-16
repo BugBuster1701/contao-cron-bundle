@@ -2,8 +2,11 @@
 
 namespace BugBuster\Cron;
 
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Psr\Log\LogLevel;
 use Contao\CoreBundle\Monolog\ContaoContext;
+use Contao\Environment;
+use BugBuster\Cron\CronRequest;
 
 /**
  *
@@ -149,7 +152,7 @@ class CronHook extends \System
                                             ->set($dataset)
                                             ->execute($q->id);
                 } // if
-                if ($cronJob['logging'] || $output!='')
+                if ($cronJob['logging'])
                 {
                     if ($output!='')
                     {
@@ -221,7 +224,29 @@ class CronHook extends \System
      */
     private function runRouteJob($strJob)
     {
-        return 'RouteJob not yet supported';
+        /* @var Router $router */
+	    $router = \System::getContainer()->get('router');
+	    $arrRoute = $router->match($strJob->job);
+	    
+	    if ('contao_catch_all' == $arrRoute['_route']) 
+	    {
+	        return $GLOBALS['TL_LANG']['tl_crontab']['route_not_exists'] . " ($strJob->job)";
+	    }
+	    
+	    $url = Environment::get('base') . ltrim($strJob->job, '/');
+	    
+	    $request = new CronRequest($url);
+	    
+	    $StatusCode = $request->get();
+	    	    
+	    if (200 == $StatusCode) 
+	    {
+	        $cronJob['completed'] = true;
+	        return;
+	    }
+	    $cronJob['completed'] = false;
+	    return $StatusCode . "::" . $request->getResponseBody(); 
+        
     }
     
     /**
@@ -229,7 +254,16 @@ class CronHook extends \System
      */
     private function runUrlJob($strJob)
     {
-        return 'UrlJob not yet supported';
+	    $request = new CronRequest($strJob->job);
+	    $StatusCode = $request->get();
+	    	    
+	    if (200 == $StatusCode) 
+	    {
+	        $cronJob['completed'] = true;
+	        return;
+	    }
+	    $cronJob['completed'] = false;
+	    return $StatusCode . "::" . $request->getResponseBody();  
     }
     
     /**

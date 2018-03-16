@@ -149,7 +149,7 @@ class ContaoFrontendController extends \Frontend
                                             ->set($dataset)
                                             ->execute($q->id);
                 } // if
-                if ($cronJob['logging'] || $output!='')
+                if ($cronJob['logging'])
                 {
                     if ($output!='')
                     {
@@ -252,7 +252,15 @@ class ContaoFrontendController extends \Frontend
 	    
 	    $request = new CronRequest($url);
 	    
-	    return $request->get();
+	    $StatusCode = $request->get();
+	    	    
+	    if (200 == $StatusCode) 
+	    {
+	        $cronJob['completed'] = true;
+	        return;
+	    }
+	    $cronJob['completed'] = false;
+	    return $StatusCode . "::" . $request->getResponseBody(); 
 	}
 	
 	/**
@@ -261,8 +269,15 @@ class ContaoFrontendController extends \Frontend
 	private function runUrlJob($strJob)
 	{
 	    $request = new CronRequest($strJob->job);
-	     
-	    return $request->get();
+	    $StatusCode = $request->get();
+	    	    
+	    if (200 == $StatusCode) 
+	    {
+	        $cronJob['completed'] = true;
+	        return;
+	    }
+	    $cronJob['completed'] = false;
+	    return $StatusCode . "::" . $request->getResponseBody();  
 	}
 	
 	/**
