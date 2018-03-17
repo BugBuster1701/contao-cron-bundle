@@ -239,6 +239,8 @@ class ContaoFrontendController extends \Frontend
 	 */
 	private function runRouteJob($strJob)
 	{
+	    global $cronJob;
+	    
         /* @var Router $router */
 	    $router = \System::getContainer()->get('router');
 	    $arrRoute = $router->match($strJob->job);
@@ -268,6 +270,8 @@ class ContaoFrontendController extends \Frontend
 	 */
 	private function runUrlJob($strJob)
 	{
+	    global $cronJob;
+	    
 	    $request = new CronRequest($strJob->job);
 	    $StatusCode = $request->get();
 	    	    
