@@ -83,7 +83,7 @@ class CronHook extends \System
             );');
         
         $searchString = '</body>';
-        $strContent = str_replace($searchString, $strScripts, $strContent);
+        $strContent = str_replace($searchString, $strScripts.$searchString, $strContent);
         
         return $strContent;
 
