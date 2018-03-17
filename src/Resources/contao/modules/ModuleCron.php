@@ -77,7 +77,7 @@ class ModuleCron extends \Module
                         }
                         n.open("GET","'.ampersand($strUrl).'",true);
                         n.send();
-                },1300
+                },1000
             );');
         return $strScripts;
     } // run
