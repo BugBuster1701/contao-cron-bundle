@@ -73,7 +73,7 @@ class CronRequest
      */
     public function get()
     {
-        $config = ['timeout' => 5];
+        $config = ['timeout' => 5, 'verify' => false];
         $request = $this->requestFactory->createRequest('GET', $this->url);
         $response = $this->httpClient->sendRequest($request,$config);
         $this->responseBody = $response->getBody(); 
