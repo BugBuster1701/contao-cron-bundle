@@ -73,9 +73,18 @@ class CronRequest
      */
     public function get()
     {
-        $config = ['timeout' => 5];
         $request = $this->requestFactory->createRequest('GET', $this->url);
-        $response = $this->httpClient->sendRequest($request,$config);
+        try {
+            $response = $this->httpClient->sendRequest($request);
+        } catch (\Throwable $t) {
+            // Executed only in PHP 7, will not match in PHP 5.x
+            $this->responseBody = "Request Exception:<br>".$t->getMessage();
+            return 500;
+        } catch (\Exception $e) {
+            // Executed only in PHP 5.x, will not be reached in PHP 7
+            $this->responseBody = "Request Exception:<br>".$e->getMessage();
+            return 500;
+        }
         $this->responseBody = $response->getBody(); 
         return $response->getStatusCode(); 
     }
