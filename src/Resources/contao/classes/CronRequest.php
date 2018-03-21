@@ -3,11 +3,11 @@
 namespace BugBuster\Cron;
 
 use Http\Client\HttpClient;
-use Http\Discovery\HttpClientDiscovery;
-use Http\Discovery\MessageFactoryDiscovery;
+//use Http\Discovery\HttpClientDiscovery;
+//use Http\Discovery\MessageFactoryDiscovery;
 use Http\Message\RequestFactory;
-use Http\Client\Common\PluginClient;
-use Http\Client\Common\Plugin\RedirectPlugin;
+//use Http\Client\Common\PluginClient;
+//use Http\Client\Common\Plugin\RedirectPlugin;
 
 /**
  *
@@ -56,12 +56,14 @@ class CronRequest
     public function __construct(string $url, HttpClient $httpClient = null, RequestFactory $requestFactory = null)
     {
         $this->url = $url;
-        
+        /*
         $redirectPlugin = new RedirectPlugin();
         
         $this->httpClient     = $httpClient     ?: new PluginClient(HttpClientDiscovery::find(), [$redirectPlugin]);
         $this->requestFactory = $requestFactory ?: MessageFactoryDiscovery::find();
-        
+        */
+        $this->requestFactory = \System::getContainer()->get('httplug.message_factory');
+        $this->httpClient     = \System::getContainer()->get('httplug.client.acme');
         $this->responseBody = '';
     }
 
