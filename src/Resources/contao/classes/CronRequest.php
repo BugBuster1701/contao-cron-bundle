@@ -3,15 +3,12 @@
 namespace BugBuster\Cron;
 
 use Http\Client\HttpClient;
-//use Http\Discovery\HttpClientDiscovery;
-//use Http\Discovery\MessageFactoryDiscovery;
 use Http\Message\RequestFactory;
-//use Http\Client\Common\PluginClient;
-//use Http\Client\Common\Plugin\RedirectPlugin;
 
 /**
- *
- * @author bibo
+ * Request class, use httplug
+ * 
+ * @author Glen Langer (BugBuster)
  *        
  */
 class CronRequest
@@ -55,16 +52,26 @@ class CronRequest
      */
     public function __construct(string $url, HttpClient $httpClient = null, RequestFactory $requestFactory = null)
     {
-        $this->url = $url;
-        /*
-        $redirectPlugin = new RedirectPlugin();
-        
-        $this->httpClient     = $httpClient     ?: new PluginClient(HttpClientDiscovery::find(), [$redirectPlugin]);
-        $this->requestFactory = $requestFactory ?: MessageFactoryDiscovery::find();
-        */
-        $this->requestFactory = \System::getContainer()->get('httplug.message_factory');
-        $this->httpClient     = \System::getContainer()->get('httplug.client.my_guzzle6');
         $this->responseBody = '';
+        $this->url          = $url;
+        
+        $this->httpClient     = $httpClient     ?: false;
+        $this->requestFactory = $requestFactory ?: false;
+        
+        if (true === $this->isCurlEnabled() && false === $this->httpClient) 
+        {
+            $this->httpClient = \System::getContainer()->get('httplug.client.my_curl');
+        }
+        elseif (true === $this->isAllowUrlFopenEnabled() && false === $this->httpClient) 
+        {
+            $this->httpClient = \System::getContainer()->get('httplug.client.my_guzzle6');
+        }
+        else
+        {
+            $this->responseBody = "Request Exception:\n The PHP flag 'allow_url_fopen' is not set.\n The PHP 'cURL' extension is not available.\n One is necessary.";
+            throw new \Exception($this->responseBody);
+        }
+        $this->requestFactory = $requestFactory ?: \System::getContainer()->get('httplug.message_factory');
     }
 
     /**
@@ -98,6 +105,26 @@ class CronRequest
     public function getResponseBody() 
     {
         return $this->responseBody;
+    }
+    
+    /**
+     * Determinate if curl is enabled.
+     *
+     * @return bool
+     */
+    public function isCurlEnabled()
+    {
+        return function_exists('curl_init');
+    }
+    
+    /**
+     * Determinate if allow_url_fopen is enabled.
+     *
+     * @return bool
+     */
+    public function isAllowUrlFopenEnabled()
+    {
+        return (bool) ini_get('allow_url_fopen');
     }
 
 }

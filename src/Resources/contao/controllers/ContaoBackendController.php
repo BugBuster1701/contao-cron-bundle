@@ -174,8 +174,15 @@ class ContaoBackendController extends \Backend
 	    
 	    $url = Environment::get('base') . ltrim($strJob->job, '/');
 	    
-	    $request = new CronRequest($url);
-	    
+	    try 
+	    {
+	        $request = new CronRequest($url);
+	    } 
+	    catch (\Exception $e) 
+	    {
+	        return '500' . '::' . $e->getMessage();
+	    }
+	    	    
 	    return $request->get() . '::' . $request->getResponseBody(); 
 	}
 	
@@ -184,7 +191,14 @@ class ContaoBackendController extends \Backend
 	 */
 	private function runUrlJob($strJob)
 	{
-	    $request = new CronRequest($strJob->job);
+	    try
+	    {
+	       $request = new CronRequest($strJob->job);
+	    }
+	    catch (\Exception $e) 
+	    {
+	        return '500' . '::' . $e->getMessage();
+	    }
 	     
 	    return $request->get() . '::' . $request->getResponseBody();
 	}
