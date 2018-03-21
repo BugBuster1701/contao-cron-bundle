@@ -2,8 +2,17 @@ httplug:
     plugins:
         logger: ~
     clients:
-        acme:
+        my_guzzle6:
             factory: 'httplug.factory.guzzle6'
-            plugins: ['httplug.plugin.logger']
+            plugins: 
+                - 'httplug.plugin.logger'
+                - 'httplug.plugin.redirect'
             config:
-                timeout: 5
+                timeout: 3
+        my_curl:
+            factory: 'httplug.factory.curl'
+            plugins: 
+                - 'httplug.plugin.logger'
+                - 'httplug.plugin.redirect'
+            config:
+                CURLOPT_CONNECTTIMEOUT: 3

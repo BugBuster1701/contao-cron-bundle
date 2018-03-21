@@ -63,7 +63,7 @@ class CronRequest
         $this->requestFactory = $requestFactory ?: MessageFactoryDiscovery::find();
         */
         $this->requestFactory = \System::getContainer()->get('httplug.message_factory');
-        $this->httpClient     = \System::getContainer()->get('httplug.client.acme');
+        $this->httpClient     = \System::getContainer()->get('httplug.client.my_guzzle6');
         $this->responseBody = '';
     }
 
