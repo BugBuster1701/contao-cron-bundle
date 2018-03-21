@@ -68,7 +68,7 @@ class CronRequest
         }
         else
         {
-            $this->responseBody = "Request Exception:\n The PHP flag 'allow_url_fopen' is not set.\n The PHP 'cURL' extension is not available.\n One is necessary.";
+            $this->responseBody = "Request Exception:<br>The PHP flag 'allow_url_fopen' is not set.<br>The PHP 'cURL' extension is not available.<br>One is necessary.";
             throw new \Exception($this->responseBody);
         }
         $this->requestFactory = $requestFactory ?: \System::getContainer()->get('httplug.message_factory');
