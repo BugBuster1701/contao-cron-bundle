@@ -21,6 +21,7 @@ use Symfony\Component\HttpKernel\KernelInterface;
 
 use Contao\ManagerPlugin\Config\ConfigPluginInterface;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * Plugin for the Contao Manager.
@@ -54,6 +55,16 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface, ConfigPlu
     
     public function registerContainerConfiguration(LoaderInterface $loader, array $config)
     {
-        $loader->load('@BugBusterCronBundle/Resources/config/config.yml');
+        //$loader->load('@BugBusterCronBundle/Resources/config/config.yml');
+        $loader->load(
+            function (ContainerBuilder $container) use ($loader) {
+                if ('dev' === $container->getParameter('kernel.environment')) {
+                    $loader->load('@BugBusterCronBundle/Resources/config/config_dev.yml');
+                }
+                else {
+                    $loader->load('@BugBusterCronBundle/Resources/config/config.yml');
+                }
+            }
+        );
     }
 }
