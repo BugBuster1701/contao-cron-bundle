@@ -42,6 +42,13 @@ class CronRequest
     protected $responseBody;
     
     /**
+     * The http response status code
+     * 
+     * @var \Http\Message\ResponseInterface
+     */
+    protected $responseStatusCode;
+    
+    /**
      * Create a new CronRequest instance.
      *
      * @param string $url
@@ -52,6 +59,8 @@ class CronRequest
      */
     public function __construct(string $url, HttpClient $httpClient = null, RequestFactory $requestFactory = null)
     {
+        \System::loadLanguageFile('tl_crontab');
+        
         $this->responseBody = '';
         $this->url          = $url;
         
@@ -68,7 +77,10 @@ class CronRequest
         }
         else
         {
-            $this->responseBody = "Request Exception:<br>The PHP flag 'allow_url_fopen' is not set.<br>The PHP 'cURL' extension is not available.<br>One is necessary.";
+            $this->responseBody = "Request Exception:<br>".$GLOBALS['TL_LANG']['tl_crontab']['allow_url_fopen_not_set'].
+                                                    "<br>".$GLOBALS['TL_LANG']['tl_crontab']['curl_not_available'].
+                                                    "<br>".$GLOBALS['TL_LANG']['tl_crontab']['one_is_necessary'];
+            $this->responseStatusCode = 500;
             throw new \Exception($this->responseBody);
         }
         $this->requestFactory = $requestFactory ?: \System::getContainer()->get('httplug.message_factory');
@@ -87,22 +99,36 @@ class CronRequest
             $response = $this->httpClient->sendRequest($request);
         } catch (\Throwable $t) {
             // Executed only in PHP 7, will not match in PHP 5.x
-            $this->responseBody = "Request Exception:<br>".$t->getMessage();
-            return 500;
+            $this->responseBody = "<span style='color:red;'>Request Exception:<br>".$t->getMessage()."</span>";
+            $this->responseStatusCode = 500;
+            return $this->responseStatusCode;
         } catch (\Exception $e) {
             // Executed only in PHP 5.x, will not be reached in PHP 7
-            $this->responseBody = "Request Exception:<br>".$e->getMessage();
-            return 500;
+            $this->responseBody = "<span style='color:red;'>Request Exception:<br>".$e->getMessage()."</span>";
+            $this->responseStatusCode = 500;
+            return $this->responseStatusCode;
         }
-        $this->responseBody = $response->getBody(); 
-        return $response->getStatusCode(); 
+        $this->responseBody       = $response->getBody(); 
+        $this->responseStatusCode = $response->getStatusCode(); 
+        return $this->responseStatusCode;
     }
     
     /**
+     * Get HTTP Status Code
+     * 
+     * @return integer HTTP Status Code
+     */
+    public function getResponseStatusCode() 
+    {
+        return $this->responseStatusCode;
+    }
+    
+    /**
+     * Get HTTP Response Body
      * 
      * @return string HTTP Response Body
      */
-    public function getResponseBody() 
+    public function getResponseBody()
     {
         return $this->responseBody;
     }

@@ -71,13 +71,14 @@ $GLOBALS['TL_LANG']['tl_crontab']['enable']['0']      = 'Enable execution';
 $GLOBALS['TL_LANG']['tl_crontab']['enable']['1']      = 'Enable execution of job %s';
 $GLOBALS['TL_LANG']['tl_crontab']['disable']['0']     = 'Disable execution';
 $GLOBALS['TL_LANG']['tl_crontab']['disable']['1']     = 'Disable execution of job %s';
-$GLOBALS['TL_LANG']['tl_crontab']['startnow']['0']     = "Run";
-$GLOBALS['TL_LANG']['tl_crontab']['startnow']['1']     = "Run the execution of this job %s";
+$GLOBALS['TL_LANG']['tl_crontab']['startnow']['0']    = "Run";
+$GLOBALS['TL_LANG']['tl_crontab']['startnow']['1']    = "Run the execution of this job %s";
 
 /**
  * Errors
  */
 $GLOBALS['TL_LANG']['tl_crontab']['file_not_readable'] = 'File not found or not readable.';
 $GLOBALS['TL_LANG']['tl_crontab']['route_not_exists']  = 'None of the routes match the path.';
-
-
+$GLOBALS['TL_LANG']['tl_crontab']['allow_url_fopen_not_set']  = 'The PHP flag "allow_url_fopen" is not set.';
+$GLOBALS['TL_LANG']['tl_crontab']['curl_not_available']       = 'The PHP "cURL" extension is not available.';
+$GLOBALS['TL_LANG']['tl_crontab']['one_is_necessary']         = 'One is necessary.';
