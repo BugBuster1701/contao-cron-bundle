@@ -9,6 +9,9 @@ httplug:
                 - 'httplug.plugin.redirect'
             config:
                 timeout: 3
+                verify_peer: 0
+                verify_peer_name: 0
+                allow_self_signed: 1
         my_curl:
             factory: 'httplug.factory.curl'
             plugins: 

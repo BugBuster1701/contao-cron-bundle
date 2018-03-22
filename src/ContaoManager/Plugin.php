@@ -55,7 +55,6 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface, ConfigPlu
     
     public function registerContainerConfiguration(LoaderInterface $loader, array $config)
     {
-        //$loader->load('@BugBusterCronBundle/Resources/config/config.yml');
         $loader->load(
             function (ContainerBuilder $container) use ($loader) {
                 if ('dev' === $container->getParameter('kernel.environment')) {
