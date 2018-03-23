@@ -1,7 +1,7 @@
 {
 	"name":"bugbuster/contao-cron-bundle",
-	"description":"Contao 4 Cron Bundle - Sheduler for Contao 4",
-	"keywords":["cron","sheduler","contao"],
+	"description":"Contao 4 Cron Bundle - Scheduler for Contao 4",
+	"keywords":["cron","scheduler","contao"],
 	"type":"contao-bundle",
 	"homepage":"http://contao.ninja",
 	"license":"LGPL-3.0-or-later",
@@ -56,7 +56,7 @@
 			}
 		},
 		"branch-alias": {
-			"dev-develop": "1.3.x-dev"
+			"dev-develop": "1.4.x-dev"
 		},
 		"contao-manager-plugin": "BugBuster\\CronBundle\\ContaoManager\\Plugin"
 	}
