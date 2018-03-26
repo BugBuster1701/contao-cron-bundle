@@ -169,13 +169,20 @@ class ContaoBackendController extends \Backend
 	    
 	    if ('contao_catch_all' == $arrRoute['_route']) 
 	    {
-	        return $GLOBALS['TL_LANG']['tl_crontab']['route_not_exists'] . " ($strJob->job)";
+	        return '<span style="color:red;">'.$GLOBALS['TL_LANG']['tl_crontab']['route_not_exists'] . "</span> ($strJob->job)";
 	    }
 	    
 	    $url = Environment::get('base') . ltrim($strJob->job, '/');
 	    
-	    $request = new CronRequest($url);
-	    
+	    try 
+	    {
+	        $request = new CronRequest($url);
+	    } 
+	    catch (\Exception $e) 
+	    {
+	        return '<span style="color:red;">' .$request->getResponseStatusCode(). '::' . $e->getMessage() . '</span>';
+	    }
+	    	    
 	    return $request->get() . '::' . $request->getResponseBody(); 
 	}
 	
@@ -184,7 +191,14 @@ class ContaoBackendController extends \Backend
 	 */
 	private function runUrlJob($strJob)
 	{
-	    $request = new CronRequest($strJob->job);
+	    try
+	    {
+	       $request = new CronRequest($strJob->job);
+	    }
+	    catch (\Exception $e) 
+	    {
+	        return '<span style="color:red;">' .$request->getResponseStatusCode(). '::' . $e->getMessage() . '</span>';
+	    }
 	     
 	    return $request->get() . '::' . $request->getResponseBody();
 	}
@@ -204,7 +218,7 @@ class ContaoBackendController extends \Backend
 	    //File exists and readable?
 	    if (!is_readable(TL_ROOT . '/' . $qjob->job)) 
 	    {
-	        return $GLOBALS['TL_LANG']['tl_crontab']['file_not_readable'] . " ($qjob->job)";
+	        return '<span style="color:red;">'.$GLOBALS['TL_LANG']['tl_crontab']['file_not_readable'] . "</span> ($qjob->job)";
 	    }
 	    
 	    $currtime = time();

@@ -252,7 +252,15 @@ class ContaoFrontendController extends \Frontend
 	    
 	    $url = Environment::get('base') . ltrim($strJob->job, '/');
 	    
-	    $request = new CronRequest($url);
+	    try
+	    {
+	       $request = new CronRequest($url);
+	    } 
+	    catch (\Exception $e) 
+	    {
+	        $cronJob['completed'] = false;
+	        return;
+	    }
 	    
 	    $StatusCode = $request->get();
 	    	    
@@ -272,7 +280,16 @@ class ContaoFrontendController extends \Frontend
 	{
 	    global $cronJob;
 	    
-	    $request = new CronRequest($strJob->job);
+	    try
+	    {
+	       $request = new CronRequest($strJob->job);
+	    } 
+	    catch (\Exception $e) 
+	    {
+	        $cronJob['completed'] = false;
+	        return;
+	    }
+	    
 	    $StatusCode = $request->get();
 	    	    
 	    if (200 == $StatusCode) 
