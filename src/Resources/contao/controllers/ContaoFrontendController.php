@@ -243,7 +243,10 @@ class ContaoFrontendController extends \Frontend
 	    
         /* @var Router $router */
 	    $router = \System::getContainer()->get('router');
-	    $arrRoute = $router->match($strJob->job);
+	    
+	    //Trennung Parameter im alten Stil: ?abcde.. (BackupDB Spam Schutz)
+	    $arrFragments = \StringUtil::trimsplit('?', $strJob->job);
+	    $arrRoute = $router->match($arrFragments[0]);
 	    
 	    if ('contao_catch_all' == $arrRoute['_route']) 
 	    {
