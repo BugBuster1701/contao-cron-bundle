@@ -165,8 +165,11 @@ class ContaoBackendController extends \Backend
 	{
 	    /* @var Router $router */
 	    $router = \System::getContainer()->get('router');
-	    $arrRoute = $router->match($strJob->job);
 	    
+	    //Trennung Parameter im alten Stil: ?abcde.. (BackupDB Spam Schutz)
+	    $arrFragments = \StringUtil::trimsplit('?', $strJob->job);
+	    $arrRoute = $router->match($arrFragments[0]);
+	    	    
 	    if ('contao_catch_all' == $arrRoute['_route']) 
 	    {
 	        return '<span style="color:red;">'.$GLOBALS['TL_LANG']['tl_crontab']['route_not_exists'] . "</span> ($strJob->job)";
