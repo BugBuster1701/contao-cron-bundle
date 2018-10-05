@@ -183,7 +183,7 @@ class ContaoBackendController extends \Backend
 	    } 
 	    catch (\Exception $e) 
 	    {
-	        return '<span style="color:red;">' .$request->getResponseStatusCode(). '::' . $e->getMessage() . '</span>';
+	        return '<span style="color:red;">500::' . $e->getMessage() . '</span>';
 	    }
 	    	    
 	    return $request->get() . '::' . $request->getResponseBody(); 
@@ -200,7 +200,7 @@ class ContaoBackendController extends \Backend
 	    }
 	    catch (\Exception $e) 
 	    {
-	        return '<span style="color:red;">' .$request->getResponseStatusCode(). '::' . $e->getMessage() . '</span>';
+	        return '<span style="color:red;">500::' . $e->getMessage() . '</span>';
 	    }
 	     
 	    return $request->get() . '::' . $request->getResponseBody();
