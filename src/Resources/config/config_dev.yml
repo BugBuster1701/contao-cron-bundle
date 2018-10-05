@@ -1,10 +1,16 @@
 httplug:
     plugins:
         logger: ~
+        authentication:
+            my_basic:
+                type: 'basic'
+                username: 'usern4me'
+                password: 'p4ssw0rd'
     clients:
         my_guzzle6:
             factory: 'httplug.factory.guzzle6'
-            plugins: 
+            plugins:
+                - 'httplug.plugin.authentication.my_basic' 
                 - 'httplug.plugin.logger'
                 - 'httplug.plugin.redirect'
             config:
@@ -14,7 +20,8 @@ httplug:
                 allow_self_signed: 1
         my_curl:
             factory: 'httplug.factory.curl'
-            plugins: 
+            plugins:
+                - 'httplug.plugin.authentication.my_basic'
                 - 'httplug.plugin.logger'
                 - 'httplug.plugin.redirect'
             config:
