@@ -69,11 +69,11 @@ class CronRequest
         
         if (true === $this->isCurlEnabled() && false === $this->httpClient) 
         {
-            $this->httpClient = \System::getContainer()->get('httplug.client.my_curl');
+            $this->httpClient = \System::getContainer()->get('httplug.client.bb_curl');
         }
         elseif (true === $this->isAllowUrlFopenEnabled() && false === $this->httpClient) 
         {
-            $this->httpClient = \System::getContainer()->get('httplug.client.my_guzzle6');
+            $this->httpClient = \System::getContainer()->get('httplug.client.bb_guzzle6');
         }
         else
         {
