@@ -212,7 +212,12 @@ class ContaoBackendController extends \Backend
 	private function runFileJob($qjob)
 	{
 	    global  $cronJob;
-	    $limit = is_null($GLOBALS['TL_CONFIG']['cron_limit']) ? 5 : intval($GLOBALS['TL_CONFIG']['cron_limit']);
+	    
+	    $limit = 5;
+	    if (isset($GLOBALS['TL_CONFIG']['cron_limit']))
+	    {
+	        $limit = intval($GLOBALS['TL_CONFIG']['cron_limit']);
+	    }
 	    if ($limit<=0)
 	    {
 	        return;

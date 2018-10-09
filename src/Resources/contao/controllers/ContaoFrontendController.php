@@ -74,8 +74,12 @@ class ContaoFrontendController extends \Frontend
 	    
 	    $objResponse = new Response();
 	    
-	    $limit = is_null($GLOBALS['TL_CONFIG']['cron_limit']) ? $this->cron_max_run : intval($GLOBALS['TL_CONFIG']['cron_limit']);
-
+	    $limit = $this->cron_max_run;
+        if (isset($GLOBALS['TL_CONFIG']['cron_limit'])) 
+	    {
+	        $limit = intval($GLOBALS['TL_CONFIG']['cron_limit']);
+	    }
+	    
 	    // Do not run if there is POST data 
 	    if (!empty($_POST) || $limit <= 0)
 	    {
