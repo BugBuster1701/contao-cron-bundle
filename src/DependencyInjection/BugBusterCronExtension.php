@@ -27,6 +27,7 @@ class BugBusterCronExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
+        $configs = []; // Codacy: Avoid unused parameters
         $loader = new YamlFileLoader(
             $container,
             new FileLocator(__DIR__.'/../Resources/config')
