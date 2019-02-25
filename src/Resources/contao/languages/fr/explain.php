@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2018-02-11T23:31:59+01:00
+ * last-updated: 2018-02-12T00:46:42+01:00
  */
 
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['0'] = 'Syntaxe de base';
@@ -23,4 +23,9 @@ $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['0'] = 'Jour de la semaine';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['1'] = 'Les jours de la semaine peuvent être des nombres 0...6 où 0 = dimanche, ou des raccourcis anglais de 3 caractères, comme Mon, Tue, Wed, Thu, Fri, Sat, Sun :<br><br><pre>   Mon-Fri/2 est équivalent à 1-5/3</pre>';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['3']['0'] = 'Mois';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['3']['1'] = 'Les mois peuvent être des nombres 1...12, ou des raccourcis anglais de 3 caractères, comme Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec :<br><br><pre>   Feb-Nov/3 est équivalent à 2-11/3</pre>';
+$GLOBALS['TL_LANG']['XPL']['cron_jobs']['0']['0']     = 'Tâche';
+$GLOBALS['TL_LANG']['XPL']['cron_jobs']['0']['1']     = 'Types de travaux: <br> - chemin relatif d\'un script PHP <br>- une route Symfony <br> - un URL<br>Examples:<br><pre>
+  - web/bundles/bugbustercron/PurgeLog.php
+ - /BackupDB/autobackup
+ - http://your.domain/</pre>';
 
