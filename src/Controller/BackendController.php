@@ -21,6 +21,7 @@ class BackendController extends Controller
      */
     public function startJobNowAction()
     {
+        //TODO:: test
         $this->container->get('contao.framework')->initialize();
         $controller = new ContaoBackendController();
         return $controller->runJobNow();
