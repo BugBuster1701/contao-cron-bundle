@@ -10,7 +10,7 @@
  * @package    Cron
  * @license    LGPL
  * @filesource
- * @see	       https://github.com/BugBuster1701/contao-cron-bundle
+ * @see           https://github.com/BugBuster1701/contao-cron-bundle
  */
 
 /**
@@ -21,9 +21,9 @@ $GLOBALS['TL_DCA']['tl_settings']['palettes']['default'] .= ';{cron_scheduler_le
 /**
  * Add field
  */
-$GLOBALS['TL_DCA']['tl_settings']['fields']['cron_limit'] = array(
-    'label'		=> &$GLOBALS['TL_LANG']['tl_settings']['cron_limit'],
-    'inputType'	=> 'text',
-    'default'	=> '5',
-    'eval'		=> array('mandatory'=>true, 'rgxp'=>'digit', 'nospace'=>true)
-);
+$GLOBALS['TL_DCA']['tl_settings']['fields']['cron_limit'] = [
+    'label' => &$GLOBALS['TL_LANG']['tl_settings']['cron_limit'],
+    'inputType' => 'text',
+    'default' => '5',
+    'eval' => ['mandatory' => true, 'rgxp' => 'digit', 'nospace' => true],
+];

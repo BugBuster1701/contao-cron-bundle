@@ -4,4 +4,4 @@
 .settings/
 # Transifex
 /.tx/
-
+.idea/

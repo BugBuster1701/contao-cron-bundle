@@ -82,3 +82,5 @@ $GLOBALS['TL_LANG']['tl_crontab']['route_not_exists']  = 'None of the routes mat
 $GLOBALS['TL_LANG']['tl_crontab']['allow_url_fopen_not_set']  = 'The PHP flag "allow_url_fopen" is not set.';
 $GLOBALS['TL_LANG']['tl_crontab']['curl_not_available']       = 'The PHP "cURL" extension is not available.';
 $GLOBALS['TL_LANG']['tl_crontab']['one_is_necessary']         = 'One is necessary.';
+
+$GLOBALS['TL_LANG']['tl_crontab']['job_type'] = ['Job Type', 'Plase select job type'];
