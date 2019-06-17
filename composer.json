@@ -1,5 +1,5 @@
 {
-	"name":"bugbuster/contao-cron-bundle",
+	"name":"buldozer86/contao-cron-bundle",
 	"description":"Contao 4 Cron Bundle - Scheduler for Contao 4",
 	"keywords":["cron","scheduler","contao"],
 	"type":"contao-bundle",
