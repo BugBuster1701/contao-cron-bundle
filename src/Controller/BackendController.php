@@ -15,13 +15,13 @@ declare(strict_types=1);
 namespace BugBuster\CronBundle\Controller;
 
 use BugBuster\Cron\ContaoBackendController;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Handles back end routes.
  * path: /bbcron/startjobnow.
  */
-class BackendController extends Controller
+class BackendController extends AbstractController
 {
     /**
      * Renders the details content.
