@@ -3,10 +3,10 @@
 namespace BugBuster\Cron;
 
 /**
-* Class DcaCrontab
-*
-* Provide miscellaneous methods that are used by the data configuration array.
-*/
+ * Class DcaCrontab
+ *
+ * Provide miscellaneous methods that are used by the data configuration array.
+ */
 class DcaCrontab extends \Backend
 {
     /**
@@ -20,9 +20,10 @@ class DcaCrontab extends \Backend
                            'act'=>'edit',
                            'id'=>$row['id'],
                            'rt'=>REQUEST_TOKEN
-            
+
                           );
-        $link = $this->route('contao_backend',$arrParams);
+        $link = $this->route('contao_backend', $arrParams);
+
         return
         '<a class="cron-list" href="'.$link.'"><div>' .
         '<div class="main">' .
@@ -61,8 +62,7 @@ class DcaCrontab extends \Backend
         '</div>' .
         '</div></a>';
     } // listJobs
-    
-    
+
     /**
      * Return a route relative to the base URL
      *
@@ -74,11 +74,11 @@ class DcaCrontab extends \Backend
     public function route($strName, $arrParams=array())
     {
         $strUrl = \System::getContainer()->get('router')->generate($strName, $arrParams);
-        $strUrl = substr($strUrl, strlen(\Environment::get('path')) + 1);
-    
+        $strUrl = substr($strUrl, \strlen(\Environment::get('path')) + 1);
+
         return ampersand($strUrl);
     }
-    
+
     /**
      * Create the enabled/disabled button
      */
@@ -97,13 +97,14 @@ class DcaCrontab extends \Backend
             $icon = 'bundles/bugbustercron/disabled.png';
         } // if
         $title = sprintf($label[1], $row['id']);
+
         return
         '<a href="' . $this->addToUrl($href.'&amp;id='.$row['id']) .
         '" title="' . \StringUtil::specialchars($title) . '"' . $attributes . '>' .
         '<img src="'.$icon.'" width="16" height="16" alt="'.\StringUtil::specialchars($title).'" />' .
         '</a> ';
     } // enabledButton
-    
+
     /**
      * Create the logging on/off button
      */
@@ -122,13 +123,14 @@ class DcaCrontab extends \Backend
             $icon = 'bundles/bugbustercron/notlogging.png';
         } // if
         $title = sprintf($label[1], $row['id']);
+
         return
         '<a href="' . $this->addToUrl($href.'&amp;id='.$row['id']) .
         '" title="' . \StringUtil::specialchars($title) . '"' . $attributes . '>' .
         '<img src="'.$icon.'" width="16" height="16" alt="'.\StringUtil::specialchars($title).'" />' .
         '</a> ';
     } // loggingButton
-    
+
     public function startnowButton($row, $href, $label, $title, $icon, $attributes)
     {
         $href = 'key=start_now';
@@ -136,12 +138,12 @@ class DcaCrontab extends \Backend
         $icon = 'bundles/bugbustercron/start_now.png';
         $title = sprintf($label[1], $row['id']);
         $strEncypt = 'later_'.$row['id']; //TODO base64_encode( Cron_Encryption::encrypt( serialize( array( $title,$row['id'] ) ) ) );
-         
+
         //$href = 'system/modules/cron/public/CronStart.php?crcst='.$strEncypt.'';
-        
+
         $arrParams = array('crcst' => $strEncypt, 'rt'=>REQUEST_TOKEN);
         $href = $this->route('cron_backend_startnow', $arrParams);
-         
+
         return
         '<a href="' . $href . '"' .
         'onclick="if(!confirm(\''.$title.'?\'))return false;Backend.openModalIframe({\'width\':735,\'height\':405,\'title\':\'Cronjob Start\',\'url\':this.href});return false"'.
@@ -149,10 +151,10 @@ class DcaCrontab extends \Backend
         '<img src="'.$icon.'" width="16" height="16" alt="'.\StringUtil::specialchars($title).'" />' .
         '</a> ';
     }
-    
+
     /**
      * Set next run date, if it enabled but it is not set
-     * @param array $row    Job Array
+     * @param array $row Job Array
      */
     private function setNextRun(&$row)
     {
@@ -173,9 +175,10 @@ class DcaCrontab extends \Backend
                                     ->execute($q->id);
             $row['nextrun'] = $dataset['nextrun'];
         }
-        return ;
+
+        return;
     }
-    
+
     /**
      * Find new schedule time for job
      * @see CronController
@@ -187,25 +190,25 @@ class DcaCrontab extends \Backend
         $dom    = array();
         $month  = array();
         $dow    = array();
-    
+
         $dowNum =
         str_ireplace(
-            array('Sun','Mon','Tue','Wed','Thu','Fri','Sat'),
-            array(0,1,2,3,4,5,6),
+            array('Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'),
+            array(0, 1, 2, 3, 4, 5, 6),
             $qjob->t_dow
             );
         $monthNum =
         str_ireplace(
-            array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'),
-            array(1,2,3,4,5,6,7,8,9,10,11,12),
+            array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'),
+            array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
             $qjob->t_month
             );
-        $this->parseElement($qjob->t_minute,	$minute,	0,	60);
-        $this->parseElement($qjob->t_hour,		$hour,		0,	24);
-        $this->parseElement($qjob->t_dom,		$dom,		1,	31);
-        $this->parseElement($monthNum,			$month,		1,	12);
-        $this->parseElement($dowNum,			$dow,		0,	 7);
-    
+        $this->parseElement($qjob->t_minute, $minute, 0, 60);
+        $this->parseElement($qjob->t_hour, $hour, 0, 24);
+        $this->parseElement($qjob->t_dom, $dom, 1, 31);
+        $this->parseElement($monthNum, $month, 1, 12);
+        $this->parseElement($dowNum, $dow, 0, 7);
+
         $nextrun = time()+60;
         $maxdate = $nextrun+31536000; // schedule for one year ahead max
         while ($nextrun < $maxdate)
@@ -217,14 +220,14 @@ class DcaCrontab extends \Backend
             $_mday		= $dateArr['mday'];
             $_wday		= $dateArr['wday'];
             $_mon		= $dateArr['mon'];
-    
+
             if (!$month[$_mon] || !$dom[$_mday] || !$dow[$_wday])
             {
                 // increment to 00:00:00 of next day
                 $nextrun += 60*(60*(24-$_hours)-$_minutes)-$_seconds;
                 continue;
             } // if
-    
+
             $allhours = ($_hours==0);
             while ($_hours < 24)
             {
@@ -255,7 +258,7 @@ class DcaCrontab extends \Backend
         } // while
         return 0;
     } // schedule
-    
+
     /**
      * Parse timer element of syntax  from[-to][/step] or *[/step] and set flag for each tick
      * @see CronControllers
@@ -271,10 +274,10 @@ class DcaCrontab extends \Backend
         {
             $targetArray[$i] = $subelements[0] == "*";
         }
-    
-        for ($i = 0; $i < count($subelements); $i++)
+
+        for ($i = 0; $i < \count($subelements); $i++)
         {
-            if ( preg_match("~^(\\*|([0-9]{1,2})(-([0-9]{1,2}))?)(/([0-9]{1,2}))?$~", $subelements[$i], $matches) )
+            if (preg_match("~^(\\*|([0-9]{1,2})(-([0-9]{1,2}))?)(/([0-9]{1,2}))?$~", $subelements[$i], $matches))
             {
                 if ($matches[1]=='*')
                 {
@@ -289,9 +292,9 @@ class DcaCrontab extends \Backend
                 {
                     $matches[6] = 1;			// default step
                 }
-                $from	= intval(ltrim($matches[2],'0'));
-                $to		= intval(ltrim($matches[4],'0'));
-                $step	= intval(ltrim($matches[6],'0'));
+                $from	= (int) (ltrim($matches[2], '0'));
+                $to		= (int) (ltrim($matches[4], '0'));
+                $step	= (int) (ltrim($matches[6], '0'));
                 for ($j = $from; $j <= $to; $j += $step)
                 {
                     $targetArray[$j] = true;
@@ -299,6 +302,5 @@ class DcaCrontab extends \Backend
             } // if
         } // for
     } // parseElement
-    
-    
+
 }

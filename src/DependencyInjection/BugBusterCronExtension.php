@@ -1,11 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 /*
- * @copyright  Glen Langer 2018 <http://contao.ninja>
+ * This file is part of a BugBuster Contao Bundle
+ *
+ * @copyright  Glen Langer 2020 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @package    CronBundle
- * @license    LGPL-3.0+
- * @see	       https://github.com/BugBuster1701/contao-cron-bundle
+ * @license    LGPL-3.0-or-later
+ * @see        https://github.com/BugBuster1701/contao-cron-bundle
  */
 
 namespace BugBuster\CronBundle\DependencyInjection;
@@ -25,7 +29,7 @@ class BugBusterCronExtension extends Extension
      *
      * @throws \InvalidArgumentException When provided tag is not defined in this extension
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $configs = []; // Codacy: Avoid unused parameters
         $loader = new YamlFileLoader(

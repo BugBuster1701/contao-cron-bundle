@@ -7,7 +7,6 @@
  *
  * @copyright  Glen Langer 2013..2018 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
- * @package    Cron
  * @license    LGPL
  * @filesource
  * @see	       https://github.com/BugBuster1701/contao-cron-bundle

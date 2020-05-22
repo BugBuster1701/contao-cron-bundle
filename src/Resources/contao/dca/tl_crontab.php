@@ -1,7 +1,5 @@
 <?php
 
-
-
 /**
  * Table tl_crontab
  */
@@ -140,7 +138,7 @@ $GLOBALS['TL_DCA']['tl_crontab'] = array
             'inputType'		=> 'text',
             'default'		=> '*',
             'explanation'	=> 'cron_elements',
-            'eval'			=> array('nospace'=>true,'maxlength'=>100, 'helpwizard'=>true),
+            'eval'			=> array('nospace'=>true, 'maxlength'=>100, 'helpwizard'=>true),
             'sql'           => "varchar(100) NOT NULL default ''"
         ),
         't_hour' => array
@@ -150,7 +148,7 @@ $GLOBALS['TL_DCA']['tl_crontab'] = array
             'inputType'		=> 'text',
             'default'		=> '*',
             'explanation'	=> 'cron_elements',
-            'eval'			=> array('nospace'=>true,'maxlength'=>100, 'helpwizard'=>true),
+            'eval'			=> array('nospace'=>true, 'maxlength'=>100, 'helpwizard'=>true),
             'sql'           => "varchar(100) NOT NULL default ''"
         ),
         't_dom' => array
@@ -160,7 +158,7 @@ $GLOBALS['TL_DCA']['tl_crontab'] = array
             'inputType'		=> 'text',
             'default'		=> '*',
             'explanation'	=> 'cron_elements',
-            'eval'			=> array('nospace'=>true,'maxlength'=>100, 'helpwizard'=>true),
+            'eval'			=> array('nospace'=>true, 'maxlength'=>100, 'helpwizard'=>true),
             'sql'           => "varchar(100) NOT NULL default ''"
         ),
         't_month' => array
@@ -170,7 +168,7 @@ $GLOBALS['TL_DCA']['tl_crontab'] = array
             'inputType'		=> 'text',
             'default'		=> '*',
             'explanation'	=> 'cron_elements',
-            'eval'			=> array('nospace'=>true,'maxlength'=>100, 'helpwizard'=>true),
+            'eval'			=> array('nospace'=>true, 'maxlength'=>100, 'helpwizard'=>true),
             'sql'           => "varchar(100) NOT NULL default ''"
         ),
         't_dow' => array
@@ -180,7 +178,7 @@ $GLOBALS['TL_DCA']['tl_crontab'] = array
             'inputType'		=> 'text',
             'default'		=> '*',
             'explanation'	=> 'cron_elements',
-            'eval'			=> array('nospace'=>true,'maxlength'=>100, 'helpwizard'=>true),
+            'eval'			=> array('nospace'=>true, 'maxlength'=>100, 'helpwizard'=>true),
             'sql'           => "varchar(100) NOT NULL default ''"
         ),
         'runonce' => array(

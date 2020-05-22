@@ -9,7 +9,6 @@ use Http\Message\RequestFactory;
  * Request class, use httplug
  * 
  * @author Glen Langer (BugBuster)
- *        
  */
 class CronRequest
 {
@@ -19,40 +18,40 @@ class CronRequest
      * @var string
      */
     protected $url;
-    
+
     /**
      * The http client.
      *
      * @var \Http\Client\HttpClient
      */
     protected $httpClient;
-    
+
     /**
      * The http request factory.
      *
      * @var \Http\Message\RequestFactory
      */
     protected $requestFactory;
-    
+
     /**
      * The http response body
      * 
      * @var \Http\Message\MessageInterface
      */
     protected $responseBody;
-    
+
     /**
      * The http response status code
      * 
      * @var \Http\Message\ResponseInterface
      */
     protected $responseStatusCode;
-    
+
     /**
      * Create a new CronRequest instance.
      *
-     * @param string $url
-     * @param \Http\Client\HttpClient|null $httpClient
+     * @param string                            $url
+     * @param \Http\Client\HttpClient|null      $httpClient
      * @param \Http\Message\RequestFactory|null $requestFactory
      *
      * @return void
@@ -60,13 +59,13 @@ class CronRequest
     public function __construct(string $url, HttpClient $httpClient = null, RequestFactory $requestFactory = null)
     {
         \System::loadLanguageFile('tl_crontab');
-        
+
         $this->responseBody = '';
         $this->url          = $url;
-        
-        $this->httpClient     = $httpClient     ?: false;
+
+        $this->httpClient     = $httpClient ?: false;
         $this->requestFactory = $requestFactory ?: false;
-        
+
         if (true === $this->isCurlEnabled() && false === $this->httpClient) 
         {
             $this->httpClient = \System::getContainer()->get('httplug.client.bb_curl');
@@ -89,8 +88,7 @@ class CronRequest
     /**
      * Request
      *
-     *
-     * @return integer  HTTP Statuscode
+     * @return integer HTTP Statuscode
      */
     public function get()
     {
@@ -101,18 +99,21 @@ class CronRequest
             // Executed only in PHP 7, will not match in PHP 5.x
             $this->responseBody = "<span style='color:red;'>Request Exception:<br>".$t->getMessage()."</span>";
             $this->responseStatusCode = 500;
+
             return $this->responseStatusCode;
         } catch (\Exception $e) {
             // Executed only in PHP 5.x, will not be reached in PHP 7
             $this->responseBody = "<span style='color:red;'>Request Exception:<br>".$e->getMessage()."</span>";
             $this->responseStatusCode = 500;
+
             return $this->responseStatusCode;
         }
         $this->responseBody       = $response->getBody(); 
-        $this->responseStatusCode = $response->getStatusCode(); 
+        $this->responseStatusCode = $response->getStatusCode();
+ 
         return $this->responseStatusCode;
     }
-    
+
     /**
      * Get HTTP Status Code
      * 
@@ -122,7 +123,7 @@ class CronRequest
     {
         return $this->responseStatusCode;
     }
-    
+
     /**
      * Get HTTP Response Body
      * 
@@ -132,7 +133,7 @@ class CronRequest
     {
         return $this->responseBody;
     }
-    
+
     /**
      * Determinate if curl is enabled.
      *
@@ -140,9 +141,9 @@ class CronRequest
      */
     public function isCurlEnabled()
     {
-        return function_exists('curl_init');
+        return \function_exists('curl_init');
     }
-    
+
     /**
      * Determinate if allow_url_fopen is enabled.
      *
