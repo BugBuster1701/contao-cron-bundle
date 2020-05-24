@@ -1,33 +1,31 @@
-<?php 
+<?php
 
 namespace BugBuster\Cron;
 
-use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Contao\Environment;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
 
 /**
- *
  * Hook parseBackendTemplate
- *        
  */
 class CronHook extends \System
 {
 
     /**
-	 * Current object instance
-	 * @var object
-	 */
+     * Current object instance
+     * @var object
+     */
     protected static $instance = null;
-    
-	/**
-	 * Initialize 
-	 *
-	 * 1. Import the user
-	 * 2. Call the parent constructor
-	 * 3. Authenticate the user
-	 * 4. Load the language files
-	 * DO NOT CHANGE THIS ORDER!
-	 */
+
+    /**
+     * Initialize 
+     *
+     * 1. Import the user
+     * 2. Call the parent constructor
+     * 3. Authenticate the user
+     * 4. Load the language files
+     * DO NOT CHANGE THIS ORDER!
+     */
     public function __construct()
     {
 		parent::__construct();
@@ -35,8 +33,7 @@ class CronHook extends \System
 		\System::loadLanguageFile('default');
 		\System::loadLanguageFile('tl_crontab');
     }
-    
-    
+
     /**
      * Return the current object instance (Singleton)
      * @return BotStatisticsHelper
@@ -45,17 +42,17 @@ class CronHook extends \System
     {
         if (self::$instance === null)
         {
-            self::$instance = new CronHook();
+            self::$instance = new self();
         }
-    
+
         return self::$instance;
     }
-    
+
     /**
      * Start Jobs
      * 
-     * @param string $strContent
-     * @param string $strTemplate
+     * @param  string $strContent
+     * @param  string $strTemplate
      * @return string $strContent
      */
     public function startJobs($strContent, $strTemplate)
@@ -64,11 +61,11 @@ class CronHook extends \System
         {
             return $strContent;
         }
-        
+
         $arrParams = array();
         $strUrl = \System::getContainer()->get('router')->generate('cron_frontend_startjobs', $arrParams);
-        $strUrl = substr($strUrl, strlen(\Environment::get('path')) + 1);
-        
+        $strUrl = substr($strUrl, \strlen(\Environment::get('path')) + 1);
+
         $strScripts = \Template::generateInlineScript('
             setTimeout(
                 function(){
@@ -81,12 +78,12 @@ class CronHook extends \System
                         n.send();
                 },1000
             );');
-        
+
         $searchString = '</body>';
         $strContent = str_replace($searchString, $strScripts.$searchString, $strContent);
-        
+
         return $strContent;
 
     }//startJobs
-        
+
 }

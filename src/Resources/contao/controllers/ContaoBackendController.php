@@ -8,14 +8,14 @@
 
 namespace BugBuster\Cron;
 
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Bundle\FrameworkBundle\Routing\Router;
-use Contao\Input;
+use BugBuster\Cron\CronRequest;
+use Contao\CoreBundle\Monolog\ContaoContext;
 use Contao\Database;
 use Contao\Environment;
+use Contao\Input;
 use Psr\Log\LogLevel;
-use Contao\CoreBundle\Monolog\ContaoContext;
-use BugBuster\Cron\CronRequest;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Back end 
@@ -32,7 +32,7 @@ class ContaoBackendController extends \Backend
     const JOB_TYPE_FILE  = 1;
     const JOB_TYPE_ROUTE = 2;
     const JOB_TYPE_URL   = 3;
-    
+
 	/**
 	 * Initialize the controller
 	 *
@@ -54,7 +54,6 @@ class ContaoBackendController extends \Backend
 
 	}
 
-
 	/**
 	 * Run the controller and parse the template
 	 *
@@ -68,14 +67,14 @@ class ContaoBackendController extends \Backend
 		$output = '';
 		$strEncypt = Input::get('crcst');
 		$jobId = substr($strEncypt, 6); //TODO
-		
+
 		$GLOBALS['TL_CONFIG']['debugMode'] = false;
-		
+
 		$q = Database::getInstance()->prepare("SELECT * FROM `tl_crontab`
                                                 WHERE id=?
                                             ")
                                     ->execute($jobId);
-        if ( $q->numRows > 0 )
+        if ($q->numRows > 0)
         {
             $objTemplate->cronjob = $q->job;
             $objTemplate->cronlogtitle = $q->title;
@@ -87,7 +86,7 @@ class ContaoBackendController extends \Backend
                 ->log(LogLevel::INFO,
                       'Running scheduler job manually',
                       array('contao' => new ContaoContext('ContaoBackendController run()', TL_CRON)));
-            
+
             $output .= sprintf("[%s] %s<br>", date('d-M-Y H:i:s'), 'Running scheduler job manually');
             $output .= '::'.$this->runJob($q).'<br>';
             //$this->log('Manually scheduler job complete', 'CronStart run()', TL_CRON);
@@ -96,7 +95,7 @@ class ContaoBackendController extends \Backend
                 ->log(LogLevel::INFO,
                       'Manually scheduler job complete',
                       array('contao' => new ContaoContext('ContaoBackendController run()', TL_CRON)));
-            
+
             $output .= sprintf("[%s] %s<br>", date('d-M-Y H:i:s'), 'Manually scheduler job complete');
         }
         else
@@ -110,10 +109,10 @@ class ContaoBackendController extends \Backend
         $objTemplate->language = $GLOBALS['TL_LANGUAGE'];
         $objTemplate->title    = 'CronRunJobNow';
         $objTemplate->charset  = $GLOBALS['TL_CONFIG']['characterSet'];
-		                                                
+
 		return $objTemplate->getResponse(); // compile and new Response()...
 	}
-	
+
 	/**
 	 * Run job and return the captured output
 	 */
@@ -123,26 +122,26 @@ class ContaoBackendController extends \Backend
 
     	switch ($jobtype)
     	{
-    	    case self::JOB_TYPE_FILE :
+    	    case self::JOB_TYPE_FILE:
     	        return $this->runFileJob($qjob);
     	        break;
-    	    case self::JOB_TYPE_ROUTE :
+    	    case self::JOB_TYPE_ROUTE:
     	        return $this->runRouteJob($qjob);
     	        break;
-    	    case self::JOB_TYPE_URL :
+    	    case self::JOB_TYPE_URL:
     	        return $this->runUrlJob($qjob);
     	        break;
-    	
+
     	    default:
-    	        return ;
+    	        return;
     	        break;
     	}
 	}
-	
+
 	/**
 	 * Get the Job Type
-	 * @param string $strJob
-	 * @return  int     1: File, 2: Route 3: URL
+	 * @param  string $strJob
+	 * @return int    1: File, 2: Route 3: URL
 	 */
 	private function getJobType($strJob)
 	{
@@ -150,33 +149,34 @@ class ContaoBackendController extends \Backend
 	    {
 	        return self::JOB_TYPE_URL;
 	    }
-	
+
 	    if ('.php' == substr($strJob, -4))
 	    {
 	        return self::JOB_TYPE_FILE;
 	    }
+
 	    return self::JOB_TYPE_ROUTE; // I hope :-)
 	}
-	
+
 	/**
 	 * Run route job and return the captured output
 	 */
 	private function runRouteJob($strJob)
 	{
-	    /* @var Router $router */
+	    // @var Router $router
 	    $router = \System::getContainer()->get('router');
-	    
+
 	    //Trennung Parameter im alten Stil: ?abcde.. (BackupDB Spam Schutz)
 	    $arrFragments = \StringUtil::trimsplit('?', $strJob->job);
 	    $arrRoute = $router->match($arrFragments[0]);
-	    	    
+
 	    if ('contao_catch_all' == $arrRoute['_route']) 
 	    {
 	        return '<span style="color:red;">'.$GLOBALS['TL_LANG']['tl_crontab']['route_not_exists'] . "</span> ($strJob->job)";
 	    }
-	    
+
 	    $url = Environment::get('base') . ltrim($strJob->job, '/');
-	    
+
 	    try 
 	    {
 	        $request = new CronRequest($url);
@@ -185,10 +185,10 @@ class ContaoBackendController extends \Backend
 	    {
 	        return '<span style="color:red;">500::' . $e->getMessage() . '</span>';
 	    }
-	    	    
+
 	    return $request->get() . '::' . $request->getResponseBody(); 
 	}
-	
+
 	/**
 	 * Run URL job and return the captured output
 	 */
@@ -202,28 +202,33 @@ class ContaoBackendController extends \Backend
 	    {
 	        return '<span style="color:red;">500::' . $e->getMessage() . '</span>';
 	    }
-	     
+
 	    return $request->get() . '::' . $request->getResponseBody();
 	}
-	
+
 	/**
 	 * Run file job and return the captured output
 	 */
 	private function runFileJob($qjob)
 	{
 	    global  $cronJob;
-	    $limit = is_null($GLOBALS['TL_CONFIG']['cron_limit']) ? 5 : intval($GLOBALS['TL_CONFIG']['cron_limit']);
+
+	    $limit = 5;
+	    if (isset($GLOBALS['TL_CONFIG']['cron_limit']))
+	    {
+	        $limit = (int) ($GLOBALS['TL_CONFIG']['cron_limit']);
+	    }
 	    if ($limit<=0)
 	    {
 	        return;
 	    }
-	    
+
 	    //File exists and readable?
 	    if (!is_readable(TL_ROOT . '/' . $qjob->job)) 
 	    {
 	        return '<span style="color:red;">'.$GLOBALS['TL_LANG']['tl_crontab']['file_not_readable'] . "</span> ($qjob->job)";
 	    }
-	    
+
 	    $currtime = time();
 	    $endtime  = $currtime+$limit;
 	    $cronJob = array(
@@ -231,15 +236,16 @@ class ContaoBackendController extends \Backend
 	        'title'		=> $qjob->title,
 	        'lastrun'	=> $qjob->lastrun,
 	        'endtime'	=> $endtime,
-	        'runonce'	=> intval($qjob->runonce) > 0,
-	        'logging'	=> intval($qjob->logging) > 0,
+	        'runonce'	=> (int) ($qjob->runonce) > 0,
+	        'logging'	=> (int) ($qjob->logging) > 0,
 	        'completed'	=> true
 	    );
 	    ob_start();
 	    $e = error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 	    include(TL_ROOT . '/' . $qjob->job);
 	    error_reporting($e);
-	    return str_replace("\n",'<br>', trim(preg_replace('#<\s*br\s*/?\s*>#i', "\n", ob_get_flush())));
+
+	    return str_replace("\n", '<br>', trim(preg_replace('#<\s*br\s*/?\s*>#i', "\n", ob_get_flush())));
 	} // runJob
-	
+
 }

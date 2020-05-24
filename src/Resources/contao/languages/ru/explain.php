@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2018-02-12T00:46:42+01:00
+ * last-updated: 2018-03-16T23:51:33+01:00
  */
 
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['0'] = 'Основной синтаксис элементов';
@@ -25,4 +25,8 @@ $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['1'] = 'Дни недели м�
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['3']['0'] = 'Месяцы';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['3']['1'] = 'Месяцы могут быть введены либо как число 1...12, либо как 3-х значное буквенное обозначение месяца в английском языке Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec:<br><br><pre>		   Feb-Nov/3 эквивалентно 2-11/3</pre>';
 $GLOBALS['TL_LANG']['XPL']['cron_jobs']['0']['0']     = 'Задание';
+$GLOBALS['TL_LANG']['XPL']['cron_jobs']['0']['1']     = 'Типы заданий:<br>- относительный путь к PHP-скрипту<br>- маршрут Symfony<br>- URL<br>Примеры:<br><pre>
+    - web/bundles/bugbustercron/PurgeLog.php
+    - /BackupDB/autobackup
+    - http://your.domain/</pre>';
 
