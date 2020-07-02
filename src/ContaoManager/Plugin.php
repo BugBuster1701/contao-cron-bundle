@@ -37,7 +37,6 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface, ConfigPlu
         return [
             BundleConfig::create('BugBuster\CronBundle\BugBusterCronBundle')
                 ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle']),
-            BundleConfig::create('Http\HttplugBundle\HttplugBundle'),
         ];
     }
 
