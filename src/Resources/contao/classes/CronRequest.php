@@ -2,11 +2,10 @@
 
 namespace BugBuster\Cron;
 
-use Http\Client\HttpClient;
-use Http\Message\RequestFactory;
+use Symfony\Component\HttpClient\HttpClient;
 
 /**
- * Request class, use httplug
+ * Request class, use symfony/http-client
  * 
  * @author Glen Langer (BugBuster)
  */
@@ -22,59 +21,40 @@ class CronRequest
     /**
      * The http client.
      *
-     * @var \Http\Client\HttpClient
+     * @var \HttpClient\HttpClientInterface
      */
     protected $httpClient;
 
     /**
-     * The http request factory.
-     *
-     * @var \Http\Message\RequestFactory
-     */
-    protected $requestFactory;
-
-    /**
      * The http response body
      * 
-     * @var \Http\Message\MessageInterface
+     * @var string
      */
     protected $responseBody;
 
     /**
      * The http response status code
      * 
-     * @var \Http\Message\ResponseInterface
+     * @var \HttpClient\ResponseInterface
      */
     protected $responseStatusCode;
 
     /**
      * Create a new CronRequest instance.
      *
-     * @param string                            $url
-     * @param \Http\Client\HttpClient|null      $httpClient
-     * @param \Http\Message\RequestFactory|null $requestFactory
-     *
+     * @param  string $url
      * @return void
      */
-    public function __construct(string $url, HttpClient $httpClient = null, RequestFactory $requestFactory = null)
+    public function __construct(string $url)
     {
         \System::loadLanguageFile('tl_crontab');
 
         $this->responseBody = '';
         $this->url          = $url;
 
-        $this->httpClient     = $httpClient ?: false;
-        $this->requestFactory = $requestFactory ?: false;
+        $this->httpClient   = HttpClient::create();
 
-        if (true === $this->isCurlEnabled() && false === $this->httpClient) 
-        {
-            $this->httpClient = \System::getContainer()->get('httplug.client.bb_curl');
-        }
-        elseif (true === $this->isAllowUrlFopenEnabled() && false === $this->httpClient) 
-        {
-            $this->httpClient = \System::getContainer()->get('httplug.client.bb_guzzle6');
-        }
-        else
+        if (false === $this->isCurlEnabled() && false === $this->isAllowUrlFopenEnabled()) 
         {
             $this->responseBody = "Request Exception:<br>".$GLOBALS['TL_LANG']['tl_crontab']['allow_url_fopen_not_set'].
                                                     "<br>".$GLOBALS['TL_LANG']['tl_crontab']['curl_not_available'].
@@ -82,7 +62,6 @@ class CronRequest
             $this->responseStatusCode = 500;
             throw new \Exception($this->responseBody);
         }
-        $this->requestFactory = $requestFactory ?: \System::getContainer()->get('httplug.message_factory');
     }
 
     /**
@@ -92,25 +71,17 @@ class CronRequest
      */
     public function get()
     {
-        $request = $this->requestFactory->createRequest('GET', $this->url);
         try {
-            $response = $this->httpClient->sendRequest($request);
+            $response = $this->httpClient->request('GET', $this->url, array('timeout' => 3));
         } catch (\Throwable $t) {
-            // Executed only in PHP 7, will not match in PHP 5.x
             $this->responseBody = "<span style='color:red;'>Request Exception:<br>".$t->getMessage()."</span>";
             $this->responseStatusCode = 500;
 
             return $this->responseStatusCode;
-        } catch (\Exception $e) {
-            // Executed only in PHP 5.x, will not be reached in PHP 7
-            $this->responseBody = "<span style='color:red;'>Request Exception:<br>".$e->getMessage()."</span>";
-            $this->responseStatusCode = 500;
-
-            return $this->responseStatusCode;
         }
-        $this->responseBody       = $response->getBody(); 
+        $this->responseBody       = $response->getContent(); 
         $this->responseStatusCode = $response->getStatusCode();
- 
+
         return $this->responseStatusCode;
     }
 
