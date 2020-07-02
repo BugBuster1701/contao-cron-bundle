@@ -1,7 +1,0 @@
-services:
-        httplug.client.bb_curl:
-                alias: 'httplug.client.my_curl'
-                public: true
-        httplug.client.bb_guzzle6:
-                alias: 'httplug.client.my_guzzle6'
-                public: true
