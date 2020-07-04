@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2018-02-11T23:39:01+01:00
+ * last-updated: 2018-02-12T00:46:42+01:00
  */
 
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['0'] = 'Sintassi di base';
@@ -24,4 +24,5 @@ $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['0'] = 'Giorno della settimana'
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['1'] = 'I gionri della settimana possono essere inseriti o come numeri 0...6 dove 0 = domenica, oppure come 3 caratteri abbreviati in inglese come Mon, Tue, Wed, Thu, Fri, Sat, Sun:<br><br><pre>   Mon-Fri/2 è equivalente a to 1-5/2</pre>';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['3']['0'] = 'Mesi';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['3']['1'] = 'I mesi possono essere inseriti come numeri 1...12, oppure come 3 caratteri abbreviati in inglese Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec:<br><br><pre>   Feb-Nov/3 è equivalente a 2-11/3</pre>';
+$GLOBALS['TL_LANG']['XPL']['cron_jobs']['0']['0']     = 'Operazione';
 

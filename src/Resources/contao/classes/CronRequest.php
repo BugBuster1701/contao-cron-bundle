@@ -21,7 +21,7 @@ class CronRequest
     /**
      * The http client.
      *
-     * @var \HttpClient\HttpClientInterface
+     * @var Symfony\Component\HttpClient\HttpClient
      */
     protected $httpClient;
 

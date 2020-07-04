@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2018-03-16T23:51:33+01:00
+ * last-updated: 2018-03-26T23:49:57+02:00
  */
 
 $GLOBALS['TL_LANG']['tl_crontab']['allow_url_fopen_not_set'] = 'Das PHP-Flag "allow_url_fopen" ist nicht gesetzt.';
@@ -32,6 +32,10 @@ $GLOBALS['TL_LANG']['tl_crontab']['enabled']['1']            = 'Aktiviert die Au
 $GLOBALS['TL_LANG']['tl_crontab']['file_not_readable']       = 'Datei nicht gefunden oder nicht lesbar.';
 $GLOBALS['TL_LANG']['tl_crontab']['job']['0']                = 'Job';
 $GLOBALS['TL_LANG']['tl_crontab']['job']['1']                = 'Geben Sie entweder den relativen Pfad zum auszuführenden PHP-Script an, eine Symfony Route oder eine URL.';
+$GLOBALS['TL_LANG']['tl_crontab']['jobtype1']                = 'Datei';
+$GLOBALS['TL_LANG']['tl_crontab']['jobtype2']                = 'Route';
+$GLOBALS['TL_LANG']['tl_crontab']['jobtype3']                = 'URL';
+$GLOBALS['TL_LANG']['tl_crontab']['jobtypetitle']            = 'Jobtyp';
 $GLOBALS['TL_LANG']['tl_crontab']['lastrun']                 = 'Letzte Ausführung';
 $GLOBALS['TL_LANG']['tl_crontab']['logging']['0']            = 'Logging';
 $GLOBALS['TL_LANG']['tl_crontab']['logging']['1']            = 'Log-Eintrag schreiben, wenn Job ausgeführt wird';

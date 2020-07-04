@@ -10,6 +10,14 @@ namespace BugBuster\Cron;
 class DcaCrontab extends \Backend
 {
     /**
+     * Job Constants
+     * @var integer
+     */
+    const JOB_TYPE_FILE  = 1;
+    const JOB_TYPE_ROUTE = 2;
+    const JOB_TYPE_URL   = 3;
+
+    /**
      * List a particular record
      */
     public function listJobs($row)
@@ -20,14 +28,18 @@ class DcaCrontab extends \Backend
                            'act'=>'edit',
                            'id'=>$row['id'],
                            'rt'=>REQUEST_TOKEN
-
                           );
+
         $link = $this->route('contao_backend', $arrParams);
+
+        $jobtypetxt = 'jobtype' . (string) $this->getJobType($row['job']);
+        $jobtyperow = sprintf('<div class="jobtype">%s: %s</div>', $text['jobtypetitle'], $text[$jobtypetxt]);
 
         return
         '<a class="cron-list" href="'.$link.'"><div>' .
         '<div class="main">' .
         '<div class="title">' . $row['title'] . '</div>' .
+        $jobtyperow .
         //					'<div class="job">' . $row['job'] . '</div>' .
         '</div>' .
         '<div>' .
@@ -58,7 +70,7 @@ class DcaCrontab extends \Backend
         '<div class="floatleft">' .
         '<div class="caption">' . $text['nextrun'] . '</div>' .
         '<div class="data">' . ($row['nextrun']==0 ? '' : date($GLOBALS['TL_CONFIG']['datimFormat'], $row['nextrun'])) . '</div>' .
-        '</div>' .
+        '</div><div class="clear"></div>' .
         '</div>' .
         '</div></a>';
     } // listJobs
@@ -77,6 +89,26 @@ class DcaCrontab extends \Backend
         $strUrl = substr($strUrl, \strlen(\Environment::get('path')) + 1);
 
         return ampersand($strUrl);
+    }
+
+	/**
+	 * Get the Job Type
+	 * @param  string $strJob
+	 * @return int    1: File, 2: Route 3: URL
+	 */
+	private function getJobType($strJob)
+	{
+	    if ('http:' == substr($strJob, 0, 5) || 'https:' == substr($strJob, 0, 6))
+	    {
+	        return self::JOB_TYPE_URL;
+	    }
+
+	    if ('.php' == substr($strJob, -4))
+	    {
+	        return self::JOB_TYPE_FILE;
+	    }
+
+	    return self::JOB_TYPE_ROUTE; // I hope :-)
     }
 
     /**

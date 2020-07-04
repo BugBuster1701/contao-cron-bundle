@@ -8,10 +8,10 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2018-01-17T21:43:20+01:00
+ * last-updated: 2018-02-12T00:46:42+01:00
  */
 
 $GLOBALS['TL_LANG']['FMD']['cron_fe']['0'] = 'Scheduler';
 $GLOBALS['TL_LANG']['MOD']['cron']['0']    = 'Scheduler';
-$GLOBALS['TL_LANG']['MOD']['cron']['1']    = 'Un scheduler come cron per TYPOlight';
+$GLOBALS['TL_LANG']['MOD']['cron']['1']    = 'Un scheduler come cron per Contao';
 

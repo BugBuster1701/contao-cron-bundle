@@ -4,7 +4,7 @@
  
 .cron-list .main
 {
-	padding:0 300px 0 0;
+	padding:0 300px 2px 0;
 }
 
 .cron-list .main .title
@@ -16,6 +16,12 @@
 {
 	font-size:12px;
 	color:#888;
+}
+
+.cron-list .main .jobtype
+{
+	padding-top: 2px;
+	font-size:12px;
 }
 
 .cron-list .floatleft

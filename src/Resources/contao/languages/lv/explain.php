@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2018-02-11T23:39:28+01:00
+ * last-updated: 2018-02-12T00:46:42+01:00
  */
 
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['0'] = 'Pamata elementu sintakse';
@@ -24,4 +24,5 @@ $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['0'] = 'Nedēļas diena';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['1'] = 'Mēneši var tikt ierakstīti kā skaitļi 0...6 kur 0 = sunday, vai arī kā 3 burtu angliskie saīsinājumi, piemēram: Mon, Tue, Wed, Thu, Fri, Sat, Sun:<br><br><pre>   Mon-Fri/2 ir līdzvērtīgs kā 1-5/2</pre>';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['3']['0'] = 'Mēneši';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['3']['1'] = 'Mēneši var tikt ierakstīti kā skaitļi 1...12, vai arī kā 3 burtu angliskie saīsinājumi, piemēram: Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec:<br><br><pre> Feb-Nov/3 ir līdzvērtīgs kā 2-11/3 </pre>';
+$GLOBALS['TL_LANG']['XPL']['cron_jobs']['0']['0']     = 'Izpildāmais uzdevums';
 

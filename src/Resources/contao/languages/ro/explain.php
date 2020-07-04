@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2018-02-11T23:41:41+01:00
+ * last-updated: 2018-02-12T00:46:42+01:00
  */
 
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['0'] = 'Sintaxa elementului';
@@ -23,4 +23,5 @@ $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['0'] = 'Zile din săptămână'
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['1'] = 'Ziua din săptămână poate fi introdusă fie ca număr 0...6 unde 0 = duminică, sau prin 3 caractere corespunzătoare limbii engleze ca Mon, Tue, Wed, Thu, Fri, Sat, Sun: <br><br><pre> Mon-Fri/2 este echivalent cu 1-5/2 </pre>';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['3']['0'] = 'Lunile';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['3']['1'] = 'Luna poate fi introdusă fie ca număr prin 1...12, sau prin 3 caractere corespunzătoare limbii engleze ca Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec: <br><br><pre>Feb-Nov/3 este equivalent cu 2-11/3 </pre>';
+$GLOBALS['TL_LANG']['XPL']['cron_jobs']['0']['0']     = 'Comandă';
 

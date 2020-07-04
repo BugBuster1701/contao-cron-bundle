@@ -8,16 +8,10 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2018-02-11T23:19:14+01:00
+ * last-updated: 2018-02-12T00:46:42+01:00
  */
 
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['0'] = 'Basic element syntax';
-$GLOBALS['TL_LANG']['XPL']['cron_elements']['0']['1'] = 'The basic syntax for the time element is:<br><br><pre>n    begin[-end][/step]n</pre><br>The parts enclosed in brackets are optional. The units dependend on the element type and can be minute, hour, day of month, day of week or month. The part <code>begin[-end]</code> may be replaced by a * which means <em>all</em>.<br>For example, these are valid elements:<br><br><pre>
-    5       minute,hour,day,... number 5
-    3-5     minutes,hours,days,... 3,4,5
-    5-10/2  minutes,hours,days,... 5,7,9
-    *       all minutes,hours,days,...
-    */3     minutes,hours,days,... 0,3,6,...</pre>';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['1']['0'] = 'Element list';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['1']['1'] = 'Every part of the schedule can be entered as a comma separated list, for example:<br><br><pre>   5,7,10-15/2,21  = Numbers 5,7,10,12,14,21</pre>';
 $GLOBALS['TL_LANG']['XPL']['cron_elements']['2']['0'] = 'Day of week';

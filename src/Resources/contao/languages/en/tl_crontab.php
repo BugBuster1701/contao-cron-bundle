@@ -49,6 +49,11 @@ $GLOBALS['TL_LANG']['tl_crontab']['tl_month']	= 'Month';
 $GLOBALS['TL_LANG']['tl_crontab']['tl_dow']		= 'Day of the week';
 $GLOBALS['TL_LANG']['tl_crontab']['lastrun']	= 'Last run';
 $GLOBALS['TL_LANG']['tl_crontab']['nextrun']	= 'Next run';
+$GLOBALS['TL_LANG']['tl_crontab']['jobtypetitle']   = 'Job type';
+$GLOBALS['TL_LANG']['tl_crontab']['jobtype1']	    = 'File';
+$GLOBALS['TL_LANG']['tl_crontab']['jobtype2']	    = 'Route';
+$GLOBALS['TL_LANG']['tl_crontab']['jobtype3']	    = 'URL';
+
 
 /**
  * Buttons
