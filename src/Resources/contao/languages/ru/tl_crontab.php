@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2018-03-16T23:51:33+01:00
+ * last-updated: 2019-02-26T00:26:32+01:00
  */
 
 $GLOBALS['TL_LANG']['tl_crontab']['allow_url_fopen_not_set'] = 'Флаг PHP "allow_url_fopen" не установлен.';
@@ -32,6 +32,10 @@ $GLOBALS['TL_LANG']['tl_crontab']['enabled']['1']            = 'Запустит
 $GLOBALS['TL_LANG']['tl_crontab']['file_not_readable']       = 'Файл не найден или не читается.';
 $GLOBALS['TL_LANG']['tl_crontab']['job']['0']                = 'Задание';
 $GLOBALS['TL_LANG']['tl_crontab']['job']['1']                = 'Введите либо относительный путь к скрипту PHP, либо маршрут Symfony, либо URL.';
+$GLOBALS['TL_LANG']['tl_crontab']['jobtype1']                = 'Файл';
+$GLOBALS['TL_LANG']['tl_crontab']['jobtype2']                = 'Маршрут';
+$GLOBALS['TL_LANG']['tl_crontab']['jobtype3']                = 'URL';
+$GLOBALS['TL_LANG']['tl_crontab']['jobtypetitle']            = 'Тип задания';
 $GLOBALS['TL_LANG']['tl_crontab']['lastrun']                 = 'Последний запуск';
 $GLOBALS['TL_LANG']['tl_crontab']['logging']['0']            = 'Журналирование';
 $GLOBALS['TL_LANG']['tl_crontab']['logging']['1']            = 'Создавать журнал выполнения задания.';
