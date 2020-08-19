@@ -27,6 +27,12 @@ class CronActions
                 'nextrun'	=> $this->getNextRun($q),
                 'scheduled'	=> time()
             );
+            if ($dataset['nextrun'] == 0)
+            {
+                //wrong value, disable job
+                \Database::getInstance()->prepare("UPDATE `tl_crontab` SET `enabled`='0' WHERE id=?")->execute($dc->id);
+                \Message::addInfo('Wrong value(s) in the scheduler formular: '.$q->title);
+            }
             \Database::getInstance()->prepare("UPDATE `tl_crontab` %s WHERE id=?")
                                     ->set($dataset)
                                     ->execute($q->id);
@@ -97,7 +103,12 @@ class CronActions
             $qjob->t_month
             );
         $crontab = sprintf('%s %s %s %s %s', $qjob->t_minute, $qjob->t_hour, $qjob->t_dom, $monthNum, $dowNum);
-        $cron = \Cron\CronExpression::factory($crontab);
+        //Hotfix, better later.
+        try {
+            $cron = \Cron\CronExpression::factory($crontab);
+        } catch (\Throwable $th) {
+            return 0;
+        }
 
         return $cron->getNextRunDate()->format('U');
 
