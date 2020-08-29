@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2018-03-16T23:51:33+01:00
+ * last-updated: 2019-02-26T00:26:32+01:00
  */
 
 $GLOBALS['TL_LANG']['tl_crontab']['allow_url_fopen_not_set'] = 'L\'indicateur PHP "allow_url_fopen" n\'est pas défini.';
@@ -47,15 +47,15 @@ $GLOBALS['TL_LANG']['tl_crontab']['show']['1']               = 'Afficher les dé
 $GLOBALS['TL_LANG']['tl_crontab']['startnow']['0']           = 'Exécuter';
 $GLOBALS['TL_LANG']['tl_crontab']['startnow']['1']           = 'Exécuter l\'exécution de ce travail %s';
 $GLOBALS['TL_LANG']['tl_crontab']['t_dom']['0']              = 'Jour du mois';
-$GLOBALS['TL_LANG']['tl_crontab']['t_dom']['1']              = 'Lister les jours du mois comme par exemple 1,10,14-16,20.<br>nSaisir * pour sélectionner tous les jours du mois.';
+$GLOBALS['TL_LANG']['tl_crontab']['t_dom']['1']              = 'Lister les jours du mois comme par exemple 1,10,14-16,20. Saisir * pour sélectionner tous les jours du mois.';
 $GLOBALS['TL_LANG']['tl_crontab']['t_dow']['0']              = 'Jour de la semaine';
-$GLOBALS['TL_LANG']['tl_crontab']['t_dow']['1']              = 'Lister les nombres des jours (0=dimanche) comme par exemple 0,2-4,7, ou utilisez les noms raccourcis Sun,Tue-Thu,Sat.<br>Saisissez * pour répéter la tâche tous les jours de la semaine.';
+$GLOBALS['TL_LANG']['tl_crontab']['t_dow']['1']              = 'Lister les nombres des jours (0=dimanche) comme par exemple 0,2-4,7, ou utilisez les noms raccourcis Sun,Tue-Thu,Sat. Saisissez * pour répéter la tâche tous les jours de la semaine.';
 $GLOBALS['TL_LANG']['tl_crontab']['t_hour']['0']             = 'Heure';
-$GLOBALS['TL_LANG']['tl_crontab']['t_hour']['1']             = 'Lister les heures comme par exemple 2,4,5-7,9.<br>La forme */3 est équivalente à toutes les 3 heures.<br>Saisissez * pour répéter la tâche toutes les heures.';
+$GLOBALS['TL_LANG']['tl_crontab']['t_hour']['1']             = 'Lister les heures comme par exemple 2,4,5-7,9. La forme */3 est équivalente à toutes les 3 heures. Saisissez * pour répéter la tâche toutes les heures.';
 $GLOBALS['TL_LANG']['tl_crontab']['t_minute']['0']           = 'Minute';
-$GLOBALS['TL_LANG']['tl_crontab']['t_minute']['1']           = 'Lister les minutes comme par exemple 5,10,15-20,30.<br>La forme */15 est équivalente à toutes les 15 minutes.<br>Saisissez * pour répéter la tâche toutes les minutes.';
+$GLOBALS['TL_LANG']['tl_crontab']['t_minute']['1']           = 'Lister les minutes comme par exemple 5,10,15-20,30. La forme */15 est équivalente à toutes les 15 minutes. Saisissez * pour répéter la tâche toutes les minutes.';
 $GLOBALS['TL_LANG']['tl_crontab']['t_month']['0']            = 'Mois';
-$GLOBALS['TL_LANG']['tl_crontab']['t_month']['1']            = 'Lister les nombres des mois comme par exemple 1,3,7-9, ou utilisez les noms raccourcis Jan,Mar,Jul-Sep.<br>Saisissez * pour répéter la tâche tous les mois.';
+$GLOBALS['TL_LANG']['tl_crontab']['t_month']['1']            = 'Lister les nombres des mois comme par exemple 1,3,7-9, ou utilisez les noms raccourcis Jan,Mar,Jul-Sep. Saisissez * pour répéter la tâche tous les mois.';
 $GLOBALS['TL_LANG']['tl_crontab']['title']['0']              = 'Titre';
 $GLOBALS['TL_LANG']['tl_crontab']['title']['1']              = 'Saisir un titre explicite pour la tâche à effectuer.';
 $GLOBALS['TL_LANG']['tl_crontab']['tl_dom']                  = 'Jour du mois';

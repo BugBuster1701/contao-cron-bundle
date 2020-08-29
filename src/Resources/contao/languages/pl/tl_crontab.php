@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2018-02-11T23:15:06+01:00
+ * last-updated: 2018-03-16T23:51:33+01:00
  */
 
 $GLOBALS['TL_LANG']['tl_crontab']['copy']['0']        = 'Kopiuj';
@@ -39,15 +39,15 @@ $GLOBALS['TL_LANG']['tl_crontab']['runonce']['1']     = 'Wyłącz zadanie po zak
 $GLOBALS['TL_LANG']['tl_crontab']['show']['0']        = 'Pokaż';
 $GLOBALS['TL_LANG']['tl_crontab']['show']['1']        = 'Pokaż szczegóły.';
 $GLOBALS['TL_LANG']['tl_crontab']['t_dom']['0']       = 'Dzień miesiąca';
-$GLOBALS['TL_LANG']['tl_crontab']['t_dom']['1']       = 'Lista dni miesiąca np. 1,10,14-16,20.<br>Wprowadź * - każdego dnia.';
+$GLOBALS['TL_LANG']['tl_crontab']['t_dom']['1']       = 'Lista dni miesiąca np. 1,10,14-16,20. Wprowadź * - każdego dnia.';
 $GLOBALS['TL_LANG']['tl_crontab']['t_dow']['0']       = 'Dzień tygodnia';
-$GLOBALS['TL_LANG']['tl_crontab']['t_dow']['1']       = 'Lista numerów dni (0=niedziela) np. 0,2-4,7 lub skróty np. Sun,Tue-Thu,Sat.<br>Wprowadź * - dla każdego dnia tygodnia.';
+$GLOBALS['TL_LANG']['tl_crontab']['t_dow']['1']       = 'Lista numerów dni (0=niedziela) np. 0,2-4,7 lub skróty np. Sun,Tue-Thu,Sat. Wprowadź * - dla każdego dnia tygodnia.';
 $GLOBALS['TL_LANG']['tl_crontab']['t_hour']['0']      = 'Godziny';
-$GLOBALS['TL_LANG']['tl_crontab']['t_hour']['1']      = 'Lista godzin np. 2,4,5-7,9.<br>Użyj formy */3 - co każde 3 godziny.<br>Wprowadź * - co godzinę.';
+$GLOBALS['TL_LANG']['tl_crontab']['t_hour']['1']      = 'Lista godzin np. 2,4,5-7,9. Użyj formy */3 - co każde 3 godziny. Wprowadź * - co godzinę.';
 $GLOBALS['TL_LANG']['tl_crontab']['t_minute']['0']    = 'Minuty';
-$GLOBALS['TL_LANG']['tl_crontab']['t_minute']['1']    = 'Lita minut np. 5,10,15-20,30.<br>Użyj formy */15 - co każde 15 minut.<br>Wprowadź * - co minutę.';
+$GLOBALS['TL_LANG']['tl_crontab']['t_minute']['1']    = 'Lita minut np. 5,10,15-20,30. Użyj formy */15 - co każde 15 minut. Wprowadź * - co minutę.';
 $GLOBALS['TL_LANG']['tl_crontab']['t_month']['0']     = 'Miesiące';
-$GLOBALS['TL_LANG']['tl_crontab']['t_month']['1']     = 'Lista miesięcy np. 1,3,7-9, lub skróty np. Jan,Mar,Jul-Sep.<br>Wprowadź * - dla każdego miesiąca.';
+$GLOBALS['TL_LANG']['tl_crontab']['t_month']['1']     = 'Lista miesięcy np. 1,3,7-9, lub skróty np. Jan,Mar,Jul-Sep. Wprowadź * - dla każdego miesiąca.';
 $GLOBALS['TL_LANG']['tl_crontab']['title']['0']       = 'Tytuł';
 $GLOBALS['TL_LANG']['tl_crontab']['title']['1']       = 'Wprowadź tytuł zadania.';
 $GLOBALS['TL_LANG']['tl_crontab']['tl_dom']           = 'DOM';
