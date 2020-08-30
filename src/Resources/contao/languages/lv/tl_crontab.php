@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2018-02-11T23:19:15+01:00
+ * last-updated: 2018-03-16T23:51:33+01:00
  */
 
 $GLOBALS['TL_LANG']['tl_crontab']['copy']['0']        = 'Kopēt';
@@ -39,15 +39,15 @@ $GLOBALS['TL_LANG']['tl_crontab']['runonce']['1']     = 'Pēc izpildes, izslēgt
 $GLOBALS['TL_LANG']['tl_crontab']['show']['0']        = 'Parādīt';
 $GLOBALS['TL_LANG']['tl_crontab']['show']['1']        = 'Skatīt detalizēti.';
 $GLOBALS['TL_LANG']['tl_crontab']['t_dom']['0']       = 'Mēneša diena';
-$GLOBALS['TL_LANG']['tl_crontab']['t_dom']['1']       = 'Sarakstiet mēnšu dienas kā 1,10,14-16,20. <br> Katru mēneša dienu atdaliet ar * . <br> Atdaliet ar * .';
+$GLOBALS['TL_LANG']['tl_crontab']['t_dom']['1']       = 'Sarakstiet mēnšu dienas kā 1,10,14-16,20. Katru mēneša dienu atdaliet ar * . Atdaliet ar * .';
 $GLOBALS['TL_LANG']['tl_crontab']['t_dow']['0']       = 'Nedēļas diena';
-$GLOBALS['TL_LANG']['tl_crontab']['t_dow']['1']       = 'Sarakstiet dienu numurus (0=svētdiena), kā 0,2-4,7 vai īsos nosaukums, piemēram: Sv, Ot-Ce, Se. <br> Katru nedēļas dienu atdaliet ar * .';
+$GLOBALS['TL_LANG']['tl_crontab']['t_dow']['1']       = 'Sarakstiet dienu numurus (0=svētdiena), kā 0,2-4,7 vai īsos nosaukums, piemēram: Sun,Tue-Thu,Sat. Katru nedēļas dienu atdaliet ar * .';
 $GLOBALS['TL_LANG']['tl_crontab']['t_hour']['0']      = 'Stunda';
-$GLOBALS['TL_LANG']['tl_crontab']['t_hour']['1']      = 'Sarakstiet stundas kā 2,4,5-7,9. <br> Lietojiet */3 kā piemēru, lai atdalītu katras 3 stundas.';
+$GLOBALS['TL_LANG']['tl_crontab']['t_hour']['1']      = 'Sarakstiet stundas kā 2,4,5-7,9.  Lietojiet */3 kā piemēru, lai atdalītu katras 3 stundas.';
 $GLOBALS['TL_LANG']['tl_crontab']['t_minute']['0']    = 'Minūte';
-$GLOBALS['TL_LANG']['tl_crontab']['t_minute']['1']    = 'Sarakstiet minūtes kā 5,10,15-20,30. Lietojiet */15 kā piemēru, lai atdalītu katras 15 minūtes. <br> Atdaliet ar * .';
+$GLOBALS['TL_LANG']['tl_crontab']['t_minute']['1']    = 'Sarakstiet minūtes kā 5,10,15-20,30. Lietojiet */15 kā piemēru, lai atdalītu katras 15 minūtes. Atdaliet ar * .';
 $GLOBALS['TL_LANG']['tl_crontab']['t_month']['0']     = 'Mēnesis';
-$GLOBALS['TL_LANG']['tl_crontab']['t_month']['1']     = 'Sarakstiet mēnešu numurus kā 1,2-7,9 vai īsos nosaukums, piemēram: Jan,Mar,Jul-Sep. <br> Katru mēneša nosaukumu atdaliet ar * .';
+$GLOBALS['TL_LANG']['tl_crontab']['t_month']['1']     = 'Sarakstiet mēnešu numurus kā 1,2-7,9 vai īsos nosaukums, piemēram: Jan,Mar,Jul-Sep. Katru mēneša nosaukumu atdaliet ar * .';
 $GLOBALS['TL_LANG']['tl_crontab']['title']['0']       = 'Nosaukums';
 $GLOBALS['TL_LANG']['tl_crontab']['title']['1']       = 'Norādiet izpildāmā uzdevuma nosaukumu.';
 $GLOBALS['TL_LANG']['tl_crontab']['tl_dom']           = 'DOM';
