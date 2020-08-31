@@ -13,6 +13,13 @@ Automatically run PHP scripts on a schedule, schedule syntax from unix cron/cron
 The scheduler is triggering every time the page is called in the backend, 
 delayed by 1.3 seconds in the frontend through a FE-Module.
 
+
+## User guide
+
+* English: https://docs.contao.ninja/en/cron-scheduler.html
+* German: https://docs.contao.ninja/de/cron-scheduler.html
+
+
 ## For Translators
 Translations are managed using Transifex. To create a new translation or to help to maintain an existing one, please register at transifex.com.
 
