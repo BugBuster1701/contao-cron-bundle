@@ -157,7 +157,7 @@ class ContaoFrontendController extends \Frontend
                         \System::getContainer()
                                 ->get('monolog.logger.contao')
                                 ->log(LogLevel::ERROR,
-                                    'Cron job '.$q->title.' failed: '.$output,
+                                    'Cron job '.$q->title.' failed: '.strip_tags($output),
                                     array('contao' => new ContaoContext('ContaoFrontendController runJobs()', TL_ERROR)));
                     }
                     else
