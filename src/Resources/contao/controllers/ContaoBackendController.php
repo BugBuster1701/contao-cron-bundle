@@ -31,7 +31,9 @@ class ContaoBackendController extends \Backend
      */
     const JOB_TYPE_FILE  = 1;
     const JOB_TYPE_ROUTE = 2;
-    const JOB_TYPE_URL   = 3;
+	const JOB_TYPE_URL   = 3;
+	
+	private $jobreturncode = 200;
 
 	/**
 	 * Initialize the controller
@@ -65,6 +67,7 @@ class ContaoBackendController extends \Backend
 		$objTemplate = new \BackendTemplate('mod_cron_start_now');
 
 		$output = '';
+		$outputrun = '';
 		$strEncypt = Input::get('crcst');
 		$jobId = substr($strEncypt, 6); //TODO
 
@@ -88,14 +91,25 @@ class ContaoBackendController extends \Backend
                       array('contao' => new ContaoContext('ContaoBackendController run()', TL_CRON)));
 
             $output .= sprintf("[%s] %s<br>", date('d-M-Y H:i:s'), 'Running scheduler job manually');
-            $output .= '::'.$this->runJob($q).'<br>';
-            //$this->log('Manually scheduler job complete', 'CronStart run()', TL_CRON);
-            \System::getContainer()
-                ->get('monolog.logger.contao')
-                ->log(LogLevel::INFO,
-                      'Manually scheduler job complete',
-                      array('contao' => new ContaoContext('ContaoBackendController run()', TL_CRON)));
-
+            $outputrun = '::'.$this->runJob($q);
+			//$this->log('Manually scheduler job complete', 'CronStart run()', TL_CRON);
+			if (200 == $this->jobreturncode)
+			{
+				\System::getContainer()
+					->get('monolog.logger.contao')
+					->log(LogLevel::INFO,
+						'Manually scheduler job complete',
+						array('contao' => new ContaoContext('ContaoBackendController run()', TL_CRON)));
+			}
+			else 
+			{
+				\System::getContainer()
+					->get('monolog.logger.contao')
+					->log(LogLevel::ERROR,
+						'Manually scheduler job not complete '.$outputrun,
+						array('contao' => new ContaoContext('ContaoBackendController run()', TL_ERROR)));
+			}
+			$output .= $outputrun . '<br>';
             $output .= sprintf("[%s] %s<br>", date('d-M-Y H:i:s'), 'Manually scheduler job complete');
         }
         else
@@ -185,8 +199,10 @@ class ContaoBackendController extends \Backend
 	    {
 	        return '<span style="color:red;">500::' . $e->getMessage() . '</span>';
 	    }
+		$request->get();
+		$this->jobreturncode = $request->getResponseStatusCode();
 
-	    return $request->get() . '::' . $request->getResponseBody(); 
+	    return $this->jobreturncode . '::' . $request->getResponseBody(); 
 	}
 
 	/**
@@ -201,9 +217,12 @@ class ContaoBackendController extends \Backend
 	    catch (\Exception $e) 
 	    {
 	        return '<span style="color:red;">500::' . $e->getMessage() . '</span>';
-	    }
+		}
+		
+		$request->get();
+		$this->jobreturncode = $request->getResponseStatusCode();
 
-	    return $request->get() . '::' . $request->getResponseBody();
+	    return $this->jobreturncode . '::' . $request->getResponseBody();
 	}
 
 	/**
