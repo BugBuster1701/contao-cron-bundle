@@ -79,16 +79,14 @@ class SaveCallbackListener
         return $dayofweek;
     }
 
-
     /**
-     * Check Crontab Values via \Cron\CronExpression
+     * Check Crontab Values via \Cron\CronExpression.
      *
      * @param string $minute
      * @param string $hour
      * @param string $dayofmonth
      * @param string $month
      * @param string $dayofweek
-     * @return boolean
      */
     protected function checkCrontabValues($minute, $hour, $dayofmonth, $month, $dayofweek): bool
     {
