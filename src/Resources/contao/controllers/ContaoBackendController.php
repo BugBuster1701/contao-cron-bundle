@@ -106,7 +106,7 @@ class ContaoBackendController extends \Backend
 				\System::getContainer()
 					->get('monolog.logger.contao')
 					->log(LogLevel::ERROR,
-						'Manually scheduler job not complete '.$outputrun,
+						'Manually scheduler job not complete '.strip_tags($outputrun),
 						array('contao' => new ContaoContext('ContaoBackendController run()', TL_ERROR)));
 			}
 			$output .= $outputrun . '<br>';
