@@ -89,7 +89,7 @@ $GLOBALS['TL_DCA']['tl_crontab'] = array
     // Palettes
     'palettes' => array
     (
-        'default'	=> 'title,job;t_minute,t_hour,t_dom,t_month,t_dow;runonce,enabled,logging'
+        'default'	=> 'title,job;t_minute,t_hour,t_dom,t_month,t_dow;runonce,enabled,logging;{expert_legend:hide},expert_timeout'
     ),
     // Fields
     'fields' => array
@@ -198,6 +198,12 @@ $GLOBALS['TL_DCA']['tl_crontab'] = array
             'exclude'		=> true,
             'inputType'		=> 'checkbox',
             'sql'           => "char(1) NOT NULL default '0'"
+        ),
+        'expert_timeout' => array(
+            'label'                   => &$GLOBALS['TL_LANG']['tl_crontab']['expert_timeout'],
+			'inputType'               => 'text',
+			'sql'                     => "int(10) unsigned NOT NULL default '5'",
+			'eval'                    => array('mandatory'=>false, 'maxlength'=>10, 'rgxp'=>'digit', 'helpwizard'=>false, 'tl_class'=>'w50')
         )
     )
 );

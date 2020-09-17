@@ -21,6 +21,13 @@ class CronRequest
     protected $url;
 
     /**
+     * Timeout for HTTP Client
+     *
+     * @var int
+     */
+    protected $timeout;
+
+    /**
      * The http client.
      *
      * @var Symfony\Component\HttpClient\HttpClient
@@ -47,12 +54,13 @@ class CronRequest
      * @param  string $url
      * @return void
      */
-    public function __construct(string $url)
+    public function __construct(string $url, int $timeout)
     {
         System::loadLanguageFile('tl_crontab');
 
         $this->responseBody = '';
         $this->url          = $url;
+        $this->timeout      = $timeout;
 
         $this->httpClient   = HttpClient::create();
 
@@ -64,6 +72,8 @@ class CronRequest
             $this->responseStatusCode = 500;
             throw new \Exception($this->responseBody);
         }
+
+        $this->checkTimeout();
     }
 
     /**
@@ -74,9 +84,9 @@ class CronRequest
     public function get()
     {
         try {
-            $response = $this->httpClient->request('GET', 
-                                                    html_entity_decode($this->url, ENT_COMPAT, Config::get('characterSet')), 
-                                                    array('timeout' => 5)
+            $response = $this->httpClient->request('GET',
+                                                    html_entity_decode($this->url, ENT_COMPAT, Config::get('characterSet')),
+                                                    array('timeout' => $this->timeout)
                                                 );
             $this->responseBody = $response->getContent(); 
         } catch (\Throwable $t) {
@@ -129,6 +139,20 @@ class CronRequest
     public function isAllowUrlFopenEnabled()
     {
         return (bool) ini_get('allow_url_fopen');
+    }
+
+    public function checkTimeout()
+    {
+        if ($this->timeout < 5)
+        {
+            $this->timeout = 5;
+        }
+        if ($this->timeout > 300)
+        {
+            $this->timeout = 300;
+        }
+
+        return;
     }
 
 }
