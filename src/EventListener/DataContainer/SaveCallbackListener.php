@@ -25,7 +25,7 @@ class SaveCallbackListener
     public function onSaveCallbackMinute($minute, DataContainer $dc): string
     {
         if (false === $this->checkCrontabValues($minute, '*', '*', '*', '*')) {
-            throw new \Exception($GLOBALS['TL_LANG']['tl_crontab']['t_minute']['1']);
+            throw new \InvalidArgumentException($GLOBALS['TL_LANG']['tl_crontab']['t_minute']['1']);
         }
 
         return $minute;
@@ -37,7 +37,7 @@ class SaveCallbackListener
     public function onSaveCallbackHour($hour, DataContainer $dc): string
     {
         if (false === $this->checkCrontabValues('*', $hour, '*', '*', '*')) {
-            throw new \Exception($GLOBALS['TL_LANG']['tl_crontab']['t_hour']['1']);
+            throw new \InvalidArgumentException($GLOBALS['TL_LANG']['tl_crontab']['t_hour']['1']);
         }
 
         return $hour;
@@ -49,7 +49,7 @@ class SaveCallbackListener
     public function onSaveCallbackDayofmonth($dayofmonth, DataContainer $dc): string
     {
         if (false === $this->checkCrontabValues('*', '*', $dayofmonth, '*', '*')) {
-            throw new \Exception($GLOBALS['TL_LANG']['tl_crontab']['t_dom']['1']);
+            throw new \InvalidArgumentException($GLOBALS['TL_LANG']['tl_crontab']['t_dom']['1']);
         }
 
         return $dayofmonth;
@@ -61,7 +61,7 @@ class SaveCallbackListener
     public function onSaveCallbackMonth($month, DataContainer $dc): string
     {
         if (false === $this->checkCrontabValues('*', '*', '*', $month, '*')) {
-            throw new \Exception($GLOBALS['TL_LANG']['tl_crontab']['t_month']['1']);
+            throw new \InvalidArgumentException($GLOBALS['TL_LANG']['tl_crontab']['t_month']['1']);
         }
 
         return $month;
@@ -73,22 +73,20 @@ class SaveCallbackListener
     public function onSaveCallbackDayofweek($dayofweek, DataContainer $dc): string
     {
         if (false === $this->checkCrontabValues('*', '*', '*', '*', $dayofweek)) {
-            throw new \Exception($GLOBALS['TL_LANG']['tl_crontab']['t_dow']['1']);
+            throw new \InvalidArgumentException($GLOBALS['TL_LANG']['tl_crontab']['t_dow']['1']);
         }
 
         return $dayofweek;
     }
 
-
     /**
-     * Check Crontab Values via \Cron\CronExpression
+     * Check Crontab Values via \Cron\CronExpression.
      *
      * @param string $minute
      * @param string $hour
      * @param string $dayofmonth
      * @param string $month
      * @param string $dayofweek
-     * @return boolean
      */
     protected function checkCrontabValues($minute, $hour, $dayofmonth, $month, $dayofweek): bool
     {

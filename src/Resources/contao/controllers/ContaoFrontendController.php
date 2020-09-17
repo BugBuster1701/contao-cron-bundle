@@ -13,7 +13,6 @@ use Contao\CoreBundle\Monolog\ContaoContext;
 use Contao\Database;
 use Contao\Environment;
 use Psr\Log\LogLevel;
-use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -86,7 +85,7 @@ class ContaoFrontendController extends \Frontend
 	    $currtime = time();
 
 	    // process cron list
-	    $q = \Database::getInstance()->prepare("SELECT * FROM `tl_crontab`
+	    $q = Database::getInstance()->prepare("SELECT * FROM `tl_crontab`
                                                 WHERE `enabled`='1'
                                                 AND (
                                                       (`nextrun`>0 and `nextrun`<?)
@@ -107,7 +106,7 @@ class ContaoFrontendController extends \Frontend
             if (!$locked)
             {
                 // ensure exclusive access
-                $ql = \Database::getInstance()->prepare("SELECT get_lock('cronlock',0) AS lockstate")->execute();
+                $ql = Database::getInstance()->prepare("SELECT get_lock('cronlock',0) AS lockstate")->execute();
                 if (!$ql->next() || !(int) ($ql->lockstate))
                 {
                     return $objResponse;
@@ -147,7 +146,7 @@ class ContaoFrontendController extends \Frontend
                             'scheduled'	=> $currtime
                         );
                     }
-                    \Database::getInstance()->prepare("UPDATE `tl_crontab` %s WHERE id=?")
+                    Database::getInstance()->prepare("UPDATE `tl_crontab` %s WHERE id=?")
                                             ->set($dataset)
                                             ->execute($q->id);
                 } // if
@@ -158,7 +157,7 @@ class ContaoFrontendController extends \Frontend
                         \System::getContainer()
                                 ->get('monolog.logger.contao')
                                 ->log(LogLevel::ERROR,
-                                    'Cron job '.$q->title.' failed: '.$output,
+                                    'Cron job '.$q->title.' failed: '.strip_tags($output),
                                     array('contao' => new ContaoContext('ContaoFrontendController runJobs()', TL_ERROR)));
                     }
                     else
@@ -177,7 +176,7 @@ class ContaoFrontendController extends \Frontend
                     'nextrun'	=> $this->getNextRun($q),
                     'scheduled'	=> $currtime
                 );
-                \Database::getInstance()->prepare("UPDATE `tl_crontab` %s WHERE id=?")
+                Database::getInstance()->prepare("UPDATE `tl_crontab` %s WHERE id=?")
                                         ->set($dataset)
                                         ->execute($q->id);
             } // if
@@ -186,7 +185,7 @@ class ContaoFrontendController extends \Frontend
         // release lock
         if ($locked)
         {
-            \Database::getInstance()->prepare("SELECT release_lock('cronlock')")->execute();
+            Database::getInstance()->prepare("SELECT release_lock('cronlock')")->execute();
         }
 
         return $objResponse;	    

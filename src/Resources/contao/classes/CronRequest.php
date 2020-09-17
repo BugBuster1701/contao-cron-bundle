@@ -2,6 +2,8 @@
 
 namespace BugBuster\Cron;
 
+use Contao\Config;
+use Contao\System;
 use Symfony\Component\HttpClient\HttpClient;
 
 /**
@@ -47,7 +49,7 @@ class CronRequest
      */
     public function __construct(string $url)
     {
-        \System::loadLanguageFile('tl_crontab');
+        System::loadLanguageFile('tl_crontab');
 
         $this->responseBody = '';
         $this->url          = $url;
@@ -72,14 +74,18 @@ class CronRequest
     public function get()
     {
         try {
-            $response = $this->httpClient->request('GET', $this->url, array('timeout' => 3));
+            $response = $this->httpClient->request('GET', 
+                                                    html_entity_decode($this->url, ENT_COMPAT, Config::get('characterSet')), 
+                                                    array('timeout' => 5)
+                                                );
+            $this->responseBody = $response->getContent(); 
         } catch (\Throwable $t) {
             $this->responseBody = "<span style='color:red;'>Request Exception:<br>".$t->getMessage()."</span>";
             $this->responseStatusCode = 500;
 
             return $this->responseStatusCode;
         }
-        $this->responseBody       = $response->getContent(); 
+
         $this->responseStatusCode = $response->getStatusCode();
 
         return $this->responseStatusCode;
