@@ -38,6 +38,9 @@ $GLOBALS['TL_LANG']['tl_crontab']['enabled']['0']  = "Enabled";
 $GLOBALS['TL_LANG']['tl_crontab']['enabled']['1']  = "Enable execution of this job.";
 $GLOBALS['TL_LANG']['tl_crontab']['logging']['0']  = "Logging";
 $GLOBALS['TL_LANG']['tl_crontab']['logging']['1']  = "Make log entry when job is executed.";
+$GLOBALS['TL_LANG']['tl_crontab']['expert_legend']        = 'Expert settings';
+$GLOBALS['TL_LANG']['tl_crontab']['expert_timeout']['0']  = "Timeout for job type 'Route' and 'URL'";
+$GLOBALS['TL_LANG']['tl_crontab']['expert_timeout']['1']  = "Enter a timeout value between 5 and 300 seconds.";
 
 /**
  * Reference

@@ -80,6 +80,18 @@ class SaveCallbackListener
     }
 
     /**
+     * @Callback(table="tl_crontab", target="fields.expert_timeout.save")
+     */
+    public function onSaveCallbackTimeout($expert_timeout, DataContainer $dc): string
+    {
+        if ((int) $expert_timeout < 5 || (int) $expert_timeout > 300) {
+            throw new \InvalidArgumentException($GLOBALS['TL_LANG']['tl_crontab']['expert_timeout']['1']);
+        }
+
+        return $expert_timeout;
+    }
+
+    /**
      * Check Crontab Values via \Cron\CronExpression.
      *
      * @param string $minute
