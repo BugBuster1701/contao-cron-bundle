@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @copyright  Glen Langer 2018 <http://contao.ninja>
+ * @copyright  Glen Langer 2020 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @license    LGPL-3.0+
  */
@@ -32,7 +32,7 @@ class ContaoBackendController extends \Backend
     const JOB_TYPE_FILE  = 1;
     const JOB_TYPE_ROUTE = 2;
 	const JOB_TYPE_URL   = 3;
-	
+
 	private $jobreturncode = 200;
 
 	/**
@@ -175,25 +175,25 @@ class ContaoBackendController extends \Backend
 	/**
 	 * Run route job and return the captured output
 	 */
-	private function runRouteJob($strJob)
+	private function runRouteJob($qjob)
 	{
 	    // @var Router $router
 	    $router = \System::getContainer()->get('router');
 
 	    //Trennung Parameter im alten Stil: ?abcde.. (BackupDB Spam Schutz)
-	    $arrFragments = \StringUtil::trimsplit('?', $strJob->job);
+	    $arrFragments = \StringUtil::trimsplit('?', $qjob->job);
 	    $arrRoute = $router->match($arrFragments[0]);
 
 	    if ('contao_catch_all' == $arrRoute['_route']) 
 	    {
-	        return '<span style="color:red;">'.$GLOBALS['TL_LANG']['tl_crontab']['route_not_exists'] . "</span> ($strJob->job)";
+	        return '<span style="color:red;">'.$GLOBALS['TL_LANG']['tl_crontab']['route_not_exists'] . "</span> ($qjob->job)";
 	    }
 
-	    $url = Environment::get('base') . ltrim($strJob->job, '/');
+	    $url = Environment::get('base') . ltrim($qjob->job, '/');
 
 	    try 
 	    {
-	        $request = new CronRequest($url);
+	        $request = new CronRequest($url, (int) $qjob->expert_timeout);
 	    } 
 	    catch (\Exception $e) 
 	    {
@@ -208,17 +208,17 @@ class ContaoBackendController extends \Backend
 	/**
 	 * Run URL job and return the captured output
 	 */
-	private function runUrlJob($strJob)
+	private function runUrlJob($qjob)
 	{
 	    try
 	    {
-	       $request = new CronRequest($strJob->job);
+	       $request = new CronRequest($qjob->job, (int) $qjob->expert_timeout);
 	    }
 	    catch (\Exception $e) 
 	    {
 	        return '<span style="color:red;">500::' . $e->getMessage() . '</span>';
 		}
-		
+
 		$request->get();
 		$this->jobreturncode = $request->getResponseStatusCode();
 
@@ -240,7 +240,7 @@ class ContaoBackendController extends \Backend
 	    if ($limit<=0)
 	    {
 	        return;
-	    }
+		}
 
 	    //File exists and readable?
 	    if (!is_readable(TL_ROOT . '/' . $qjob->job)) 

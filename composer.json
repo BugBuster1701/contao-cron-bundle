@@ -55,7 +55,7 @@
 			}
 		},
 		"branch-alias": {
-			"dev-develop": "1.4.x-dev"
+			"dev-develop": "1.5.x-dev"
 		},
 		"contao-manager-plugin": "BugBuster\\CronBundle\\ContaoManager\\Plugin"
 	}

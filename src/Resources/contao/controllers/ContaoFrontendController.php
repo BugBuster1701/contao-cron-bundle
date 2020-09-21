@@ -239,7 +239,7 @@ class ContaoFrontendController extends \Frontend
 	/**
 	 * Run route job and return the captured output
 	 */
-	private function runRouteJob($strJob)
+	private function runRouteJob($qjob)
 	{
 	    global $cronJob;
 
@@ -247,19 +247,19 @@ class ContaoFrontendController extends \Frontend
 	    $router = \System::getContainer()->get('router');
 
 	    //Trennung Parameter im alten Stil: ?abcde.. (BackupDB Spam Schutz)
-	    $arrFragments = \StringUtil::trimsplit('?', $strJob->job);
+	    $arrFragments = \StringUtil::trimsplit('?', $qjob->job);
 	    $arrRoute = $router->match($arrFragments[0]);
 
 	    if ('contao_catch_all' == $arrRoute['_route']) 
 	    {
-	        return $GLOBALS['TL_LANG']['tl_crontab']['route_not_exists'] . " ($strJob->job)";
+	        return $GLOBALS['TL_LANG']['tl_crontab']['route_not_exists'] . " ($qjob->job)";
 	    }
 
-	    $url = Environment::get('base') . ltrim($strJob->job, '/');
+	    $url = Environment::get('base') . ltrim($qjob->job, '/');
 
 	    try
 	    {
-	       $request = new CronRequest($url);
+	       $request = new CronRequest($url, (int) $qjob->expert_timeout);
 	    } 
 	    catch (\Exception $e) 
 	    {
@@ -284,13 +284,13 @@ class ContaoFrontendController extends \Frontend
 	/**
 	 * Run URL job and return the captured output
 	 */
-	private function runUrlJob($strJob)
+	private function runUrlJob($qjob)
 	{
 	    global $cronJob;
 
 	    try
 	    {
-	       $request = new CronRequest($strJob->job);
+	       $request = new CronRequest($qjob->job, (int) $qjob->expert_timeout);
 	    } 
 	    catch (\Exception $e) 
 	    {
