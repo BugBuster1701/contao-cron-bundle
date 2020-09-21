@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2020-07-05T01:07:01+02:00
+ * last-updated: 2020-08-30T01:39:55+02:00
  */
 
 $GLOBALS['TL_LANG']['tl_crontab']['allow_url_fopen_not_set'] = 'Das PHP-Flag "allow_url_fopen" ist nicht gesetzt.';
@@ -29,6 +29,9 @@ $GLOBALS['TL_LANG']['tl_crontab']['enable']['0']             = 'Aktivieren';
 $GLOBALS['TL_LANG']['tl_crontab']['enable']['1']             = 'Ausführung für Job %s aktivieren';
 $GLOBALS['TL_LANG']['tl_crontab']['enabled']['0']            = 'Aktiviert';
 $GLOBALS['TL_LANG']['tl_crontab']['enabled']['1']            = 'Aktiviert die Ausführung dieses Jobs.';
+$GLOBALS['TL_LANG']['tl_crontab']['expert_legend']           = 'Experteneinstellungen';
+$GLOBALS['TL_LANG']['tl_crontab']['expert_timeout']['0']     = 'Zeitbegrenzung für die Jobtypen \'Route\' und \'URL\'';
+$GLOBALS['TL_LANG']['tl_crontab']['expert_timeout']['1']     = 'Eingabe einer Zeitbegrenzung zwischen 5 und 300 Sekunden.';
 $GLOBALS['TL_LANG']['tl_crontab']['file_not_readable']       = 'Datei nicht gefunden oder nicht lesbar.';
 $GLOBALS['TL_LANG']['tl_crontab']['job']['0']                = 'Job';
 $GLOBALS['TL_LANG']['tl_crontab']['job']['1']                = 'Geben Sie entweder den relativen Pfad zum auszuführenden PHP-Script an, eine Symfony Route oder eine URL.';
