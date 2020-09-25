@@ -67,11 +67,11 @@ class DcaCrontab extends \Backend
         '</div>' .
         '<div class="floatleft">' .
         '<div class="caption">' . $text['lastrun'] . '</div>' .
-        '<div class="data">' . ($row['lastrun']==0 ? '' : date($GLOBALS['TL_CONFIG']['datimFormat'], $row['lastrun'])) . '</div>' .
+        '<div class="data">' . ((int) $row['lastrun'] == 0 ? '' : date($GLOBALS['TL_CONFIG']['datimFormat'], (int) $row['lastrun'])) . '</div>' .
         '</div>' .
         '<div class="floatleft">' .
         '<div class="caption">' . $text['nextrun'] . '</div>' .
-        '<div class="data">' . ($row['nextrun']==0 ? '' : date($GLOBALS['TL_CONFIG']['datimFormat'], $row['nextrun'])) . '</div>' .
+        '<div class="data">' . ((int) $row['nextrun'] == 0 ? '' : date($GLOBALS['TL_CONFIG']['datimFormat'], (int) $row['nextrun'])) . '</div>' .
         '</div><div class="clear"></div>' .
         '</div>' .
         '</div></a>';
