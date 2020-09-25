@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * @copyright  Glen Langer 2018 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
@@ -331,7 +333,7 @@ class ContaoFrontendController extends \Frontend
 	    return str_replace("\n", '<br>', trim(preg_replace('#<\s*br\s*//*?\s*>#i', "\n", ob_get_flush())));
 	} // runJob
 
-	private function getNextRun($qjob)
+	private function getNextRun($qjob) : int
     {
         $dowNum =
         str_ireplace(
@@ -348,7 +350,7 @@ class ContaoFrontendController extends \Frontend
         $crontab = sprintf('%s %s %s %s %s', $qjob->t_minute, $qjob->t_hour, $qjob->t_dom, $monthNum, $dowNum);
         $cron = \Cron\CronExpression::factory($crontab);
 
-        return $cron->getNextRunDate()->format('U');
+        return (int) $cron->getNextRunDate()->format('U');
 
 	}
 

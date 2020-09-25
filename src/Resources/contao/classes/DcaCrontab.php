@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace BugBuster\Cron;
 
 /**
@@ -20,7 +22,7 @@ class DcaCrontab extends \Backend
     /**
      * List a particular record
      */
-    public function listJobs($row)
+    public function listJobs($row) : string
     {
         $this->setNextRun($row);
         $text = &$GLOBALS['TL_LANG']['tl_crontab'];
@@ -83,7 +85,7 @@ class DcaCrontab extends \Backend
      *
      * @return string The route
      */
-    public function route($strName, $arrParams=array())
+    public function route($strName, $arrParams=array()) : string
     {
         $strUrl = \System::getContainer()->get('router')->generate($strName, $arrParams);
         $strUrl = substr($strUrl, \strlen(\Environment::get('path')) + 1);
@@ -114,7 +116,7 @@ class DcaCrontab extends \Backend
     /**
      * Create the enabled/disabled button
      */
-    public function enabledButton($row, $href, $label, $title, $icon, $attributes)
+    public function enabledButton($row, $href, $label, $title, $icon, $attributes) : string
     {
         if ($row['enabled']=='1')
         {
@@ -140,7 +142,7 @@ class DcaCrontab extends \Backend
     /**
      * Create the logging on/off button
      */
-    public function loggingButton($row, $href, $label, $title, $icon, $attributes)
+    public function loggingButton($row, $href, $label, $title, $icon, $attributes) : string
     {
         if ($row['logging']=='1')
         {
@@ -163,7 +165,7 @@ class DcaCrontab extends \Backend
         '</a> ';
     } // loggingButton
 
-    public function startnowButton($row, $href, $label, $title, $icon, $attributes)
+    public function startnowButton($row, $href, $label, $title, $icon, $attributes) : string
     {
         $href = 'key=start_now';
         $label = &$GLOBALS['TL_LANG']['tl_crontab']['startnow'];
@@ -217,7 +219,7 @@ class DcaCrontab extends \Backend
         return;
     }
 
-    private function getNextRun($qjob)
+    private function getNextRun($qjob) : int
     {
         $dowNum =
         str_ireplace(
@@ -239,7 +241,7 @@ class DcaCrontab extends \Backend
             return 0;
         }
 
-        return $cron->getNextRunDate()->format('U');
+        return (int) $cron->getNextRunDate()->format('U');
 
     }
 
