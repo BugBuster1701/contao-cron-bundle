@@ -8,7 +8,7 @@
  *
  * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  *
- * last-updated: 2020-08-11T22:08:14+02:00
+ * last-updated: 2020-08-30T01:39:55+02:00
  */
 
 $GLOBALS['TL_LANG']['tl_crontab']['allow_url_fopen_not_set'] = 'Флаг PHP "allow_url_fopen" не установлен.';
@@ -29,6 +29,9 @@ $GLOBALS['TL_LANG']['tl_crontab']['enable']['0']             = 'Включить
 $GLOBALS['TL_LANG']['tl_crontab']['enable']['1']             = 'Включить выполнение задания %s';
 $GLOBALS['TL_LANG']['tl_crontab']['enabled']['0']            = 'Включить';
 $GLOBALS['TL_LANG']['tl_crontab']['enabled']['1']            = 'Запустить выполнение этого задания.';
+$GLOBALS['TL_LANG']['tl_crontab']['expert_legend']           = 'Экспертные настройки';
+$GLOBALS['TL_LANG']['tl_crontab']['expert_timeout']['0']     = 'Тайм-аут для заданий типа \'Маршрут\' и \'URL\'';
+$GLOBALS['TL_LANG']['tl_crontab']['expert_timeout']['1']     = 'Введите значение тайм-аута от 5 до 300 сек.';
 $GLOBALS['TL_LANG']['tl_crontab']['file_not_readable']       = 'Файл не найден или не читается.';
 $GLOBALS['TL_LANG']['tl_crontab']['job']['0']                = 'Задание';
 $GLOBALS['TL_LANG']['tl_crontab']['job']['1']                = 'Введите либо относительный путь к скрипту PHP, либо маршрут Symfony, либо URL.';
