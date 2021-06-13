@@ -4,3 +4,9 @@ services:
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
     BugBuster\CronBundle\EventListener\DataContainer\SaveCallbackListener: ~
+
+    BugBuster\CronBundle\Controller\FrontendController:
+        public: true
+        calls:
+            - method: setContainer
+              arguments: [ '@service_container' ]
