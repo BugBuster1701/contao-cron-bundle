@@ -10,3 +10,9 @@ services:
         calls:
             - method: setContainer
               arguments: [ '@service_container' ]
+
+    BugBuster\CronBundle\Controller\BackendController:
+        public: true
+        calls:
+            - method: setContainer
+              arguments: [ '@service_container' ]
