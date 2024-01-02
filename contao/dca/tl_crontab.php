@@ -1,5 +1,7 @@
 <?php
 
+use Contao\DC_Table;
+
 /**
  * Table tl_crontab
  */
@@ -9,7 +11,7 @@ $GLOBALS['TL_DCA']['tl_crontab'] = array
     // Config
     'config' => array
     (
-        'dataContainer'               => 'Table',
+        'dataContainer'               => DC_Table::class,
         'enableVersioning'            => true,
         'sql' => array
         (
