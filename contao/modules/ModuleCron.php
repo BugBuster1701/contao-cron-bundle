@@ -22,7 +22,7 @@ namespace BugBuster\Cron;
  * @author     Glen Langer (BugBuster)
  * @license    LGPL
  */
-class ModuleCron extends \Module
+class ModuleCron extends \Contao\Module
 {
     /**
      * Template
@@ -38,7 +38,7 @@ class ModuleCron extends \Module
     {
         if (TL_MODE == 'BE')
         {
-            $objTemplate = new \BackendTemplate('be_wildcard');
+            $objTemplate = new \Contao\BackendTemplate('be_wildcard');
             $objTemplate->wildcard = '### Scheduler FE ###';
             $objTemplate->title = $this->headline;
             $objTemplate->id    = $this->id;
@@ -63,10 +63,10 @@ class ModuleCron extends \Module
     public function run() 
     {
         $arrParams = array();
-        $strUrl = \System::getContainer()->get('router')->generate('cron_frontend_startjobs', $arrParams);
-        $strUrl = substr($strUrl, \strlen(\Environment::get('path')) + 1);
+        $strUrl = \Contao\System::getContainer()->get('router')->generate('cron_frontend_startjobs', $arrParams);
+        $strUrl = substr($strUrl, \strlen(\Contao\Environment::get('path')) + 1);
 
-        $strScripts = \Template::generateInlineScript('
+        $strScripts = \Contao\Template::generateInlineScript('
             setTimeout(
                 function(){
                         try{
@@ -74,7 +74,7 @@ class ModuleCron extends \Module
                         }catch(r){
                             return;
                         }
-                        n.open("GET","'.ampersand($strUrl).'",true);
+                        n.open("GET","'.\Contao\StringUtil::ampersand($strUrl).'",true);
                         n.send();
                 },1000
             );');

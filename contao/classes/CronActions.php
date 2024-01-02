@@ -16,9 +16,9 @@ class CronActions
         if ($dc->id)
         {
             //set enabled
-            \Database::getInstance()->prepare("UPDATE `tl_crontab` SET `enabled`='1' WHERE id=?")->execute($dc->id);
+            \Contao\Database::getInstance()->prepare("UPDATE `tl_crontab` SET `enabled`='1' WHERE id=?")->execute($dc->id);
             //get job
-            $q = \Database::getInstance()->prepare("SELECT * FROM `tl_crontab`
+            $q = \Contao\Database::getInstance()->prepare("SELECT * FROM `tl_crontab`
                                                     WHERE `enabled`='1'
                                                     AND id=?")
                                          ->execute($dc->id);
@@ -30,16 +30,16 @@ class CronActions
             if ($dataset['nextrun'] == 0)
             {
                 //wrong value, disable job
-                \Database::getInstance()->prepare("UPDATE `tl_crontab` SET `enabled`='0' WHERE id=?")->execute($dc->id);
-                \Message::addInfo('Wrong value(s) in the scheduler formular: '.$q->title);
+                \Contao\Database::getInstance()->prepare("UPDATE `tl_crontab` SET `enabled`='0' WHERE id=?")->execute($dc->id);
+                \Contao\Message::addInfo('Wrong value(s) in the scheduler formular: '.$q->title);
             }
-            \Database::getInstance()->prepare("UPDATE `tl_crontab` %s WHERE id=?")
+            \Contao\Database::getInstance()->prepare("UPDATE `tl_crontab` %s WHERE id=?")
                                     ->set($dataset)
                                     ->execute($q->id);
         }
 
         // Zurück zur Übersicht leiten
-        $router = \System::getContainer()->get('router');
+        $router = \Contao\System::getContainer()->get('router');
         $url = $router->generate('contao_backend');
         \Contao\Controller::redirect($url.'?do=cron');
     }
@@ -48,11 +48,11 @@ class CronActions
     {
         if ($dc->id)
         {
-            \Database::getInstance()->prepare("UPDATE `tl_crontab` SET `enabled`='0', `nextrun`=0, `scheduled`=0 WHERE id=?")
+            \Contao\Database::getInstance()->prepare("UPDATE `tl_crontab` SET `enabled`='0', `nextrun`=0, `scheduled`=0 WHERE id=?")
                                     ->execute($dc->id);
         }
         // Zurück zur Übersicht leiten
-        $router = \System::getContainer()->get('router');
+        $router = \Contao\System::getContainer()->get('router');
         $url = $router->generate('contao_backend');
         \Contao\Controller::redirect($url.'?do=cron');
 
@@ -63,12 +63,12 @@ class CronActions
 
         if ($dc->id)
         {
-            \Database::getInstance()->prepare("UPDATE `tl_crontab` SET `logging`='1' WHERE id=?")
+            \Contao\Database::getInstance()->prepare("UPDATE `tl_crontab` SET `logging`='1' WHERE id=?")
                                     ->execute($dc->id);
         }
 
         // Zurück zur Übersicht leiten
-        $router = \System::getContainer()->get('router');
+        $router = \Contao\System::getContainer()->get('router');
         $url = $router->generate('contao_backend');
         \Contao\Controller::redirect($url.'?do=cron');
     }
@@ -78,12 +78,12 @@ class CronActions
 
         if ($dc->id)
         {
-            \Database::getInstance()->prepare("UPDATE `tl_crontab` SET `logging`='0' WHERE id=?")
+            \Contao\Database::getInstance()->prepare("UPDATE `tl_crontab` SET `logging`='0' WHERE id=?")
                                     ->execute($dc->id);
         }
 
         // Zurück zur Übersicht leiten
-        $router = \System::getContainer()->get('router');
+        $router = \Contao\System::getContainer()->get('router');
         $url = $router->generate('contao_backend');
         \Contao\Controller::redirect($url.'?do=cron');
     }

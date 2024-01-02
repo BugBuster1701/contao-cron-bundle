@@ -9,7 +9,7 @@ namespace BugBuster\Cron;
  *
  * Provide miscellaneous methods that are used by the data configuration array.
  */
-class DcaCrontab extends \Backend
+class DcaCrontab extends \Contao\Backend
 {
     /**
      * Job Constants
@@ -29,7 +29,7 @@ class DcaCrontab extends \Backend
         $arrParams = array('do'=>'cron',
                            'act'=>'edit',
                            'id'=>$row['id'],
-                           'rt'=>REQUEST_TOKEN
+                           'rt'=>\Contao\System::getContainer()->get('contao.csrf.token_manager')->getDefaultTokenValue()
                           );
 
         $link = $this->route('contao_backend', $arrParams);
@@ -87,10 +87,10 @@ class DcaCrontab extends \Backend
      */
     public function route($strName, $arrParams=array()) : string
     {
-        $strUrl = \System::getContainer()->get('router')->generate($strName, $arrParams);
-        $strUrl = substr($strUrl, \strlen(\Environment::get('path')) + 1);
+        $strUrl = \Contao\System::getContainer()->get('router')->generate($strName, $arrParams);
+        $strUrl = substr($strUrl, \strlen(\Contao\Environment::get('path')) + 1);
 
-        return ampersand($strUrl);
+        return \Contao\StringUtil::ampersand($strUrl);
     }
 
 	/**
@@ -134,8 +134,8 @@ class DcaCrontab extends \Backend
 
         return
         '<a href="' . $this->addToUrl($href.'&amp;id='.$row['id']) .
-        '" title="' . \StringUtil::specialchars($title) . '"' . $attributes . '>' .
-        '<img src="'.$icon.'" width="16" height="16" alt="'.\StringUtil::specialchars($title).'" />' .
+        '" title="' . \Contao\StringUtil::specialchars($title) . '"' . $attributes . '>' .
+        '<img src="'.$icon.'" width="16" height="16" alt="'.\Contao\StringUtil::specialchars($title).'" />' .
         '</a> ';
     } // enabledButton
 
@@ -160,8 +160,8 @@ class DcaCrontab extends \Backend
 
         return
         '<a href="' . $this->addToUrl($href.'&amp;id='.$row['id']) .
-        '" title="' . \StringUtil::specialchars($title) . '"' . $attributes . '>' .
-        '<img src="'.$icon.'" width="16" height="16" alt="'.\StringUtil::specialchars($title).'" />' .
+        '" title="' . \Contao\StringUtil::specialchars($title) . '"' . $attributes . '>' .
+        '<img src="'.$icon.'" width="16" height="16" alt="'.\Contao\StringUtil::specialchars($title).'" />' .
         '</a> ';
     } // loggingButton
 
@@ -175,14 +175,14 @@ class DcaCrontab extends \Backend
 
         //$href = 'system/modules/cron/public/CronStart.php?crcst='.$strEncypt.'';
 
-        $arrParams = array('crcst' => $strEncypt, 'rt'=>REQUEST_TOKEN);
+        $arrParams = array('crcst' => $strEncypt, 'rt'=>\Contao\System::getContainer()->get('contao.csrf.token_manager')->getDefaultTokenValue());
         $href = $this->route('cron_backend_startnow', $arrParams);
 
         return
         '<a href="' . $href . '"' .
         'onclick="if(!confirm(\''.$title.'?\'))return false;Backend.openModalIframe({\'width\':735,\'height\':405,\'title\':\'Cronjob Start\',\'url\':this.href});return false"'.
-        ' title="' . \StringUtil::specialchars($title) . '"' . $attributes . '>' .
-        '<img src="'.$icon.'" width="16" height="16" alt="'.\StringUtil::specialchars($title).'" />' .
+        ' title="' . \Contao\StringUtil::specialchars($title) . '"' . $attributes . '>' .
+        '<img src="'.$icon.'" width="16" height="16" alt="'.\Contao\StringUtil::specialchars($title).'" />' .
         '</a> ';
     }
 
@@ -195,7 +195,7 @@ class DcaCrontab extends \Backend
         if ($row['enabled']=='1' && $row['nextrun']=='0')
         {
             //get job
-            $q = \Database::getInstance()->prepare("SELECT * FROM `tl_crontab`
+            $q = \Contao\Database::getInstance()->prepare("SELECT * FROM `tl_crontab`
                                                     WHERE `enabled`='1'
                                                     AND id=?")
                                          ->execute($row['id']);
@@ -207,10 +207,10 @@ class DcaCrontab extends \Backend
             if ($dataset['nextrun'] == 0)
             {
                 //wrong value, disable job
-                \Database::getInstance()->prepare("UPDATE `tl_crontab` SET `enabled`='0' WHERE id=?")->execute($row['id']);
-                \Message::addInfo('Wrong value(s) in the scheduler formular: '.$q->title);
+                \Contao\Database::getInstance()->prepare("UPDATE `tl_crontab` SET `enabled`='0' WHERE id=?")->execute($row['id']);
+                \Contao\Message::addInfo('Wrong value(s) in the scheduler formular: '.$q->title);
             }
-            \Database::getInstance()->prepare("UPDATE `tl_crontab` %s WHERE id=?")
+            \Contao\Database::getInstance()->prepare("UPDATE `tl_crontab` %s WHERE id=?")
                                     ->set($dataset)
                                     ->execute($q->id);
             $row['nextrun'] = $dataset['nextrun'];

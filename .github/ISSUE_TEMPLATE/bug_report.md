@@ -11,8 +11,8 @@ assignees: ''
 A clear and concise description of what the bug is.
 
 **Affected version(s)**
- - Version [e.g. 22]
- -  Contao Version [e.g. 4.9.5]
+ - Version [e.g. 1.6.0]
+ -  Contao Version [e.g. 5.2.7]
 
 **To Reproduce**
 Steps to reproduce the behavior:

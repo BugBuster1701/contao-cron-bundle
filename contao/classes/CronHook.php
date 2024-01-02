@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Routing\Router;
 /**
  * Hook parseBackendTemplate
  */
-class CronHook extends \System
+class CronHook extends \Contao\System
 {
 
     /**
@@ -20,18 +20,13 @@ class CronHook extends \System
     /**
      * Initialize 
      *
-     * 1. Import the user
-     * 2. Call the parent constructor
-     * 3. Authenticate the user
-     * 4. Load the language files
-     * DO NOT CHANGE THIS ORDER!
      */
     public function __construct()
     {
 		parent::__construct();
 
-		\System::loadLanguageFile('default');
-		\System::loadLanguageFile('tl_crontab');
+		\Contao\System::loadLanguageFile('default');
+		\Contao\System::loadLanguageFile('tl_crontab');
     }
 
     /**
@@ -63,10 +58,10 @@ class CronHook extends \System
         }
 
         $arrParams = array();
-        $strUrl = \System::getContainer()->get('router')->generate('cron_frontend_startjobs', $arrParams);
-        $strUrl = substr($strUrl, \strlen(\Environment::get('path')) + 1);
+        $strUrl = \Contao\System::getContainer()->get('router')->generate('cron_frontend_startjobs', $arrParams);
+        $strUrl = substr($strUrl, \strlen(\Contao\Environment::get('path')) + 1);
 
-        $strScripts = \Template::generateInlineScript('
+        $strScripts = \Contao\Template::generateInlineScript('
             setTimeout(
                 function(){
                         try{
@@ -74,7 +69,7 @@ class CronHook extends \System
                         }catch(r){
                             return;
                         }
-                        n.open("GET","'.ampersand($strUrl).'",true);
+                        n.open("GET","'.\Contao\StringUtil::ampersand($strUrl).'",true);
                         n.send();
                 },1000
             );');

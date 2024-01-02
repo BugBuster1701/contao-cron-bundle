@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\Response;
  *
  * @author     Glen Langer (BugBuster)
  */
-class ContaoFrontendController extends \Frontend
+class ContaoFrontendController extends \Contao\Frontend
 {
 
     /**
@@ -59,7 +59,7 @@ class ContaoFrontendController extends \Frontend
 		    \define('FE_USER_LOGGED_IN', false);
 		}
 
-		\System::loadLanguageFile('tl_crontab');
+		\Contao\System::loadLanguageFile('tl_crontab');
 	}
 
 	/**
@@ -156,19 +156,19 @@ class ContaoFrontendController extends \Frontend
                 {
                     if ($output!='')
                     {
-                        \System::getContainer()
+                        \Contao\System::getContainer()
                                 ->get('monolog.logger.contao')
                                 ->log(LogLevel::ERROR,
                                     'Cron job '.$q->title.' failed: '.strip_tags($output),
-                                    array('contao' => new ContaoContext('ContaoFrontendController runJobs()', TL_ERROR)));
+                                    array('contao' => new ContaoContext('ContaoFrontendController runJobs()', ContaoContext::ERROR)));
                     }
                     else
                     {
-                        \System::getContainer()
+                        \Contao\System::getContainer()
                                 ->get('monolog.logger.contao')
                                 ->log(LogLevel::ERROR,
                                     'Cron job '.$q->title.' '.($cronJob['completed'] ? 'completed.' : 'processed partially.'),
-                                    array('contao' => new ContaoContext('ContaoFrontendController runJobs()', TL_GENERAL)));
+                                    array('contao' => new ContaoContext('ContaoFrontendController runJobs()', ContaoContext::GENERAL)));
                     }
                 } // if
             }
@@ -246,10 +246,10 @@ class ContaoFrontendController extends \Frontend
 	    global $cronJob;
 
         // @var Router $router
-	    $router = \System::getContainer()->get('router');
+	    $router = \Contao\System::getContainer()->get('router');
 
 	    //Trennung Parameter im alten Stil: ?abcde.. (BackupDB Spam Schutz)
-	    $arrFragments = \StringUtil::trimsplit('?', $qjob->job);
+	    $arrFragments = \Contao\StringUtil::trimsplit('?', $qjob->job);
 	    $arrRoute = $router->match($arrFragments[0]);
 
 	    if ('contao_catch_all' == $arrRoute['_route']) 
@@ -319,15 +319,16 @@ class ContaoFrontendController extends \Frontend
 	 */
 	private function runFileJob(&$qjob)
 	{
+		$rootDir = \Contao\System::getContainer()->getParameter('kernel.project_dir');
 	    //File exists and readable?
-	    if (!is_readable(TL_ROOT . '/' . $qjob->job))
+	    if (!is_readable($rootDir . '/' . $qjob->job))
 	    {
 	        return $GLOBALS['TL_LANG']['tl_crontab']['file_not_readable'];
 	    }
 
 	    ob_start();
 	    $e = error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED & ~E_USER_DEPRECATED);
-	    include(TL_ROOT . '/' . $qjob->job);
+	    include($rootDir . '/' . $qjob->job);
 	    error_reporting($e);
 
 	    return str_replace("\n", '<br>', trim(preg_replace('#<\s*br\s*//*?\s*>#i', "\n", ob_get_flush())));

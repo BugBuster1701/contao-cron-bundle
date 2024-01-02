@@ -14,11 +14,11 @@ declare(strict_types=1);
 
 namespace BugBuster\CronBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 /**
  * Configures the Contao Cron Bundle.
  */
-class BugBusterCronBundle extends Bundle
+class BugBusterCronBundle extends AbstractBundle
 {
 }
