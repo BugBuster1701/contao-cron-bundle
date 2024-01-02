@@ -1,72 +1,76 @@
 <?php
 
-/**
- * Contao Open Source CMS, Copyright (C) 2005-2018 Leo Feyer
+/*
+ * This file is part of a BugBuster Contao Bundle.
  *
- * Contao Module "Cron Scheduler", FE Module
- * for use on the frondend to trigger cron.
- *
- * @copyright  Glen Langer 2013..2018 <http://contao.ninja>
+ * @copyright  Glen Langer 2024 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
- * @license    LGPL
- * @filesource
- * @see	       https://github.com/BugBuster1701/contao-cron-bundle
+ * @package    Contao Cron Bundle
+ * @link       https://github.com/BugBuster1701/contao-cron-bundle
+ *
+ * @license    LGPL-3.0-or-later
  */
 
 namespace BugBuster\Cron;
+
+use Contao\BackendTemplate;
+use Contao\Environment;
+use Contao\Module;
+use Contao\StringUtil;
+use Contao\System;
+use Contao\Template;
 
 /**
  * Class ModuleCron
  *
  * @copyright  Glen Langer 2013..2018 <http://contao.ninja>
- * @author     Glen Langer (BugBuster)
  * @license    LGPL
  */
-class ModuleCron extends \Contao\Module
+class ModuleCron extends Module
 {
-    /**
-     * Template
-     * @var string
-     */
-    protected $strTemplate = 'mod_cron_fe';
+	/**
+	 * Template
+	 * @var string
+	 */
+	protected $strTemplate = 'mod_cron_fe';
 
-    /**
-     * Display a wildcard in the back end
-     * @return string
-     */
-    public function generate()
-    {
-        if (TL_MODE == 'BE')
-        {
-            $objTemplate = new \Contao\BackendTemplate('be_wildcard');
-            $objTemplate->wildcard = '### Scheduler FE ###';
-            $objTemplate->title = $this->headline;
-            $objTemplate->id    = $this->id;
-            $objTemplate->link  = $this->name;
-            $objTemplate->href  = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $this->id;
+	/**
+	 * Display a wildcard in the back end
+	 * @return string
+	 */
+	public function generate()
+	{
+		if (TL_MODE == 'BE')
+		{
+			$objTemplate = new BackendTemplate('be_wildcard');
+			$objTemplate->wildcard = '### Scheduler FE ###';
+			$objTemplate->title = $this->headline;
+			$objTemplate->id    = $this->id;
+			$objTemplate->link  = $this->name;
+			$objTemplate->href  = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $this->id;
 
-            return $objTemplate->parse();
-        }
+			return $objTemplate->parse();
+		}
 
-        return parent::generate();
-    }
+		return parent::generate();
+	}
 
-    /**
-     * Generate module
-     */
-    protected function compile()
-    {
-        $return = $this->run();
-        $this->Template->out = $return;
-    }
+	/**
+	 * Generate module
+	 */
+	protected function compile()
+	{
+		$return = $this->run();
+		$this->Template->out = $return;
+	}
 
-    public function run() 
-    {
-        $arrParams = array();
-        $strUrl = \Contao\System::getContainer()->get('router')->generate('cron_frontend_startjobs', $arrParams);
-        $strUrl = substr($strUrl, \strlen(\Contao\Environment::get('path')) + 1);
+	public function run()
+	{
+		$arrParams = array();
+		$strUrl = System::getContainer()->get('router')->generate('cron_frontend_startjobs', $arrParams);
+		$strUrl = substr($strUrl, \strlen(Environment::get('path')) + 1);
 
-        $strScripts = \Contao\Template::generateInlineScript('
+		$strScripts = Template::generateInlineScript('
             setTimeout(
                 function(){
                         try{
@@ -74,12 +78,11 @@ class ModuleCron extends \Contao\Module
                         }catch(r){
                             return;
                         }
-                        n.open("GET","'.\Contao\StringUtil::ampersand($strUrl).'",true);
+                        n.open("GET","' . StringUtil::ampersand($strUrl) . '",true);
                         n.send();
                 },1000
             );');
 
-        return $strScripts;
-    } // run
-
+		return $strScripts;
+	} // run
 } // class

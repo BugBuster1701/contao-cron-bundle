@@ -1,67 +1,78 @@
 <?php
 
+/*
+ * This file is part of a BugBuster Contao Bundle.
+ *
+ * @copyright  Glen Langer 2024 <http://contao.ninja>
+ * @author     Glen Langer (BugBuster)
+ * @package    Contao Cron Bundle
+ * @link       https://github.com/BugBuster1701/contao-cron-bundle
+ *
+ * @license    LGPL-3.0-or-later
+ */
+
 namespace BugBuster\Cron;
 
 use Contao\Environment;
-use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Contao\StringUtil;
+use Contao\System;
+use Contao\Template;
 
 /**
  * Hook parseBackendTemplate
  */
-class CronHook extends \Contao\System
+class CronHook extends System
 {
+	/**
+	 * Current object instance
+	 * @var object
+	 */
+	protected static $instance;
 
-    /**
-     * Current object instance
-     * @var object
-     */
-    protected static $instance = null;
-
-    /**
-     * Initialize 
-     *
-     */
-    public function __construct()
-    {
+	/**
+	 * Initialize
+	 */
+	public function __construct()
+	{
 		parent::__construct();
 
-		\Contao\System::loadLanguageFile('default');
-		\Contao\System::loadLanguageFile('tl_crontab');
-    }
+		System::loadLanguageFile('default');
+		System::loadLanguageFile('tl_crontab');
+	}
 
-    /**
-     * Return the current object instance (Singleton)
-     * @return BotStatisticsHelper
-     */
-    public static function getInstance()
-    {
-        if (self::$instance === null)
-        {
-            self::$instance = new self();
-        }
+	/**
+	 * Return the current object instance (Singleton)
+	 * @return BotStatisticsHelper
+	 */
+	public static function getInstance()
+	{
+		if (self::$instance === null)
+		{
+			self::$instance = new self();
+		}
 
-        return self::$instance;
-    }
+		return self::$instance;
+	}
 
-    /**
-     * Start Jobs
-     * 
-     * @param  string $strContent
-     * @param  string $strTemplate
-     * @return string $strContent
-     */
-    public function startJobs($strContent, $strTemplate)
-    {
-        if ($strTemplate != 'be_main')
-        {
-            return $strContent;
-        }
+	/**
+	 * Start Jobs
+	 *
+	 * @param  string $strContent
+	 * @param  string $strTemplate
+	 * @return string
+	 */
+	public function startJobs($strContent, $strTemplate)
+	{
+		if ($strTemplate != 'be_main')
+		{
+			return $strContent;
+		}
 
-        $arrParams = array();
-        $strUrl = \Contao\System::getContainer()->get('router')->generate('cron_frontend_startjobs', $arrParams);
-        $strUrl = substr($strUrl, \strlen(Environment::get('path')) + 1);
+		$arrParams = array();
+		$strUrl = System::getContainer()->get('router')->generate('cron_frontend_startjobs', $arrParams);
+		$strUrl = substr($strUrl, \strlen(Environment::get('path')) + 1);
 
-        $strScripts = \Contao\Template::generateInlineScript('
+		$strScripts = Template::generateInlineScript('
             setTimeout(
                 function(){
                         try{
@@ -69,16 +80,14 @@ class CronHook extends \Contao\System
                         }catch(r){
                             return;
                         }
-                        n.open("GET","'.\Contao\StringUtil::ampersand($strUrl).'",true);
+                        n.open("GET","' . StringUtil::ampersand($strUrl) . '",true);
                         n.send();
                 },1000
             );');
 
-        $searchString = '</body>';
-        $strContent = str_replace($searchString, $strScripts.$searchString, $strContent);
+		$searchString = '</body>';
+		$strContent = str_replace($searchString, $strScripts . $searchString, $strContent);
 
-        return $strContent;
-
-    }//startJobs
-
+		return $strContent;
+	}// startJobs
 }
