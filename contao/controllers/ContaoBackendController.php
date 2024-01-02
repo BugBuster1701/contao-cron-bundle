@@ -118,7 +118,7 @@ class ContaoBackendController extends \Contao\Backend
         $objTemplate->base     = Environment::get('base');
         $objTemplate->language = $GLOBALS['TL_LANGUAGE'];
         $objTemplate->title    = 'CronRunJobNow';
-        $objTemplate->charset  = $GLOBALS['TL_CONFIG']['characterSet'];
+        $objTemplate->charset  = \Contao\System::getContainer()->getParameter('kernel.charset');
 		$objTemplate->contaoversion = ContaoCoreBundle::getVersion();
 
 		return $objTemplate->getResponse(); // compile and new Response()...

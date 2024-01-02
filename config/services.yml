@@ -1,6 +1,6 @@
 services:
     _defaults:
-        #autowire: true      # Automatically injects dependencies in your services.
+        autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
     BugBuster\CronBundle\EventListener\DataContainer\SaveCallbackListener: ~
@@ -14,5 +14,4 @@ services:
     BugBuster\CronBundle\Controller\BackendController:
         public: true
         calls:
-            - method: setContainer
-              arguments: [ '@service_container' ]
+            - [setContainer, ['@service_container']]

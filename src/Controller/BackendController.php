@@ -23,6 +23,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  */
 class BackendController extends AbstractController
 {
+
     /**
      * Renders the details content.
      *

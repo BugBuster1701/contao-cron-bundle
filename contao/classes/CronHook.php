@@ -59,7 +59,7 @@ class CronHook extends \Contao\System
 
         $arrParams = array();
         $strUrl = \Contao\System::getContainer()->get('router')->generate('cron_frontend_startjobs', $arrParams);
-        $strUrl = substr($strUrl, \strlen(\Contao\Environment::get('path')) + 1);
+        $strUrl = substr($strUrl, \strlen(Environment::get('path')) + 1);
 
         $strScripts = \Contao\Template::generateInlineScript('
             setTimeout(

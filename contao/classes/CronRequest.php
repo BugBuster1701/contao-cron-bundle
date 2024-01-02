@@ -85,7 +85,7 @@ class CronRequest
     {
         try {
             $response = $this->httpClient->request('GET',
-                                                    html_entity_decode($this->url, ENT_COMPAT, Config::get('characterSet')),
+                                                    html_entity_decode($this->url, ENT_COMPAT, System::getContainer()->getParameter('kernel.charset')),
                                                     array('timeout' => $this->timeout)
                                                 );
             $this->responseBody = $response->getContent(); 
