@@ -2,10 +2,6 @@
 .buildpath
 .project
 .settings/
-# Transifex
-/.tx/
 #for development
-/vendor/
-src/vendor/
-src/composer.json
+vendor/
 composer.lock

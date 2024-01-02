@@ -1,0 +1,43 @@
+[main]
+host = https://app.transifex.com
+
+[o:bugbuster:p:contao-cron-bundle:r:master-explain]
+file_filter            = contao/languages/<lang>/explain.xlf
+source_file            = contao/languages/en/explain.xlf
+source_lang            = en
+type                   = XLIFF
+minimum_perc           = 0
+resource_name          = master-explain
+replace_edited_strings = false
+keep_translations      = false
+
+[o:bugbuster:p:contao-cron-bundle:r:master-modules]
+file_filter            = contao/languages/<lang>/modules.xlf
+source_file            = contao/languages/en/modules.xlf
+source_lang            = en
+type                   = XLIFF
+minimum_perc           = 0
+resource_name          = master-modules
+replace_edited_strings = false
+keep_translations      = false
+
+[o:bugbuster:p:contao-cron-bundle:r:master-tl_crontab]
+file_filter            = contao/languages/<lang>/tl_crontab.xlf
+source_file            = contao/languages/en/tl_crontab.xlf
+source_lang            = en
+type                   = XLIFF
+minimum_perc           = 0
+resource_name          = master-tl_crontab
+replace_edited_strings = false
+keep_translations      = false
+
+[o:bugbuster:p:contao-cron-bundle:r:master-tl_settings]
+file_filter            = contao/languages/<lang>/tl_settings.xlf
+source_file            = contao/languages/en/tl_settings.xlf
+source_lang            = en
+type                   = XLIFF
+minimum_perc           = 0
+resource_name          = master-tl_settings
+replace_edited_strings = false
+keep_translations      = false
+

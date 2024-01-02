@@ -1,0 +1,301 @@
+<?xml version="1.0" ?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="php" date="2020-09-18T01:15:16+02:00" original="tl_crontab" source-language="en" target-language="ru">
+    <body>
+      <trans-unit id="tl_crontab.title.0">
+        
+        <source>Titel</source>
+        <target>Название</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.title.1">
+        
+        <source>Enter a descriptive title for the job.</source>
+        <target>Введите описательный заголовок задания.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.job.0">
+        
+        <source>Job</source>
+        <target>Задание</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.job.1">
+        
+        <source>Enter either a relative path of a PHP script, a symfony route, or a URL.</source>
+        <target>Введите либо относительный путь к скрипту PHP, либо маршрут Symfony, либо URL.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_minute.0">
+        
+        <source>Minute</source>
+        <target>Минуты</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_minute.1">
+        
+        <source>List the minutes for example as 5,10,15-20,30. Use the form */15 for example for every 15 minutes. Enter * for every minute.</source>
+        <target>Перечислите минуты (например: 5,10,15-20,30). Используйте шаблон */15 (напр.: каждые 15 минут). Введите * (звездочку) если каждую минуту.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_hour.0">
+        
+        <source>Hour</source>
+        <target>Часы</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_hour.1">
+        
+        <source>List the hours for example as 2,4,5-7,9. Use the form */3 for example for every 3 hours. Enter * for every hour.</source>
+        <target>Перечислите часы (например: 2,4,5-7,9). Используйте шаблон  */3  (напр.: каждые 3 часа). Введите * (звездочку) если каждый час.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dom.0">
+        
+        <source>Day of month</source>
+        <target>Дни месяца</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dom.1">
+        
+        <source>List the days of month for example as 1,10,14-16,20. Enter * for all days.</source>
+        <target>Перечислите дни месяца (напр.: 1,10,14-16,20. Введите * (звездочку) если каждый день.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_month.0">
+        
+        <source>Month</source>
+        <target>Месяцы</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_month.1">
+        
+        <source>List the month numbers as 1,3,7-9, or name shortcuts as Jan,Mar,Jul-Sep for example. Enter * for every month.</source>
+        <target>Перечислите месяцы (напр.: 1,3,7-9, или имена Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec). Введите * (звездочку) если каждый месяц.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dow.0">
+        
+        <source>Day of week</source>
+        <target>Дни недели</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dow.1">
+        
+        <source>List the day numbers (0=sunday) as 0,2-4,7 or name shortcuts as Sun,Tue-Thu,Sat for example. Enter * for every day of week.</source>
+        <target>Перечислите дни недели (0=воскресенье) (напр.: 0,2-4,7 или имена Sun, Mon, Tue, Wed, Thu, Fri, Sat). Введите * (звездочку) если каждую неделю.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.runonce.0">
+        
+        <source>Run once</source>
+        <target>Выполнить один раз</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.runonce.1">
+        
+        <source>Disable job after completion.</source>
+        <target>Отключить задание после выполнения.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enabled.0">
+        
+        <source>Enabled</source>
+        <target>Включить</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enabled.1">
+        
+        <source>Enable execution of this job.</source>
+        <target>Запустить выполнение этого задания.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.logging.0">
+        
+        <source>Logging</source>
+        <target>Журналирование</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.logging.1">
+        
+        <source>Make log entry when job is executed.</source>
+        <target>Создавать журнал выполнения задания.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_minute">
+        
+        <source>Minute</source>
+        <target>Минуты</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_hour">
+        
+        <source>Hour</source>
+        <target>Часы</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_dom">
+        
+        <source>Day of the month</source>
+        <target>Дени месяца</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_month">
+        
+        <source>Month</source>
+        <target>Месяцы</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_dow">
+        
+        <source>Day of the week</source>
+        <target>Дени недели</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.lastrun">
+        
+        <source>Last run</source>
+        <target>Последний запуск</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.nextrun">
+        
+        <source>Next run</source>
+        <target>Следующий запуск</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.new.0">
+        
+        <source>New</source>
+        <target>Новое задание</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.new.1">
+        
+        <source>Create a new job.</source>
+        <target>Создать новое задание.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.edit.0">
+        
+        <source>Edit</source>
+        <target>Редактировать задание</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.edit.1">
+        
+        <source>Edit the settings of this job.</source>
+        <target>Редактировать настройки этого задания.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.copy.0">
+        
+        <source>Copy</source>
+        <target>Копировать задание</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.copy.1">
+        
+        <source>Copy this job.</source>
+        <target>Копировать это задание.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.delete.0">
+        
+        <source>Delete</source>
+        <target>Удалить задание</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.delete.1">
+        
+        <source>Delete this job.</source>
+        <target>Удалить это задание.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.show.0">
+        
+        <source>Show</source>
+        <target>Показать задание</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.show.1">
+        
+        <source>View the details.</source>
+        <target>Показать детали задания.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.ena_logging.0">
+        
+        <source>Enable logging</source>
+        <target>Включить журналирование</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.ena_logging.1">
+        
+        <source>Enable logging for job %s</source>
+        <target>Включить журналирование задания %s</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.dis_logging.0">
+        
+        <source>Disable logging</source>
+        <target>Отключить журналирование</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.dis_logging.1">
+        
+        <source>Disable logging for job %s</source>
+        <target>Отключить журналирование задания %s</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enable.0">
+        
+        <source>Enable execution</source>
+        <target>Включить выполнение</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enable.1">
+        
+        <source>Enable execution of job %s</source>
+        <target>Включить выполнение задания %s</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.disable.0">
+        
+        <source>Disable execution</source>
+        <target>Отключить выполнение</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.disable.1">
+        
+        <source>Disable execution of job %s</source>
+        <target>Отключить выполнение задания %s</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.startnow.0">
+        
+        <source>Run</source>
+        <target>Выполнить</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.startnow.1">
+        
+        <source>Run the execution of this job %s</source>
+        <target>Выполнить задание %s</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.file_not_readable">
+        
+        <source>File not found or not readable.</source>
+        <target>Файл не найден или не читается.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.route_not_exists">
+        
+        <source>None of the routes match the path.</source>
+        <target>Ни один из маршрутов не соответствует пути.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.allow_url_fopen_not_set">
+        
+        <source>The PHP flag &quot;allow_url_fopen&quot; is not set.</source>
+        <target>Флаг PHP &quot;allow_url_fopen&quot; не установлен.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.curl_not_available">
+        
+        <source>The PHP &quot;cURL&quot; extension is not available.</source>
+        <target>Расширение PHP CURL не доступно.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.one_is_necessary">
+        
+        <source>One is necessary.</source>
+        <target>Один из них необходим.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtypetitle">
+        
+        <source>Job type</source>
+        <target>Тип задания</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtype1">
+        
+        <source>File</source>
+        <target>Файл</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtype2">
+        
+        <source>Route</source>
+        <target>Маршрут</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtype3">
+        
+        <source>URL</source>
+        <target>URL</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.expert_legend">
+        
+        <source>Expert settings</source>
+        <target>Экспертные настройки</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.expert_timeout.0">
+        
+        <source>Timeout for job type 'Route' and 'URL'</source>
+        <target>Тайм-аут для заданий типа 'Маршрут' и 'URL'</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.expert_timeout.1">
+        
+        <source>Enter a timeout value between 5 and 300 seconds.</source>
+        <target>Введите значение тайм-аута от 5 до 300 сек.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

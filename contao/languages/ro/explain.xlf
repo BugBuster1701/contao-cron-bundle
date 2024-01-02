@@ -1,0 +1,66 @@
+<?xml version="1.0" ?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="php" date="2020-07-05T00:53:05+02:00" original="explain" source-language="en" target-language="ro">
+    <body>
+      <trans-unit id="XPL.cron_elements.0.0">
+        
+        <source>Basic element syntax</source>
+        <target>Sintaxa elementului</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_elements.0.1">
+        
+        <source>The basic syntax for the time element is:&lt;br&gt;&lt;br&gt;&lt;pre&gt;    begin[-end][/step]&lt;/pre&gt;&lt;br&gt;The parts enclosed in brackets are optional. The units dependend on the element type and can be minute, hour, day of month, day of week or month. The part &lt;code&gt;begin[-end]&lt;/code&gt; may be replaced by a * which means &lt;em&gt;all&lt;/em&gt;.&lt;br&gt;For example, these are valid elements:&lt;br&gt;&lt;br&gt;&lt;pre&gt;		    5       minute,hour,day,... number 5
+    3-5     minutes,hours,days,... 3,4,5
+    5-10/2  minutes,hours,days,... 5,7,9
+    *       all minutes,hours,days,...
+    */3     minutes,hours,days,... 0,3,6,...&lt;/pre&gt;</source>
+        <target>Sintaxa de bază pentru elementul de timp este: &lt;br&gt; &lt;br&gt;&lt;pre&gt; început[-sfârşit][/pas] &lt;/pre&gt;&lt;br&gt; Ce se găseşte între paranteze este opţional. Unităţile depind de tipul de element şi pot fi minut, oră, zi din lună, zi din săptămână sau din lună. Partea &lt;code&gt; început[-sfârşit]&lt;/code&gt; poate fi înlocuită cu un *, ceea ce înseamnă &lt;em&gt;toate&lt;/em&gt; elementele. &lt;br&gt;De exemplu, construcţii valide sunt: &lt;br&gt;&lt;br&gt; &lt;pre&gt;5 minute,oră,zi, ... numărul 5 
+ 3-5 minute,ore,zile, ... 3,4,5
+ 5-10/2 minute,ore,zile, ... 5,7,9
+ * toate nminute,ore,zile, ...
+ * / 3 nminute,ore,zile, ... 0,3,6, ...&lt;/pre&gt;</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_elements.1.0">
+        
+        <source>Element list</source>
+        <target>Lista de elemente</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_elements.1.1">
+        
+        <source>Every part of the schedule can be entered as a comma separated list, for example:&lt;br&gt;&lt;br&gt;&lt;pre&gt;		   5,7,10-15/2,21  = Numbers 5,7,10,12,14,21&lt;/pre&gt;</source>
+        <target>Fiecare parte a programului poate fi introdusă sub formă de listă separată prin virgulă, de exemplu: &lt;br&gt;&lt;br&gt;&lt;pre&gt;5,7,10-15/2,21 = numerele 5,7,10,12,14,21 &lt;/pre&gt;nsearch</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_elements.2.0">
+        
+        <source>Day of week</source>
+        <target>Zile din săptămână</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_elements.2.1">
+        
+        <source>Days of week can be entered either as number 0...6 where 0 = sunday, or as 3 character english shortcut as Mon, Tue, Wed, Thu, Fri, Sat, Sun:&lt;br&gt;&lt;br&gt;&lt;pre&gt;		   Mon-Fri/2 is equivalent to 1-5/2&lt;/pre&gt;</source>
+        <target>Ziua din săptămână poate fi introdusă fie ca număr 0...6 unde 0 = duminică, sau prin 3 caractere corespunzătoare limbii engleze ca Mon, Tue, Wed, Thu, Fri, Sat, Sun: &lt;br&gt;&lt;br&gt;&lt;pre&gt; Mon-Fri/2 este echivalent cu 1-5/2 &lt;/pre&gt;</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_elements.3.0">
+        
+        <source>Months</source>
+        <target>Lunile</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_elements.3.1">
+        
+        <source>Months can be entered either as number 1...12, or as 3 character english shortcut as Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec:&lt;br&gt;&lt;br&gt;&lt;pre&gt;		   Feb-Nov/3 is equivalent to 2-11/3&lt;/pre&gt;</source>
+        <target>Luna poate fi introdusă fie ca număr prin 1...12, sau prin 3 caractere corespunzătoare limbii engleze ca Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec: &lt;br&gt;&lt;br&gt;&lt;pre&gt;Feb-Nov/3 este equivalent cu 2-11/3 &lt;/pre&gt;</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_jobs.0.0">
+        
+        <source>Job</source>
+        <target>Comandă</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_jobs.0.1">
+        
+        <source>Job types:&lt;br&gt;- relative path of a PHP script&lt;br&gt;- a Symfony route&lt;br&gt;- a URL&lt;br&gt;Examples:&lt;br&gt;&lt;pre&gt;
+    - web/bundles/bugbustercron/PurgeLog.php
+    - /BackupDB/autobackup
+    - http://your.domain/&lt;/pre&gt;</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

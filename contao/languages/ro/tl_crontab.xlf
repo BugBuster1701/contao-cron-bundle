@@ -1,0 +1,286 @@
+<?xml version="1.0" ?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="php" date="2020-09-18T01:15:16+02:00" original="tl_crontab" source-language="en" target-language="ro">
+    <body>
+      <trans-unit id="tl_crontab.title.0">
+        
+        <source>Titel</source>
+        <target>Titlu</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.title.1">
+        
+        <source>Enter a descriptive title for the job.</source>
+        <target>Introduceţi un titlu pentru comandă</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.job.0">
+        
+        <source>Job</source>
+        <target>Comandă</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.job.1">
+        
+        <source>Enter either a relative path of a PHP script, a symfony route, or a URL.</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_minute.0">
+        
+        <source>Minute</source>
+        <target>Minut</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_minute.1">
+        
+        <source>List the minutes for example as 5,10,15-20,30. Use the form */15 for example for every 15 minutes. Enter * for every minute.</source>
+        <target>Afişează minutul precum 5,10,15-20,30.  Folosiţi de exemplu construcţia */15 pentru intervale de 15 minute. Introduceţi * pentru fiecare minut.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_hour.0">
+        
+        <source>Hour</source>
+        <target>Oră</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_hour.1">
+        
+        <source>List the hours for example as 2,4,5-7,9. Use the form */3 for example for every 3 hours. Enter * for every hour.</source>
+        <target>Afişează ora precum 2,4,5-7,9. Folosiţide exemplu construcţia */3 pentru intervale de 3 ore. Introduceţi * pentru fiecare oră.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dom.0">
+        
+        <source>Day of month</source>
+        <target>Zi din lună</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dom.1">
+        
+        <source>List the days of month for example as 1,10,14-16,20. Enter * for all days.</source>
+        <target>Afişează ziua din lună precum 1,10,14-16,20. Introduceţi * pentru toate zilele.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_month.0">
+        
+        <source>Month</source>
+        <target>Lună</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_month.1">
+        
+        <source>List the month numbers as 1,3,7-9, or name shortcuts as Jan,Mar,Jul-Sep for example. Enter * for every month.</source>
+        <target>Afişează luna precum 1,3,7-9 sau prin caractere de exemplu Jan,Mar,Jul-Sep. Introduceţi * pentru fiecare lună.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dow.0">
+        
+        <source>Day of week</source>
+        <target>Zi din săptămână</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dow.1">
+        
+        <source>List the day numbers (0=sunday) as 0,2-4,7 or name shortcuts as Sun,Tue-Thu,Sat for example. Enter * for every day of week.</source>
+        <target>Afişează numărul zilei precum 0,2-4,7 (0=Duminică) sau prin caractere de exmplu Sun,Tue-Thu,Sat. Introduceţi * pentru fiecare zi a săptămânii.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.runonce.0">
+        
+        <source>Run once</source>
+        <target>Execută o singură dată</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.runonce.1">
+        
+        <source>Disable job after completion.</source>
+        <target>Dezactivează comanda după execuţie.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enabled.0">
+        
+        <source>Enabled</source>
+        <target>Activat</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enabled.1">
+        
+        <source>Enable execution of this job.</source>
+        <target>Activează execuţia acestei comenzi</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.logging.0">
+        
+        <source>Logging</source>
+        <target>Jurnal</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.logging.1">
+        
+        <source>Make log entry when job is executed.</source>
+        <target>Actualizează jurnalul în momentul execuţiei comenzii</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_minute">
+        
+        <source>Minute</source>
+        <target>Minut</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_hour">
+        
+        <source>Hour</source>
+        <target>Oră</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_dom">
+        
+        <source>Day of the month</source>
+        <target>Zi din lună</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_month">
+        
+        <source>Month</source>
+        <target>Lună</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_dow">
+        
+        <source>Day of the week</source>
+        <target>Zi din săptămână</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.lastrun">
+        
+        <source>Last run</source>
+        <target>Ultima execuţie</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.nextrun">
+        
+        <source>Next run</source>
+        <target>Următoarea execuţie</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.new.0">
+        
+        <source>New</source>
+        <target>Nou</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.new.1">
+        
+        <source>Create a new job.</source>
+        <target>Creează o nouă comandă</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.edit.0">
+        
+        <source>Edit</source>
+        <target>Editează</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.edit.1">
+        
+        <source>Edit the settings of this job.</source>
+        <target>Editează parametri acestei comenzi</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.copy.0">
+        
+        <source>Copy</source>
+        <target>Copiază</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.copy.1">
+        
+        <source>Copy this job.</source>
+        <target>Copiază această comandă</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.delete.0">
+        
+        <source>Delete</source>
+        <target>Şterge</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.delete.1">
+        
+        <source>Delete this job.</source>
+        <target>Şterge această comandă</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.show.0">
+        
+        <source>Show</source>
+        <target>Arată</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.show.1">
+        
+        <source>View the details.</source>
+        <target>Arată detaliile</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.ena_logging.0">
+        
+        <source>Enable logging</source>
+        <target>Activează jurnalizare</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.ena_logging.1">
+        
+        <source>Enable logging for job %s</source>
+        <target>Activează jurnalizare pentru comanda %s</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.dis_logging.0">
+        
+        <source>Disable logging</source>
+        <target>Dezactivează jurnalizare</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.dis_logging.1">
+        
+        <source>Disable logging for job %s</source>
+        <target>Dezactivează jurnalizare pentru comanda %s</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enable.0">
+        
+        <source>Enable execution</source>
+        <target>Activează execuţia</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enable.1">
+        
+        <source>Enable execution of job %s</source>
+        <target>Activează execuţia comenzii %s</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.disable.0">
+        
+        <source>Disable execution</source>
+        <target>Dezactivează execuţia</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.disable.1">
+        
+        <source>Disable execution of job %s</source>
+        <target>Dezctivează execuţia comenzii %s</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.startnow.0">
+        
+        <source>Run</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.startnow.1">
+        
+        <source>Run the execution of this job %s</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.file_not_readable">
+        
+        <source>File not found or not readable.</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.route_not_exists">
+        
+        <source>None of the routes match the path.</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.allow_url_fopen_not_set">
+        
+        <source>The PHP flag &quot;allow_url_fopen&quot; is not set.</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.curl_not_available">
+        
+        <source>The PHP &quot;cURL&quot; extension is not available.</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.one_is_necessary">
+        
+        <source>One is necessary.</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtypetitle">
+        
+        <source>Job type</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtype1">
+        
+        <source>File</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtype2">
+        
+        <source>Route</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtype3">
+        
+        <source>URL</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.expert_legend">
+        
+        <source>Expert settings</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.expert_timeout.0">
+        
+        <source>Timeout for job type 'Route' and 'URL'</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.expert_timeout.1">
+        
+        <source>Enter a timeout value between 5 and 300 seconds.</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
