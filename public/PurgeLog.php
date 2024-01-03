@@ -1,5 +1,6 @@
 <?php 
 
+use Contao\System;
 use Psr\Log\LogLevel;
 use Contao\CoreBundle\Monolog\ContaoContext;
 
@@ -19,36 +20,14 @@ use Contao\CoreBundle\Monolog\ContaoContext;
  */
 
 /**
- * Initialize the system
- */
-if (!defined('TL_MODE')) 
-{
-    define('TL_MODE', 'BE');
-    
-    $dir = __DIR__;
-
-    while ($dir != '.' && $dir != '/' && !is_file($dir . '/system/initialize.php'))
-    {
-        $dir = dirname($dir);
-    }
-    
-    if (!is_file($dir . '/system/initialize.php'))
-    {
-        echo 'Could not find initialize.php!';
-        exit(1);
-    }
-    require($dir . '/system/initialize.php');
-}
-
-
-/**
  * Class PurgeLog
  * 
  * @copyright  Glen Langer 2012..2018 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @package    Cron
  */
-class PurgeLog extends Backend
+class PurgeLog extends \Contao\Backend // TODO geht so nicht ohne Contao Framework, oder? initialize.php gibt es ja nicht mehr
+// https://docs.contao.org/dev/framework/cron/
 {
 
     /**
@@ -79,14 +58,14 @@ class PurgeLog extends Backend
             return;
         }
         
-        \Database::getInstance()->prepare("DELETE FROM `tl_log`")->execute();
+        \Contao\Database::getInstance()->prepare("DELETE FROM `tl_log`")->execute();
         if ($cronJob['logging'])
         {
-            \System::getContainer()
+            System::getContainer()
                 ->get('monolog.logger.contao')
                 ->log(LogLevel::INFO,
                     'System log purged by cron job.',
-                    array('contao' => new ContaoContext('PurgeLog run()', TL_GENERAL)));
+                    array('contao' => new ContaoContext('PurgeLog run()', ContaoContext::GENERAL)));
         }
     } // run
 	

@@ -42,7 +42,7 @@ class CronHook extends System
 
 	/**
 	 * Return the current object instance (Singleton)
-	 * @return BotStatisticsHelper
+	 * @return CronHook
 	 */
 	public static function getInstance()
 	{
