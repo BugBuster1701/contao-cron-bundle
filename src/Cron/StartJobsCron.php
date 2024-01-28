@@ -309,10 +309,13 @@ class StartJobsCron
 	 */
 	private function runFileJob(&$qjob)
 	{
-        $this->logger?->info(__METHOD__ .' '. __LINE__);
+        // $this->logger?->info(__METHOD__ .' '. __LINE__);
+		global $cronJob;
 		// File exists and readable?
 		if (!is_readable($this->projectDir . '/' . $qjob['job']))
 		{
+			$cronJob['completed'] = false;
+			
 			return $this->translator->trans('tl_crontab.file_not_readable',[] , 'contao_tl_crontab', 'en');
 		}
 
@@ -321,7 +324,18 @@ class StartJobsCron
 		include $this->projectDir . '/' . $qjob['job'];
 		error_reporting($e);
 
+		$cronJob = array(
+			'id'		=> $qjob['id'],
+			'title'		=> $qjob['title'],
+			'lastrun'	=> $qjob['lastrun'],
+			'endtime'	=> time(),
+			'runonce'	=> (int) $qjob['runonce'] > 0,
+			'logging'	=> (int) $qjob['logging'] > 0,
+			'completed'	=> true
+		);
+
 		return str_replace("\n", '<br>', trim(preg_replace('#<\s*br\s*//*?\s*>#i', "\n", ob_get_flush())));
+
 	} // runJob
 
 	/**
@@ -329,7 +343,7 @@ class StartJobsCron
 	 */
 	private function runRouteJob($qjob)
 	{
-        $this->logger?->info(__METHOD__ .' '. __LINE__);
+        // $this->logger?->info(__METHOD__ .' '. __LINE__);
 		global $cronJob;
 
 		// @var Router $router
@@ -359,6 +373,7 @@ class StartJobsCron
 
 		$StatusCode = $request->get();
 
+
 		if (200 == $StatusCode)
 		{
 			$cronJob['completed'] = true;
@@ -375,7 +390,7 @@ class StartJobsCron
 	 */
 	private function runUrlJob($qjob)
 	{
-        $this->logger?->info(__METHOD__ .' '. __LINE__ .' '.$qjob['job']);
+        // $this->logger?->info(__METHOD__ .' '. __LINE__ .' '.$qjob['job']);
 		global $cronJob;
 
 		try

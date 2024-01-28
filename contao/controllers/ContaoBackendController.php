@@ -233,15 +233,6 @@ class ContaoBackendController extends Backend
 	{
 		global $cronJob;
 		$rootDir = System::getContainer()->getParameter('kernel.project_dir');
-		$limit = 5;
-		if (isset($GLOBALS['TL_CONFIG']['cron_limit']))
-		{
-			$limit = (int) $GLOBALS['TL_CONFIG']['cron_limit'];
-		}
-		if ($limit<=0)
-		{
-			return;
-		}
 
 		// File exists and readable?
 		if (!is_readable($rootDir . '/' . $qjob->job))
@@ -249,21 +240,20 @@ class ContaoBackendController extends Backend
 			return '<span style="color:red;">' . $GLOBALS['TL_LANG']['tl_crontab']['file_not_readable'] . "</span> ($qjob->job)";
 		}
 
-		$currtime = time();
-		$endtime  = $currtime+$limit;
-		$cronJob = array(
-			'id'		=> $qjob->id,
-			'title'		=> $qjob->title,
-			'lastrun'	=> $qjob->lastrun,
-			'endtime'	=> $endtime,
-			'runonce'	=> (int) $qjob->runonce > 0,
-			'logging'	=> (int) $qjob->logging > 0,
-			'completed'	=> true
-		);
 		ob_start();
 		$e = error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED & ~E_USER_DEPRECATED);
 		include $rootDir . '/' . $qjob->job;
 		error_reporting($e);
+
+		$cronJob = array(
+			'id'		=> $qjob->id,
+			'title'		=> $qjob->title,
+			'lastrun'	=> $qjob->lastrun,
+			'endtime'	=> time(),
+			'runonce'	=> (int) $qjob->runonce > 0,
+			'logging'	=> (int) $qjob->logging > 0,
+			'completed'	=> true
+		);
 
 		return str_replace("\n", '<br>', trim(preg_replace('#<\s*br\s*/?\s*>#i', "\n", ob_get_flush())));
 	} // runJob
