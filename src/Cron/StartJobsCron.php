@@ -190,7 +190,7 @@ class StartJobsCron
                     $this->connection->executeStatement($sqlUpdate, $dataset, $types);
 
                     if ($cronJob['logging']) {
-                        if ('' !== $output || null !== $output) {
+                        if ('' !== (string) $output) {
                             $this->logger?->error('Cron job '.$row['title'].': failed: '.strip_tags($output));
                         } else {
                             $this->logger?->info('Cron job '.$row['title'].': '.($cronJob['completed'] ? 'completed.' : 'processed partially.'));
