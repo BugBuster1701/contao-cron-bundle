@@ -74,6 +74,7 @@ class ModuleCron extends Module
 	 */
 	public function run()
 	{
+		trigger_deprecation('BugBuster1701/contao-cron-bundle', '1.6.0', 'The scheduler front end module is no longer used by internal code. Do not use!');
 		return '';
 		// $arrParams = array();
 		// $strUrl = System::getContainer()->get('router')->generate('cron_frontend_startjobs', $arrParams);
