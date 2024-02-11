@@ -4,10 +4,3 @@ cron_backend_startnow:
         _controller: BugBuster\CronBundle\Controller\BackendController::startJobNowAction
         _scope: backend
         _token_check: true
-
-cron_frontend_startjobs:
-    path:     /bbcron/startjobs
-    defaults: 
-        _controller: BugBuster\CronBundle\Controller\FrontendController::startJobsAction
-        _scope: frontend
-        _token_check: false

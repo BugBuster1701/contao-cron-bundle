@@ -14,17 +14,14 @@
 namespace BugBuster\Cron;
 
 use Contao\BackendTemplate;
-use Contao\Environment;
 use Contao\Module;
-use Contao\StringUtil;
 use Contao\System;
-use Contao\Template;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class ModuleCron
  *
- * @copyright  Glen Langer 2013..2018 <http://contao.ninja>
- * @license    LGPL
+ * @deprecated 1.6.0 No longer used by internal code and not recommended.
  */
 class ModuleCron extends Module
 {
@@ -36,14 +33,17 @@ class ModuleCron extends Module
 
 	/**
 	 * Display a wildcard in the back end
+	 * @deprecated 1.6.0 No longer used by internal code and not recommended.
 	 * @return string
 	 */
 	public function generate()
 	{
-		if (TL_MODE == 'BE')
+		if (System::getContainer()->get('contao.routing.scope_matcher')
+			->isBackendRequest(System::getContainer()->get('request_stack')
+			->getCurrentRequest() ?? Request::create('')))
 		{
 			$objTemplate = new BackendTemplate('be_wildcard');
-			$objTemplate->wildcard = '### Scheduler FE ###';
+			$objTemplate->wildcard = '### Scheduler FE - DEPRECATED - do not use! ###';
 			$objTemplate->title = $this->headline;
 			$objTemplate->id    = $this->id;
 			$objTemplate->link  = $this->name;
@@ -57,6 +57,7 @@ class ModuleCron extends Module
 
 	/**
 	 * Generate module
+	 * @deprecated 1.6.0 No longer used by internal code and not recommended.
 	 */
 	protected function compile()
 	{
@@ -64,25 +65,32 @@ class ModuleCron extends Module
 		$this->Template->out = $return;
 	}
 
+	/**
+	 * generate Template output
+	 * 
+	 * @deprecated 1.6.0 No longer used by internal code and not recommended.
+	 * @return string
+	 */
 	public function run()
 	{
-		$arrParams = array();
-		$strUrl = System::getContainer()->get('router')->generate('cron_frontend_startjobs', $arrParams);
-		$strUrl = substr($strUrl, \strlen(Environment::get('path')) + 1);
+		return '';
+		// $arrParams = array();
+		// $strUrl = System::getContainer()->get('router')->generate('cron_frontend_startjobs', $arrParams);
+		// $strUrl = substr($strUrl, \strlen(Environment::get('path')) + 1);
 
-		$strScripts = Template::generateInlineScript('
-            setTimeout(
-                function(){
-                        try{
-                            var n=new XMLHttpRequest();
-                        }catch(r){
-                            return;
-                        }
-                        n.open("GET","' . StringUtil::ampersand($strUrl) . '",true);
-                        n.send();
-                },1000
-            );');
+		// $strScripts = Template::generateInlineScript('
+        //     setTimeout(
+        //         function(){
+        //                 try{
+        //                     var n=new XMLHttpRequest();
+        //                 }catch(r){
+        //                     return;
+        //                 }
+        //                 n.open("GET","' . StringUtil::ampersand($strUrl) . '",true);
+        //                 n.send();
+        //         },1000
+        //     );');
 
-		return $strScripts;
+		// return $strScripts;
 	} // run
 } // class

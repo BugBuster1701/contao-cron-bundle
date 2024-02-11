@@ -5,12 +5,6 @@ services:
 
     BugBuster\CronBundle\EventListener\DataContainer\SaveCallbackListener: ~
 
-    BugBuster\CronBundle\Controller\FrontendController:
-        public: true
-        calls:
-            - method: setContainer
-              arguments: [ '@service_container' ]
-
     BugBuster\CronBundle\Controller\BackendController:
         public: true
         calls:
