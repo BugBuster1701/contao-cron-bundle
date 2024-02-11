@@ -70,7 +70,7 @@ class CronRequest
 		$this->url          = $url;
 		$this->timeout      = $timeout;
 
-		$this->httpClient   = HttpClient::create(['verify_peer' => false, 'verify_host' => false]);
+		$this->httpClient   = HttpClient::create(array('verify_peer' => false, 'verify_host' => false));
 
 		if (false === $this->isCurlEnabled() && false === $this->isAllowUrlFopenEnabled())
 		{

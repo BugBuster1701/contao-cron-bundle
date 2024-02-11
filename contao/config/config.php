@@ -42,4 +42,4 @@ $GLOBALS['BE_MOD']['system']['cron']['disable_logging'] = array('BugBuster\Cron\
  * HOOKS
  * -------------------------------------------------------------------------
  */
-//$GLOBALS['TL_HOOKS']['parseBackendTemplate'][]  = array('BugBuster\Cron\CronHook', 'startJobs');
+// $GLOBALS['TL_HOOKS']['parseBackendTemplate'][]  = array('BugBuster\Cron\CronHook', 'startJobs');

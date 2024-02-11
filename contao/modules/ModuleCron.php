@@ -38,10 +38,11 @@ class ModuleCron extends Module
 	 */
 	public function generate()
 	{
-		if (System::getContainer()->get('contao.routing.scope_matcher')
+		if (
+			System::getContainer()->get('contao.routing.scope_matcher')
 			->isBackendRequest(System::getContainer()->get('request_stack')
-			->getCurrentRequest() ?? Request::create('')))
-		{
+			->getCurrentRequest() ?? Request::create(''))
+		) {
 			$objTemplate = new BackendTemplate('be_wildcard');
 			$objTemplate->wildcard = '### Scheduler FE - DEPRECATED - do not use! ###';
 			$objTemplate->title = $this->headline;
@@ -67,7 +68,7 @@ class ModuleCron extends Module
 
 	/**
 	 * generate Template output
-	 * 
+	 *
 	 * @deprecated 1.6.0 No longer used by internal code and not recommended.
 	 * @return string
 	 */
@@ -79,17 +80,17 @@ class ModuleCron extends Module
 		// $strUrl = substr($strUrl, \strlen(Environment::get('path')) + 1);
 
 		// $strScripts = Template::generateInlineScript('
-        //     setTimeout(
-        //         function(){
-        //                 try{
-        //                     var n=new XMLHttpRequest();
-        //                 }catch(r){
-        //                     return;
-        //                 }
-        //                 n.open("GET","' . StringUtil::ampersand($strUrl) . '",true);
-        //                 n.send();
-        //         },1000
-        //     );');
+		//     setTimeout(
+		//         function(){
+		//                 try{
+		//                     var n=new XMLHttpRequest();
+		//                 }catch(r){
+		//                     return;
+		//                 }
+		//                 n.open("GET","' . StringUtil::ampersand($strUrl) . '",true);
+		//                 n.send();
+		//         },1000
+		//     );');
 
 		// return $strScripts;
 	} // run
