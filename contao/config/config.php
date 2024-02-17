@@ -23,7 +23,7 @@ $GLOBALS['BE_MOD']['system']['cron'] = array(
 
 /*
  * -------------------------------------------------------------------------
- * FRONT END MODULES
+ * FRONT END MODULES, DEPRECATED
  * -------------------------------------------------------------------------
  */
 $GLOBALS['FE_MOD']['miscellaneous']['cron_fe'] = 'BugBuster\Cron\ModuleCron';
@@ -36,10 +36,3 @@ $GLOBALS['BE_MOD']['system']['cron']['enable']  = array('BugBuster\Cron\CronActi
 $GLOBALS['BE_MOD']['system']['cron']['disable'] = array('BugBuster\Cron\CronActions', 'disable');
 $GLOBALS['BE_MOD']['system']['cron']['enable_logging']  = array('BugBuster\Cron\CronActions', 'enableLogging');
 $GLOBALS['BE_MOD']['system']['cron']['disable_logging'] = array('BugBuster\Cron\CronActions', 'disableLogging');
-
-/*
- * -------------------------------------------------------------------------
- * HOOKS
- * -------------------------------------------------------------------------
- */
-// $GLOBALS['TL_HOOKS']['parseBackendTemplate'][]  = array('BugBuster\Cron\CronHook', 'startJobs');

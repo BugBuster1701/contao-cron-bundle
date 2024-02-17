@@ -7,18 +7,11 @@ namespace BugBuster\CronBundle\Cron;
 use BugBuster\Cron\CronRequest;
 use Contao\Config;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsCronJob;
-// use Symfony\Component\HttpFoundation\RequestStack;
 use Contao\CoreBundle\Framework\ContaoFramework;
-// use Symfony\Component\Filesystem\Path;
-// use Symfony\Component\Finder\Finder;
 use Contao\Environment;
 use Contao\StringUtil;
-// use Doctrine\DBAL\Types\Types;
 use Contao\System;
 use Cron\CronExpression;
-// use Contao\CoreBundle\Util\LocaleUtil;
-// use Contao\CoreBundle\Cron\Cron;
-// use Contao\CoreBundle\Exception\CronExecutionSkippedException;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\ParameterType;
 use Psr\Log\LoggerInterface;
@@ -63,26 +56,6 @@ class StartJobsCron
         // if (Cron::SCOPE_WEB === $scope) {
         //      throw new CronExecutionSkippedException();
         // }
-
-        // de, wenn BE Deutsch ist
-        // $tll = $GLOBALS['TL_LANGUAGE'];
-        // $this->logger?->info('TL_LANGUAGE: '.$tll);
-
-        // $this->translator->getLocale(); // bringt 'en' zurück statt 'de', wenn BE Deutsch ist.
-        // $translang = $this->translator->getLocale();
-        // $this->logger?->info('Translang: '.$translang);
-
-        // $strLanguage = LocaleUtil::formatAsLocale($GLOBALS['TL_LANGUAGE'] ?? 'en');
-        // if (!$strLanguage)
-        // {
-        // 	$strLanguage = 'en';
-        // }
-
-        // $text = $this->translator->trans('tl_crontab.route_not_exists',[] , 'contao_tl_crontab', 'en');
-        // $this->logger?->info($text);
-
-        // \Contao\System::loadLanguageFile('tl_crontab');
-        // $this->logger?->info($GLOBALS['TL_LANG']['tl_crontab']['route_not_exists'] . ' '.$strLanguage . ' GLOBAL '.$GLOBALS['TL_LANGUAGE']);
 
         // $this->logger?->info('Start: StartJobsCron');
         $this->runJobs();

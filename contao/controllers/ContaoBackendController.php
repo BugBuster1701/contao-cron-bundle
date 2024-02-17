@@ -19,7 +19,6 @@ use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\CoreBundle\Monolog\ContaoContext;
 use Contao\Database;
 use Contao\Environment;
-// use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Contao\Input;
 use Contao\StringUtil;
 use Contao\System;
@@ -47,10 +46,7 @@ class ContaoBackendController extends Backend
 	 */
 	public function __construct()
 	{
-		// $User = \Contao\BackendUser::getInstance();
 		parent::__construct();
-
-		// $this->User->authenticate();
 
 		System::loadLanguageFile('default');
 		System::loadLanguageFile('tl_crontab');
