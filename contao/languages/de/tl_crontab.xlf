@@ -1,0 +1,301 @@
+<?xml version="1.0" ?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="php" date="2020-09-18T01:15:16+02:00" original="tl_crontab" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="tl_crontab.title.0">
+        
+        <source>Titel</source>
+        <target>Titel</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.title.1">
+        
+        <source>Enter a descriptive title for the job.</source>
+        <target>Geben Sie einen beschreibenden Titel für den Auftrag ein.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.job.0">
+        
+        <source>Job</source>
+        <target>Job</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.job.1">
+        
+        <source>Enter either a relative path of a PHP script, a symfony route, or a URL.</source>
+        <target>Geben Sie entweder den relativen Pfad zum auszuführenden PHP-Script an, eine Symfony Route oder eine URL.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_minute.0">
+        
+        <source>Minute</source>
+        <target>Minute</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_minute.1">
+        
+        <source>List the minutes for example as 5,10,15-20,30. Use the form */15 for example for every 15 minutes. Enter * for every minute.</source>
+        <target>Minutenangabe in Listenform zum Beispiel 5,10,15-20,30. Um einen Job alle 15 Minuten auszuführen geben Sie */15 ein. Ein * steht für jede Minute.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_hour.0">
+        
+        <source>Hour</source>
+        <target>Stunde</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_hour.1">
+        
+        <source>List the hours for example as 2,4,5-7,9. Use the form */3 for example for every 3 hours. Enter * for every hour.</source>
+        <target>Stundenangabe in Listenform zum Beispiel 2,4,5-7,9. Um einen Job alle 3 Stunden auszuführen geben Sie */3 ein. Ein * steht für jede Stunde.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dom.0">
+        
+        <source>Day of month</source>
+        <target>Tag im Monat</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dom.1">
+        
+        <source>List the days of month for example as 1,10,14-16,20. Enter * for all days.</source>
+        <target>Tage im Monat in Listenform. Zum Beispiel: 1,10,14-16,20. Ein * steht für jeden Tag.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_month.0">
+        
+        <source>Month</source>
+        <target>Monat</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_month.1">
+        
+        <source>List the month numbers as 1,3,7-9, or name shortcuts as Jan,Mar,Jul-Sep for example. Enter * for every month.</source>
+        <target>Monate in Listenform als Zahl zum Bsp. 1,3,7-9, oder englische Abkürzung zum Bsp: Jan,Mar,Jul-Sep. Ein * steht für jeden Monat.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dow.0">
+        
+        <source>Day of week</source>
+        <target>Wochentag</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dow.1">
+        
+        <source>List the day numbers (0=sunday) as 0,2-4,7 or name shortcuts as Sun,Tue-Thu,Sat for example. Enter * for every day of week.</source>
+        <target>Wochentage in Listenform entweder als Zahlen (0=Sonntag) zum Bsp: 0,2-4,7 oder englische Abkürzung zum Bsp: Sun,Tue-Thu,Sat. Ein * steht für jeden Wochentag.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.runonce.0">
+        
+        <source>Run once</source>
+        <target>Nur einmal auf&amp;uuml;hren</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.runonce.1">
+        
+        <source>Disable job after completion.</source>
+        <target>Job nach Abschluss deaktivieren.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enabled.0">
+        
+        <source>Enabled</source>
+        <target>Aktiviert</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enabled.1">
+        
+        <source>Enable execution of this job.</source>
+        <target>Aktiviert die Ausführung dieses Jobs.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.logging.0">
+        
+        <source>Logging</source>
+        <target>Logging</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.logging.1">
+        
+        <source>Make log entry when job is executed.</source>
+        <target>Log-Eintrag schreiben, wenn Job ausgeführt wird</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_minute">
+        
+        <source>Minute</source>
+        <target>Minute</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_hour">
+        
+        <source>Hour</source>
+        <target>Stunde</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_dom">
+        
+        <source>Day of the month</source>
+        <target>Tag im Monat</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_month">
+        
+        <source>Month</source>
+        <target>Monat</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_dow">
+        
+        <source>Day of the week</source>
+        <target>Wochentag</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.lastrun">
+        
+        <source>Last run</source>
+        <target>Letzte Ausführung</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.nextrun">
+        
+        <source>Next run</source>
+        <target>Nächste Ausführung</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.new.0">
+        
+        <source>New</source>
+        <target>Neu</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.new.1">
+        
+        <source>Create a new job.</source>
+        <target>Neuen Job anlegen.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.edit.0">
+        
+        <source>Edit</source>
+        <target>Bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.edit.1">
+        
+        <source>Edit the settings of this job.</source>
+        <target>Die Einstellungen dieses Jobs bearbeiten.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.copy.0">
+        
+        <source>Copy</source>
+        <target>Kopieren</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.copy.1">
+        
+        <source>Copy this job.</source>
+        <target>Diesen Job kopieren.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.delete.0">
+        
+        <source>Delete</source>
+        <target>Löschen</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.delete.1">
+        
+        <source>Delete this job.</source>
+        <target>Diesen Job löschen.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.show.0">
+        
+        <source>Show</source>
+        <target>Anzeigen</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.show.1">
+        
+        <source>View the details.</source>
+        <target>Details anzeigen.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.ena_logging.0">
+        
+        <source>Enable logging</source>
+        <target>Logging aktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.ena_logging.1">
+        
+        <source>Enable logging for job %s</source>
+        <target>Logging für Job %s aktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.dis_logging.0">
+        
+        <source>Disable logging</source>
+        <target>Logging deaktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.dis_logging.1">
+        
+        <source>Disable logging for job %s</source>
+        <target>Logging für Job %s deaktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enable.0">
+        
+        <source>Enable execution</source>
+        <target>Aktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enable.1">
+        
+        <source>Enable execution of job %s</source>
+        <target>Ausführung für Job %s aktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.disable.0">
+        
+        <source>Disable execution</source>
+        <target>Deaktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.disable.1">
+        
+        <source>Disable execution of job %s</source>
+        <target>Ausführung für Job %s deaktivieren</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.startnow.0">
+        
+        <source>Run</source>
+        <target>Starten</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.startnow.1">
+        
+        <source>Run the execution of this job %s</source>
+        <target>Job %s sofort starten</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.file_not_readable">
+        
+        <source>File not found or not readable.</source>
+        <target>Datei nicht gefunden oder nicht lesbar.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.route_not_exists">
+        
+        <source>None of the routes match the path.</source>
+        <target>Keine der registrierten Routen stimmt mit dem Pfad überein.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.allow_url_fopen_not_set">
+        
+        <source>The PHP flag &quot;allow_url_fopen&quot; is not set.</source>
+        <target>Das PHP-Flag &quot;allow_url_fopen&quot; ist nicht gesetzt.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.curl_not_available">
+        
+        <source>The PHP &quot;cURL&quot; extension is not available.</source>
+        <target>Die PHP cURL-Erweiterung ist nicht verfügbar.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.one_is_necessary">
+        
+        <source>One is necessary.</source>
+        <target>Eins davon ist notwendig .</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtypetitle">
+        
+        <source>Job type</source>
+        <target>Jobtyp</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtype1">
+        
+        <source>File</source>
+        <target>Datei</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtype2">
+        
+        <source>Route</source>
+        <target>Route</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtype3">
+        
+        <source>URL</source>
+        <target>URL</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.expert_legend">
+        
+        <source>Expert settings</source>
+        <target>Experteneinstellungen</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.expert_timeout.0">
+        
+        <source>Timeout for job type 'Route' and 'URL'</source>
+        <target>Zeitbegrenzung für die Jobtypen 'Route' und 'URL'</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.expert_timeout.1">
+        
+        <source>Enter a timeout value between 5 and 300 seconds.</source>
+        <target>Eingabe einer Zeitbegrenzung zwischen 5 und 300 Sekunden.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

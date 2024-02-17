@@ -1,6 +1,6 @@
 {
 	"name":"bugbuster/contao-cron-bundle",
-	"description":"Contao 4 Cron Bundle - Scheduler for Contao 4",
+	"description":"Contao 5 Cron Bundle - Scheduler for Contao 5",
 	"keywords":["cron","scheduler","contao"],
 	"type":"contao-bundle",
 	"homepage":"http://contao.ninja",
@@ -19,14 +19,14 @@
 		"forum":"https://community.contao.org/de/forumdisplay.php?119-Sonstige-Erweiterungen"
 	},
 	"require":{
-		"php": "^7.4 || ^8.0",
-		"contao/core-bundle": ">=4.9.0,<5.0",
+		"php": "^8.1",
+		"contao/core-bundle": "^5.2",
 		"dragonmantank/cron-expression": "^2.3",
-		"symfony/http-client": "^4.4 || ^5.2"
+		"symfony/http-kernel": "^6.4",
+		"symfony/http-client": "^6.4"
 	},
 	"require-dev": {
-			"contao/manager-plugin": "^2.0",
-			"friendsofphp/php-cs-fixer": "^2.17"
+			"contao/manager-plugin": "^2.0"
 	},
 	"conflict": {
 			"contao/manager-plugin": "<2.0 || >=3.0"
@@ -36,27 +36,36 @@
 					"BugBuster\\CronBundle\\": "src/"
 		},
 		"classmap": [
-					"src/Resources/contao/"
+					"contao/"
 		],
 		"exclude-from-classmap": [
-					"src/Resources/contao/config/",
-					"src/Resources/contao/dca/",
-					"src/Resources/contao/languages/",
-					"src/Resources/contao/templates/"
+					"contao/config/",
+					"contao/dca/",
+					"contao/languages/",
+					"contao/templates/"
 		]
 	},
 	"extra":{
-		"contao":{
-			"transifex": {
-				"project": "contao-cron-bundle",
-				"prefix": "master-",
-				"languages_cto": "src/Resources/contao/languages",
-				"languages_tx": ".tx"
-			}
-		},
-		"branch-alias": {
-			"dev-develop": "1.5.x-dev"
-		},
 		"contao-manager-plugin": "BugBuster\\CronBundle\\ContaoManager\\Plugin"
-	}
+	},
+	"config": {
+		"allow-plugins": {
+			"contao-components/installer": true,
+			"contao/manager-plugin": true,
+			"php-http/discovery": true
+		}
+	},
+    "scripts": {
+        "all": [
+            "@cs-fixer"
+        ],
+        "cs-fixer": [
+            "@ecs",
+            "@ecs-legacy",
+            "@ecs-template"
+        ],
+        "ecs": "@php tools/ecs/vendor/bin/ecs check src/ --config tools/ecs/config/default.php --fix --ansi",
+        "ecs-legacy": "@php tools/ecs/vendor/bin/ecs check contao/ --config tools/ecs/config/legacy.php --fix --ansi",
+        "ecs-template": "@php tools/ecs/vendor/bin/ecs check contao/templates --config tools/ecs/config/template.php --fix --ansi"
+    }
 }

@@ -1,3 +1,0 @@
-<!-- indexer::stop -->
-<?php echo $this->out; ?>
-<!-- indexer::continue -->

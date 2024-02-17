@@ -1,0 +1,71 @@
+<?xml version="1.0" ?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="php" date="2020-07-05T00:53:05+02:00" original="explain" source-language="en" target-language="ru">
+    <body>
+      <trans-unit id="XPL.cron_elements.0.0">
+        
+        <source>Basic element syntax</source>
+        <target>Основной синтаксис элементов</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_elements.0.1">
+        
+        <source>The basic syntax for the time element is:&lt;br&gt;&lt;br&gt;&lt;pre&gt;    begin[-end][/step]&lt;/pre&gt;&lt;br&gt;The parts enclosed in brackets are optional. The units dependend on the element type and can be minute, hour, day of month, day of week or month. The part &lt;code&gt;begin[-end]&lt;/code&gt; may be replaced by a * which means &lt;em&gt;all&lt;/em&gt;.&lt;br&gt;For example, these are valid elements:&lt;br&gt;&lt;br&gt;&lt;pre&gt;		    5       minute,hour,day,... number 5
+    3-5     minutes,hours,days,... 3,4,5
+    5-10/2  minutes,hours,days,... 5,7,9
+    *       all minutes,hours,days,...
+    */3     minutes,hours,days,... 0,3,6,...&lt;/pre&gt;</source>
+        <target>Основной синтаксис времени:&lt;br&gt;&lt;br&gt;&lt;pre&gt;n    begin[-end][/step]n&lt;/pre&gt;&lt;br&gt;Части заключенные в скобки являются необязательными. Независимыми элементами могут быть минуты, часы, дни месяца, дни недели или месяцы. Часть &lt;code&gt;begin[-end]&lt;/code&gt; может быть заменена * (звездочкой) которая включает их &lt;em&gt;все&lt;/em&gt;.&lt;br&gt;Пример правильных элементов:&lt;br&gt;&lt;br&gt;&lt;pre&gt;
+		    5       minute,hour,day,... number 5
+		    3-5     minutes,hours,days,... 3,4,5
+		    5-10/2  minutes,hours,days,... 5,7,9
+		    *       all minutes,hours,days,...
+		    */3     minutes,hours,days,... 0,3,6,...&lt;/pre&gt;</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_elements.1.0">
+        
+        <source>Element list</source>
+        <target>Синтаксис списка</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_elements.1.1">
+        
+        <source>Every part of the schedule can be entered as a comma separated list, for example:&lt;br&gt;&lt;br&gt;&lt;pre&gt;		   5,7,10-15/2,21  = Numbers 5,7,10,12,14,21&lt;/pre&gt;</source>
+        <target>Каждая часть планируемого расписания может быть отделена запятыми. Пример:&lt;br&gt;&lt;br&gt;&lt;pre&gt;		   5,7,10-15/2,21  = Числа 5,7,10,12,14,21&lt;/pre&gt;</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_elements.2.0">
+        
+        <source>Day of week</source>
+        <target>Дни недели</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_elements.2.1">
+        
+        <source>Days of week can be entered either as number 0...6 where 0 = sunday, or as 3 character english shortcut as Mon, Tue, Wed, Thu, Fri, Sat, Sun:&lt;br&gt;&lt;br&gt;&lt;pre&gt;		   Mon-Fri/2 is equivalent to 1-5/2&lt;/pre&gt;</source>
+        <target>Дни недели могут быть введены либо как число 0...6 где 0 = воскресенье, либо как 3-х значное буквенное обозначение дня недели в английском языке Mon, Tue, Wed, Thu, Fri, Sat, Sun:&lt;br&gt;&lt;br&gt;&lt;pre&gt;		   Mon-Fri/2 эквивалентно 1-5/2&lt;/pre&gt;</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_elements.3.0">
+        
+        <source>Months</source>
+        <target>Месяцы</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_elements.3.1">
+        
+        <source>Months can be entered either as number 1...12, or as 3 character english shortcut as Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec:&lt;br&gt;&lt;br&gt;&lt;pre&gt;		   Feb-Nov/3 is equivalent to 2-11/3&lt;/pre&gt;</source>
+        <target>Месяцы могут быть введены либо как число 1...12, либо как 3-х значное буквенное обозначение месяца в английском языке Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec:&lt;br&gt;&lt;br&gt;&lt;pre&gt;		   Feb-Nov/3 эквивалентно 2-11/3&lt;/pre&gt;</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_jobs.0.0">
+        
+        <source>Job</source>
+        <target>Задание</target>
+      </trans-unit>
+      <trans-unit id="XPL.cron_jobs.0.1">
+        
+        <source>Job types:&lt;br&gt;- relative path of a PHP script&lt;br&gt;- a Symfony route&lt;br&gt;- a URL&lt;br&gt;Examples:&lt;br&gt;&lt;pre&gt;
+    - web/bundles/bugbustercron/PurgeLog.php
+    - /BackupDB/autobackup
+    - http://your.domain/&lt;/pre&gt;</source>
+        <target>Типы заданий:&lt;br&gt;- относительный путь к PHP-скрипту&lt;br&gt;- маршрут Symfony&lt;br&gt;- URL&lt;br&gt;Примеры:&lt;br&gt;&lt;pre&gt;
+    - web/bundles/bugbustercron/PurgeLog.php
+    - /BackupDB/autobackup
+    - http://your.domain/&lt;/pre&gt;</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

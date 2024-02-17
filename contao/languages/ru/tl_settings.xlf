@@ -1,0 +1,21 @@
+<?xml version="1.0" ?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="php" date="2018-01-17T21:43:20+01:00" original="tl_settings" source-language="en" target-language="ru">
+    <body>
+      <trans-unit id="tl_settings.cron_scheduler_legend">
+        
+        <source>CRON/Scheduler extension</source>
+        <target>CRON планировщик</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.cron_limit.0">
+        
+        <source>Cron job run limit</source>
+        <target>Лимит запуска заданий планировщика</target>
+      </trans-unit>
+      <trans-unit id="tl_settings.cron_limit.1">
+        
+        <source>Enter the time limit in seconds after which cron jobs shall be defered (0 disables all cron jobs).</source>
+        <target>Введите лимит времени в секундах, после которого задание планировщика будет отсрочено (0 отключит все задания).</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

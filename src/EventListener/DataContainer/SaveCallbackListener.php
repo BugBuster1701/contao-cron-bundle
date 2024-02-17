@@ -3,19 +3,23 @@
 declare(strict_types=1);
 
 /*
- * This file is part of a BugBuster Contao Bundle
+ * This file is part of a BugBuster Contao Bundle.
  *
- * @copyright  Glen Langer 2020..2022 <http://contao.ninja>
+ * @copyright  Glen Langer 2024 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
- * @package    CronBundle
+ * @package    Contao Cron Bundle
+ * @link       https://github.com/BugBuster1701/contao-cron-bundle
+ *
  * @license    LGPL-3.0-or-later
- * @see        https://github.com/BugBuster1701/contao-cron-bundle
+ * For the full copyright and license information,
+ * please view the LICENSE file that was distributed with this source code.
  */
 
 namespace BugBuster\CronBundle\EventListener\DataContainer;
 
 use Contao\CoreBundle\ServiceAnnotation\Callback;
 use Contao\DataContainer;
+use Cron\CronExpression;
 
 class SaveCallbackListener
 {
@@ -106,18 +110,18 @@ class SaveCallbackListener
         str_ireplace(
             ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
             [0, 1, 2, 3, 4, 5, 6],
-            $dayofweek
-            );
+            $dayofweek,
+        );
         $monthNum =
         str_ireplace(
             ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-            $month
-            );
+            $month,
+        );
         $crontab = sprintf('%s %s %s %s %s', $minute, $hour, $dayofmonth, $monthNum, $dayofweekNum);
 
         try {
-            $cron = \Cron\CronExpression::factory($crontab);
+            CronExpression::factory($crontab);
         } catch (\Throwable $th) {
             return false;
         }

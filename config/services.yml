@@ -1,0 +1,21 @@
+services:
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    BugBuster\CronBundle\EventListener\DataContainer\SaveCallbackListener: ~
+
+    BugBuster\CronBundle\Controller\BackendController:
+        public: true
+        calls:
+            - [setContainer, ['@service_container']]
+
+    bugbuster.cron.start_jobs:
+        class: BugBuster\CronBundle\Cron\StartJobsCron
+        arguments:
+            - '@filesystem'
+            - '%kernel.project_dir%'
+            - '@monolog.logger.contao.cron'
+            - '@database_connection'
+            - '@translator'
+            - '@contao.framework'

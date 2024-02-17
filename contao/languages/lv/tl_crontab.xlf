@@ -1,0 +1,286 @@
+<?xml version="1.0" ?><xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file datatype="php" date="2020-09-18T01:15:16+02:00" original="tl_crontab" source-language="en" target-language="lv">
+    <body>
+      <trans-unit id="tl_crontab.title.0">
+        
+        <source>Titel</source>
+        <target>Nosaukums</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.title.1">
+        
+        <source>Enter a descriptive title for the job.</source>
+        <target>Norādiet izpildāmā uzdevuma nosaukumu.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.job.0">
+        
+        <source>Job</source>
+        <target>Izpildāmais uzdevums</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.job.1">
+        
+        <source>Enter either a relative path of a PHP script, a symfony route, or a URL.</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_minute.0">
+        
+        <source>Minute</source>
+        <target>Minūte</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_minute.1">
+        
+        <source>List the minutes for example as 5,10,15-20,30. Use the form */15 for example for every 15 minutes. Enter * for every minute.</source>
+        <target>Sarakstiet minūtes kā 5,10,15-20,30. Lietojiet */15 kā piemēru, lai atdalītu katras 15 minūtes. Atdaliet ar * .</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_hour.0">
+        
+        <source>Hour</source>
+        <target>Stunda</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_hour.1">
+        
+        <source>List the hours for example as 2,4,5-7,9. Use the form */3 for example for every 3 hours. Enter * for every hour.</source>
+        <target>Sarakstiet stundas kā 2,4,5-7,9.  Lietojiet */3 kā piemēru, lai atdalītu katras 3 stundas.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dom.0">
+        
+        <source>Day of month</source>
+        <target>Mēneša diena</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dom.1">
+        
+        <source>List the days of month for example as 1,10,14-16,20. Enter * for all days.</source>
+        <target>Sarakstiet mēnšu dienas kā 1,10,14-16,20. Katru mēneša dienu atdaliet ar * . Atdaliet ar * .</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_month.0">
+        
+        <source>Month</source>
+        <target>Mēnesis</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_month.1">
+        
+        <source>List the month numbers as 1,3,7-9, or name shortcuts as Jan,Mar,Jul-Sep for example. Enter * for every month.</source>
+        <target>Sarakstiet mēnešu numurus kā 1,2-7,9 vai īsos nosaukums, piemēram: Jan,Mar,Jul-Sep. Katru mēneša nosaukumu atdaliet ar * .</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dow.0">
+        
+        <source>Day of week</source>
+        <target>Nedēļas diena</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.t_dow.1">
+        
+        <source>List the day numbers (0=sunday) as 0,2-4,7 or name shortcuts as Sun,Tue-Thu,Sat for example. Enter * for every day of week.</source>
+        <target>Sarakstiet dienu numurus (0=svētdiena), kā 0,2-4,7 vai īsos nosaukums, piemēram: Sun,Tue-Thu,Sat. Katru nedēļas dienu atdaliet ar * .</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.runonce.0">
+        
+        <source>Run once</source>
+        <target>Izpildīt vienreiz</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.runonce.1">
+        
+        <source>Disable job after completion.</source>
+        <target>Pēc izpildes, izslēgt izpildāmo uzdevumu.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enabled.0">
+        
+        <source>Enabled</source>
+        <target>Ieslēgts</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enabled.1">
+        
+        <source>Enable execution of this job.</source>
+        <target>Ieslēgt izpildāmo uzdevumu.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.logging.0">
+        
+        <source>Logging</source>
+        <target>Reģistrēšana</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.logging.1">
+        
+        <source>Make log entry when job is executed.</source>
+        <target>Izveidot reģistra ierakstu, pēc izpildāmā uzdevuma uzsākšanas</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_minute">
+        
+        <source>Minute</source>
+        <target>Minūte</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_hour">
+        
+        <source>Hour</source>
+        <target>Stunda</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_dom">
+        
+        <source>Day of the month</source>
+        <target>DOM</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_month">
+        
+        <source>Month</source>
+        <target>Mēnesis</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.tl_dow">
+        
+        <source>Day of the week</source>
+        <target>DOW</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.lastrun">
+        
+        <source>Last run</source>
+        <target>Pēdējo reizi izpildīts</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.nextrun">
+        
+        <source>Next run</source>
+        <target>Nākamā izpildes reize</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.new.0">
+        
+        <source>New</source>
+        <target>Jauns</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.new.1">
+        
+        <source>Create a new job.</source>
+        <target>Izveidot jaunu izpildāmo uzdevumu.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.edit.0">
+        
+        <source>Edit</source>
+        <target>Rediģēt</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.edit.1">
+        
+        <source>Edit the settings of this job.</source>
+        <target>Rediģēt izpildāmo uzdevumu.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.copy.0">
+        
+        <source>Copy</source>
+        <target>Kopēt</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.copy.1">
+        
+        <source>Copy this job.</source>
+        <target>Kopēt izpildāmo uzdevumu.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.delete.0">
+        
+        <source>Delete</source>
+        <target>Dzēst</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.delete.1">
+        
+        <source>Delete this job.</source>
+        <target>Dzēst izpildāmo uzdevumu.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.show.0">
+        
+        <source>Show</source>
+        <target>Parādīt</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.show.1">
+        
+        <source>View the details.</source>
+        <target>Skatīt detalizēti.</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.ena_logging.0">
+        
+        <source>Enable logging</source>
+        <target>Ieslēgt reģistrēšanu</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.ena_logging.1">
+        
+        <source>Enable logging for job %s</source>
+        <target>Ieslēgt reģistrēšanu izpildāmajam uzdevumam %s</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.dis_logging.0">
+        
+        <source>Disable logging</source>
+        <target>Izslēgt reģistrēšanu</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.dis_logging.1">
+        
+        <source>Disable logging for job %s</source>
+        <target>Izslēgt reģistrēšanu izpildāmajam uzdevumam %s</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enable.0">
+        
+        <source>Enable execution</source>
+        <target>Ieslēgt izpildi</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.enable.1">
+        
+        <source>Enable execution of job %s</source>
+        <target>Ieslēgt izpildāmā uzdevuma %s izpildi</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.disable.0">
+        
+        <source>Disable execution</source>
+        <target>Izslēgt izpildi</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.disable.1">
+        
+        <source>Disable execution of job %s</source>
+        <target>Izslēgt izpildāmā uzdevuma %s izpildi</target>
+      </trans-unit>
+      <trans-unit id="tl_crontab.startnow.0">
+        
+        <source>Run</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.startnow.1">
+        
+        <source>Run the execution of this job %s</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.file_not_readable">
+        
+        <source>File not found or not readable.</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.route_not_exists">
+        
+        <source>None of the routes match the path.</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.allow_url_fopen_not_set">
+        
+        <source>The PHP flag &quot;allow_url_fopen&quot; is not set.</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.curl_not_available">
+        
+        <source>The PHP &quot;cURL&quot; extension is not available.</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.one_is_necessary">
+        
+        <source>One is necessary.</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtypetitle">
+        
+        <source>Job type</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtype1">
+        
+        <source>File</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtype2">
+        
+        <source>Route</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.jobtype3">
+        
+        <source>URL</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.expert_legend">
+        
+        <source>Expert settings</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.expert_timeout.0">
+        
+        <source>Timeout for job type 'Route' and 'URL'</source>
+      </trans-unit>
+      <trans-unit id="tl_crontab.expert_timeout.1">
+        
+        <source>Enter a timeout value between 5 and 300 seconds.</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
