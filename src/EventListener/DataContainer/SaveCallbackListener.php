@@ -17,15 +17,13 @@ declare(strict_types=1);
 
 namespace BugBuster\CronBundle\EventListener\DataContainer;
 
-use Contao\CoreBundle\ServiceAnnotation\Callback;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
 use Contao\DataContainer;
 use Cron\CronExpression;
 
 class SaveCallbackListener
 {
-    /**
-     * @Callback(table="tl_crontab", target="fields.t_minute.save")
-     */
+    #[AsCallback(table: 'tl_crontab', target: 'fields.t_minute.save')]
     public function onSaveCallbackMinute($minute, DataContainer $dc): string
     {
         if (false === $this->checkCrontabValues($minute, '*', '*', '*', '*')) {
