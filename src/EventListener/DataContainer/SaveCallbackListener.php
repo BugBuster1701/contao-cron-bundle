@@ -33,9 +33,7 @@ class SaveCallbackListener
         return $minute;
     }
 
-    /**
-     * @Callback(table="tl_crontab", target="fields.t_hour.save")
-     */
+    #[AsCallback(table: "tl_crontab", target: "fields.t_hour.save")]
     public function onSaveCallbackHour($hour, DataContainer $dc): string
     {
         if (false === $this->checkCrontabValues('*', $hour, '*', '*', '*')) {
@@ -45,9 +43,7 @@ class SaveCallbackListener
         return $hour;
     }
 
-    /**
-     * @Callback(table="tl_crontab", target="fields.t_dom.save")
-     */
+    #[AsCallback(table: "tl_crontab", target: "fields.t_dom.save")]
     public function onSaveCallbackDayofmonth($dayofmonth, DataContainer $dc): string
     {
         if (false === $this->checkCrontabValues('*', '*', $dayofmonth, '*', '*')) {
@@ -57,9 +53,7 @@ class SaveCallbackListener
         return $dayofmonth;
     }
 
-    /**
-     * @Callback(table="tl_crontab", target="fields.t_month.save")
-     */
+    #[AsCallback(table: "tl_crontab", target: "fields.t_month.save")]
     public function onSaveCallbackMonth($month, DataContainer $dc): string
     {
         if (false === $this->checkCrontabValues('*', '*', '*', $month, '*')) {
@@ -69,9 +63,7 @@ class SaveCallbackListener
         return $month;
     }
 
-    /**
-     * @Callback(table="tl_crontab", target="fields.t_dow.save")
-     */
+    #[AsCallback(table: "tl_crontab", target: "fields.t_dow.save")]
     public function onSaveCallbackDayofweek($dayofweek, DataContainer $dc): string
     {
         if (false === $this->checkCrontabValues('*', '*', '*', '*', $dayofweek)) {
@@ -81,9 +73,7 @@ class SaveCallbackListener
         return $dayofweek;
     }
 
-    /**
-     * @Callback(table="tl_crontab", target="fields.expert_timeout.save")
-     */
+    #[AsCallback(table: "tl_crontab", target: "fields.expert_timeout.save")]
     public function onSaveCallbackTimeout($expert_timeout, DataContainer $dc): string
     {
         if ((int) $expert_timeout < 5 || (int) $expert_timeout > 300) {
