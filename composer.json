@@ -15,7 +15,7 @@
 	"support":{
 		"issues":"https://github.com/BugBuster1701/contao-cron-bundle/issues",
 		"source":"https://github.com/BugBuster1701/contao-cron-bundle",
-		"wiki":"http://de.contaowiki.org/Cron-Bundle",
+		"docs":"https://docs.contao.ninja/de/cron-scheduler.html",
 		"forum":"https://community.contao.org/de/forumdisplay.php?119-Sonstige-Erweiterungen"
 	},
 	"require":{
