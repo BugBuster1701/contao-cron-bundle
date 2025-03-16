@@ -21,7 +21,7 @@
 	"require":{
 		"php": "^8.1",
 		"contao/core-bundle": "^5.2",
-		"dragonmantank/cron-expression": "^2.3",
+		"dragonmantank/cron-expression": "^2.3 || ^3.1",
 		"symfony/http-kernel": "^6.4",
 		"symfony/http-client": "^6.4"
 	},
