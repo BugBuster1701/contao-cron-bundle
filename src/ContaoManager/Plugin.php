@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of a BugBuster Contao Bundle.
  *
- * @copyright  Glen Langer 2024 <http://contao.ninja>
+ * @copyright  Glen Langer 2025 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @package    Contao Cron Bundle
  * @link       https://github.com/BugBuster1701/contao-cron-bundle
@@ -63,7 +63,7 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface, ConfigPlu
 
     /**
      * Load container configuration.
-     * 
+     *
      * @throws \Exception
      */
     public function registerContainerConfiguration(LoaderInterface $loader, array $managerConfig): void

@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of a BugBuster Contao Bundle.
  *
- * @copyright  Glen Langer 2024 <http://contao.ninja>
+ * @copyright  Glen Langer 2025 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @package    Contao Cron Bundle
  * @link       https://github.com/BugBuster1701/contao-cron-bundle
@@ -33,7 +33,7 @@ class SaveCallbackListener
         return $minute;
     }
 
-    #[AsCallback(table: "tl_crontab", target: "fields.t_hour.save")]
+    #[AsCallback(table: 'tl_crontab', target: 'fields.t_hour.save')]
     public function onSaveCallbackHour($hour, DataContainer $dc): string
     {
         if (false === $this->checkCrontabValues('*', $hour, '*', '*', '*')) {
@@ -43,7 +43,7 @@ class SaveCallbackListener
         return $hour;
     }
 
-    #[AsCallback(table: "tl_crontab", target: "fields.t_dom.save")]
+    #[AsCallback(table: 'tl_crontab', target: 'fields.t_dom.save')]
     public function onSaveCallbackDayofmonth($dayofmonth, DataContainer $dc): string
     {
         if (false === $this->checkCrontabValues('*', '*', $dayofmonth, '*', '*')) {
@@ -53,7 +53,7 @@ class SaveCallbackListener
         return $dayofmonth;
     }
 
-    #[AsCallback(table: "tl_crontab", target: "fields.t_month.save")]
+    #[AsCallback(table: 'tl_crontab', target: 'fields.t_month.save')]
     public function onSaveCallbackMonth($month, DataContainer $dc): string
     {
         if (false === $this->checkCrontabValues('*', '*', '*', $month, '*')) {
@@ -63,7 +63,7 @@ class SaveCallbackListener
         return $month;
     }
 
-    #[AsCallback(table: "tl_crontab", target: "fields.t_dow.save")]
+    #[AsCallback(table: 'tl_crontab', target: 'fields.t_dow.save')]
     public function onSaveCallbackDayofweek($dayofweek, DataContainer $dc): string
     {
         if (false === $this->checkCrontabValues('*', '*', '*', '*', $dayofweek)) {
@@ -73,7 +73,7 @@ class SaveCallbackListener
         return $dayofweek;
     }
 
-    #[AsCallback(table: "tl_crontab", target: "fields.expert_timeout.save")]
+    #[AsCallback(table: 'tl_crontab', target: 'fields.expert_timeout.save')]
     public function onSaveCallbackTimeout($expert_timeout, DataContainer $dc): string
     {
         if ((int) $expert_timeout < 5 || (int) $expert_timeout > 300) {
