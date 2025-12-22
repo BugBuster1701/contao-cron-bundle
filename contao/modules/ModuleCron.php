@@ -3,7 +3,7 @@
 /*
  * This file is part of a BugBuster Contao Bundle.
  *
- * @copyright  Glen Langer 2024 <http://contao.ninja>
+ * @copyright  Glen Langer 2025 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @package    Contao Cron Bundle
  * @link       https://github.com/BugBuster1701/contao-cron-bundle
@@ -75,6 +75,7 @@ class ModuleCron extends Module
 	public function run()
 	{
 		trigger_deprecation('BugBuster1701/contao-cron-bundle', '1.6.0', 'The scheduler front end module is no longer used by internal code. Do not use!');
+
 		return '';
 	} // run
 } // class
