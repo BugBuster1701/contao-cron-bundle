@@ -31,16 +31,30 @@ use Symfony\Component\HttpKernel\KernelInterface;
  */
 class Plugin implements BundlePluginInterface, RoutingPluginInterface, ConfigPluginInterface
 {
+    /**
+     * Gets a list of autoload configurations for this bundle.
+     *
+     * @return array<ConfigInterface>
+     */
     public function getBundles(ParserInterface $parser)
     {
+        // braucht BundlePluginInterface
         return [
             BundleConfig::create('BugBuster\CronBundle\BugBusterCronBundle')
                 ->setLoadAfter(['Contao\CoreBundle\ContaoCoreBundle']),
         ];
     }
 
+    /**
+     * Returns a collection of routes for this bundle.
+     *
+     * @param LoaderResolverInterface $resolver
+     * @param KernelInterface $kernel
+     * @return RouteCollection|null
+     */
     public function getRouteCollection(LoaderResolverInterface $resolver, KernelInterface $kernel)
     {
+        // braucht RoutingPluginInterface
         return $resolver
             ->resolve(__DIR__.'/../../config/routes.yml')
             ->load(__DIR__.'/../../config/routes.yml')
@@ -48,6 +62,8 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface, ConfigPlu
     }
 
     /**
+     * Load container configuration.
+     * 
      * @throws \Exception
      */
     public function registerContainerConfiguration(LoaderInterface $loader, array $managerConfig): void
