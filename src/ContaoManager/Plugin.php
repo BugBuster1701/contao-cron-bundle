@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of a BugBuster Contao Bundle.
  *
- * @copyright  Glen Langer 2025 <http://contao.ninja>
+ * @copyright  Glen Langer 2026 <http://contao.ninja>
  * @author     Glen Langer (BugBuster)
  * @package    Contao Cron Bundle
  * @link       https://github.com/BugBuster1701/contao-cron-bundle
@@ -48,8 +48,6 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface, ConfigPlu
     /**
      * Returns a collection of routes for this bundle.
      *
-     * @param LoaderResolverInterface $resolver
-     * @param KernelInterface $kernel
      * @return RouteCollection|null
      */
     public function getRouteCollection(LoaderResolverInterface $resolver, KernelInterface $kernel)

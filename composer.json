@@ -19,8 +19,8 @@
 		"forum":"https://community.contao.org/de/forumdisplay.php?119-Sonstige-Erweiterungen"
 	},
 	"require":{
-		"php": ">=8.3.0,<8.5.0",
-		"contao/core-bundle": ">=5.4.0,<5.7.0",
+		"php": "^8.3",
+		"contao/core-bundle": ">=5.6.0,<5.8.0",
 		"dragonmantank/cron-expression": "^2.3 || ^3.1",
 		"symfony/http-kernel": "^6.4 || ^7.0",
 		"symfony/http-client": "^6.4 || ^7.0"
